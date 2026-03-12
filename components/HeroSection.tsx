@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Search } from "lucide-react";
+import { Search, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -42,8 +42,14 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <button className="flex w-full items-center justify-center rounded-full bg-primary py-4 text-base font-semibold text-white transition-colors hover:bg-blue-700">
-            Find Your Poster
+          <button className="group relative flex w-full items-center justify-center overflow-hidden rounded-full bg-zinc-950 py-4 text-base font-semibold text-white transition-all duration-300 hover:bg-zinc-900 shadow-sm hover:shadow-xl hover:shadow-zinc-900/20 active:scale-[0.98]">
+            <span className="relative z-10 flex items-center gap-2">
+              Find Your Poster
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </span>
+            <div className="absolute inset-0 z-0 flex h-full w-full justify-center transform-[skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:transform-[skew(-12deg)_translateX(100%)]">
+              <div className="relative h-full w-8 bg-white/20" />
+            </div>
           </button>
           <div className="relative">
             <input

@@ -5,18 +5,21 @@ import ProductCard from "./ProductCard";
 export default function PopularPosters() {
   const products = [
     {
+      id: "poster-less-is-more",
       title: "Less is more",
       price: "$15.00",
       originalPrice: "$30.00",
       badges: [{ text: "Sale", type: "sale" as const }, { text: "Popular", type: "popular" as const }],
     },
     {
+      id: "poster-quiet-horizon",
       title: "Quiet Horizon",
       price: "$15.00",
       originalPrice: "$40.00",
       badges: [{ text: "Sale", type: "sale" as const }, { text: "Popular", type: "popular" as const }],
     },
     {
+      id: "poster-chaos-in-color",
       title: "Chaos in Color",
       price: "$15.00",
       badges: [{ text: "New", type: "new" as const }],

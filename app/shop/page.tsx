@@ -8,57 +8,67 @@ import CategoriesSidebar from "@/components/CategoriesSidebar";
 
 const allProducts = [
   {
+    id: "poster-less-is-more",
     title: "Less is more",
     price: "$15.00",
     originalPrice: "$30.00",
     badges: [{ text: "Sale", type: "sale" as const }, { text: "Popular", type: "popular" as const }],
   },
   {
+    id: "poster-quiet-horizon",
     title: "Quiet Horizon",
     price: "$15.00",
     originalPrice: "$40.00",
     badges: [{ text: "Sale", type: "sale" as const }, { text: "Popular", type: "popular" as const }],
   },
   {
+    id: "poster-chaos-in-color",
     title: "Chaos in Color",
     price: "$15.00",
     badges: [{ text: "New", type: "new" as const }],
   },
   {
+    id: "poster-city-lights",
     title: "City Lights",
     price: "$15.00",
     badges: [{ text: "New", type: "new" as const }],
   },
   {
+    id: "poster-concrete-dreams",
     title: "Concrete Dreams",
     price: "$15.00",
     badges: [{ text: "New", type: "new" as const }],
   },
   {
+    id: "poster-fragmented-dreams",
     title: "Fragmented Dreams",
     price: "$15.00",
     originalPrice: "$40.00",
     badges: [{ text: "Sale", type: "sale" as const }],
   },
   {
+    id: "poster-into-the-forest",
     title: "Into the Forest",
     price: "$23.00",
     originalPrice: "$40.00",
     badges: [{ text: "Sale", type: "sale" as const }],
   },
   {
+    id: "poster-golden-hour-meadows",
     title: "Golden Hour Meadows",
     price: "$23.00",
     originalPrice: "$40.00",
     badges: [{ text: "Sale", type: "sale" as const }],
   },
   {
+    id: "poster-classic-chrome",
     title: "Classic Chrome",
     price: "$25.00",
     originalPrice: "$40.00",
     badges: [{ text: "Sale", type: "sale" as const }],
   },
   {
+    id: "poster-speed-lines",
     title: "Speed Lines",
     price: "$15.00",
     originalPrice: "$40.00",

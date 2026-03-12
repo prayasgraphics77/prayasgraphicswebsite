@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { DM_Sans, Bricolage_Grotesque, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import CartPanel from "@/components/CartPanel";
+import { CartProvider } from "@/lib/cart-context";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -38,8 +40,11 @@ export default function RootLayout({
       <body
         className={`${dmSans.variable} ${bricolageGrotesque.variable} ${inter.variable} font-sans antialiased text-zinc-950 bg-stone-50`}
       >
-        <Navbar />
-        {children}
+        <CartProvider>
+          <Navbar />
+          {children}
+          <CartPanel />
+        </CartProvider>
       </body>
     </html>
   );

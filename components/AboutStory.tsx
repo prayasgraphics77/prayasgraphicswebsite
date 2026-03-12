@@ -6,7 +6,7 @@ export default function AboutStory() {
           Our Story
         </h2>
         <p className="mt-4 max-w-md text-[15px] font-medium text-zinc-500 leading-relaxed md:text-base md:mt-6">
-          Founded with a passion for creativity and design, Vetrina was born out of a desire to make high-quality art prints accessible to everyone. We believe that art shouldn't be confined to galleries—it should be a part of your everyday life. What started as a small project has grown into a community of art lovers and creators who share offering a diverse collection.
+          Founded with a passion for creativity and design, Prayas Graphics was born out of a desire to make high-quality art prints accessible to everyone. We believe that art shouldn't be confined to galleries—it should be a part of your everyday life. What started as a small project has grown into a community of art lovers and creators who share offering a diverse collection.
         </p>
         <div className="mt-8 flex items-center gap-6 md:mt-10">
            <div className="flex items-center gap-2 rounded-full border border-zinc-200 px-4 py-2 text-[13px] text-zinc-500 font-medium md:text-sm">

@@ -10,7 +10,7 @@ export default function TestimonialsSection() {
     },
     {
       name: "Michael T.",
-      quote: "I was looking for something unique for my home office, and Vetrina delivered perfectly. The minimalist designs are exactly what I needed.",
+      quote: "I was looking for something unique for my home office, and Prayas Graphics delivered perfectly. The minimalist designs are exactly what I needed.",
     },
     {
       name: "Emma Davis",

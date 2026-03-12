@@ -6,10 +6,10 @@ export default function Footer() {
       <div className="flex flex-col justify-between gap-8 rounded-[32px] bg-white px-8 py-12 shadow-sm md:flex-row md:items-center md:px-16 md:py-16">
         <div className="flex flex-col gap-4">
           <Link href="/" className="font-heading text-2xl font-bold text-zinc-900">
-            Vetrina
+            Prayas Graphics
           </Link>
           <p className="text-sm font-medium text-zinc-500">
-            © 2026 Vetrina Inc. All rights reserved.
+            © 2026 Prayas Graphics Inc. All rights reserved.
           </p>
         </div>
 

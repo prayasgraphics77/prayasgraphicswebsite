@@ -24,8 +24,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Vetrina - Ecommerce Framer Template",
-  description: "Launch your online store effortlessly with Vetrina, a sleek and modern ecommerce Framer template with seamless Shopify integration.",
+  title: "Prayas Graphics - Ecommerce Template",
+  description: "Launch your online store effortlessly with Prayas Graphics, a sleek and modern ecommerce template.",
 };
 
 export default function RootLayout({

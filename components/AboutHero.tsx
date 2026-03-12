@@ -10,7 +10,7 @@ export default function AboutHero() {
           Transforming Spaces, One Poster at a Time
         </h1>
         <p className="mt-6 max-w-[400px] text-[15px] font-medium text-zinc-500 leading-relaxed md:text-base">
-          Welcome to Vetrina, where we believe that a well-chosen poster can instantly change the mood of any room. We are passionate...
+          Welcome to Prayas Graphics, where we believe that a well-chosen poster can instantly change the mood of any room. We are passionate...
         </p>
         <div className="mt-10">
           <Link href="/shop" className="inline-flex w-fit items-center justify-center rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 md:py-4 md:text-base">

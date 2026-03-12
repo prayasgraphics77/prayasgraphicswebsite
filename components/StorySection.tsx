@@ -38,7 +38,7 @@ export default function StorySection() {
         {/* Center overlay */}
         <div className="absolute inset-0 flex items-center justify-center">
             <div className="flex aspect-3/4 w-64 items-center justify-center bg-white shadow-2xl rounded-sm border-12 border-white">
-               <h3 className="font-heading text-4xl font-extrabold text-zinc-900">Vetrina</h3>
+               <h3 className="font-heading text-4xl font-extrabold text-zinc-900">Prayas Graphics</h3>
             </div>
         </div>
       </div>

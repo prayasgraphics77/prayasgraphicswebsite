@@ -31,7 +31,7 @@ export default function Navbar() {
       >
         <div className="flex items-center gap-2">
           <Link href="/" className="text-xl font-heading font-semibold tracking-tight" onClick={() => setMobileMenuOpen(false)}>
-            Vetrina
+            Prayas Graphics
           </Link>
         </div>
 

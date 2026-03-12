@@ -13,7 +13,7 @@ export default function ContactForm() {
           <div className="mt-12 flex w-full max-w-sm flex-col gap-4">
             <div className="flex items-center justify-between rounded-full border border-zinc-200 px-6 py-3.5">
               <span className="text-sm font-medium text-zinc-500">Email</span>
-              <span className="text-[13px] font-semibold text-zinc-900 md:text-sm">support@vetrina.com</span>
+              <span className="text-[13px] font-semibold text-zinc-900 md:text-sm">support@prayasgraphics.com</span>
             </div>
             <div className="flex items-center justify-between rounded-full border border-zinc-200 px-6 py-3.5">
               <span className="text-sm font-medium text-zinc-500">Phone</span>

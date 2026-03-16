@@ -2,35 +2,24 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    category: "Ordering and Payments",
+    category: "Enquiry and Orders",
     items: [
-      { q: "How do I place an order?", a: "" },
-      { q: "What payment methods do you accept?", a: "" },
-      { q: "Can I change my order after it's been placed?", a: "" },
+      { q: "How do I request a quote?", a: "Add services to your quote list and click 'Send Quote Request' to trigger an email to us." },
+      { q: "Do you offer on-site measurements?", a: "Yes, for large signage projects in Nagpur, we perform on-site visits for precise measurements." },
     ],
   },
   {
-    category: "Shipping and Delivery",
+    category: "Manufacturing and Delivery",
     items: [
-      { q: "Do you ship internationally?", a: "" },
-      { q: "How long does shipping take?", a: "" },
-      { q: "How can I track my order?", a: "" },
+      { q: "How long does manufacturing take?", a: "Depending on complexity, standard boards take 3-5 days, while complex LED/ACP work may take 7-10 days." },
+      { q: "Do you handle installation?", a: "Yes, we have a professional team for signage installation across Nagpur." },
     ],
   },
   {
-    category: "Returns and Refunds",
+    category: "Product Materials",
     items: [
-      { q: "What is your return policy?", a: "" },
-      { q: "Can I exchange an item?", a: "" },
-      { q: "What if my poster arrived damaged?", a: "" },
-    ],
-  },
-  {
-    category: "Product Information",
-    items: [
-      { q: "What materials are your posters printed on?", a: "" },
-      { q: "Do you offer framing options?", a: "" },
-      { q: "Can I customize a poster?", a: "" },
+      { q: "What materials do you use for ACP boards?", a: "We use high-grade 3mm or 4mm ACP sheets with weather-resistant finishes." },
+      { q: "Are your LED boards energy efficient?", a: "Yes, we use industrial-grade LED modules that offer high brightness with low power consumption." },
     ],
   },
 ];

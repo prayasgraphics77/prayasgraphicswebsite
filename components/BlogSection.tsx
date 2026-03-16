@@ -4,13 +4,13 @@ import Link from "next/link";
 export default function BlogSection() {
   const posts = [
     {
-      title: "Why Minimalist Art is Trending",
-      excerpt: "Explore the reasons behind the rise of minimalist art and how it can elevate your living space.",
+      title: "Why LED Signboards are Trending in Retail",
+      excerpt: "Explore the reasons behind the rise of illuminated signage and how it can elevate your storefront.",
       date: "Oct 12, 2026",
     },
     {
-      title: "How to Choose the Perfect Frame",
-      excerpt: "A comprehensive guide on selecting the right frame to complement your poster and match your decor.",
+      title: "How to Choose the Perfect Outdoor Signage",
+      excerpt: "A comprehensive guide on selecting the right materials and lighting to maximize your brand's visibility.",
       date: "Sep 28, 2026",
     },
   ];
@@ -32,11 +32,11 @@ export default function BlogSection() {
               key={idx}
               className="group flex flex-col gap-6 rounded-2xl border border-zinc-100 bg-white p-4 transition-all hover:border-zinc-300 hover:shadow-md"
             >
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-zinc-100">
+              <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-zinc-100">
                  <div className="absolute inset-0 bg-linear-to-b from-transparent to-zinc-900/10 group-hover:to-zinc-900/30 transition-all z-10" />
                  <div className="h-full w-full bg-linear-to-r from-zinc-200 to-zinc-100 group-hover:scale-105 transition-transform duration-500" />
                  <span className="absolute top-4 left-4 z-20 rounded-full bg-white px-3 py-1 text-xs font-bold text-zinc-800">
-                    Art Guide
+                    Signage Guide
                  </span>
               </div>
               <div className="flex flex-col gap-2 px-2 pb-2">

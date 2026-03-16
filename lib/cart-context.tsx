@@ -4,69 +4,46 @@ import React, { createContext, useContext, useReducer, useCallback } from "react
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-export interface CartItem {
+export type DimensionUnit = "ft" | "in";
+
+export interface QuoteItem {
   id: string;
-  title: string;
-  price: string;          // e.g. "$15.00"
-  priceValue: number;     // numeric, e.g. 15
-  originalPrice?: string;
-  quantity: number;
+  serviceName: string;
+  width?: number;
+  height?: number;
+  unit?: DimensionUnit;
+  area?: number;
+  notes?: string;
 }
 
-interface CartState {
-  items: CartItem[];
+interface QuoteState {
+  items: QuoteItem[];
   isOpen: boolean;
 }
 
-type CartAction =
-  | { type: "ADD_ITEM"; payload: Omit<CartItem, "quantity"> }
+type QuoteAction =
+  | { type: "ADD_ITEM"; payload: QuoteItem }
   | { type: "REMOVE_ITEM"; payload: { id: string } }
-  | { type: "UPDATE_QUANTITY"; payload: { id: string; quantity: number } }
-  | { type: "CLEAR_CART" }
+  | { type: "CLEAR_QUOTE" }
   | { type: "OPEN_CART" }
   | { type: "CLOSE_CART" };
 
 // ─── Reducer ──────────────────────────────────────────────────────────────────
 
-function cartReducer(state: CartState, action: CartAction): CartState {
+function quoteReducer(state: QuoteState, action: QuoteAction): QuoteState {
   switch (action.type) {
-    case "ADD_ITEM": {
-      const existing = state.items.find((i) => i.id === action.payload.id);
-      if (existing) {
-        return {
-          ...state,
-          isOpen: true,
-          items: state.items.map((i) =>
-            i.id === action.payload.id ? { ...i, quantity: i.quantity + 1 } : i
-          ),
-        };
-      }
+    case "ADD_ITEM":
       return {
         ...state,
         isOpen: true,
-        items: [...state.items, { ...action.payload, quantity: 1 }],
+        items: [...state.items, action.payload],
       };
-    }
     case "REMOVE_ITEM":
       return {
         ...state,
         items: state.items.filter((i) => i.id !== action.payload.id),
       };
-    case "UPDATE_QUANTITY": {
-      if (action.payload.quantity <= 0) {
-        return {
-          ...state,
-          items: state.items.filter((i) => i.id !== action.payload.id),
-        };
-      }
-      return {
-        ...state,
-        items: state.items.map((i) =>
-          i.id === action.payload.id ? { ...i, quantity: action.payload.quantity } : i
-        ),
-      };
-    }
-    case "CLEAR_CART":
+    case "CLEAR_QUOTE":
       return { ...state, items: [] };
     case "OPEN_CART":
       return { ...state, isOpen: true };
@@ -80,14 +57,12 @@ function cartReducer(state: CartState, action: CartAction): CartState {
 // ─── Context ──────────────────────────────────────────────────────────────────
 
 interface CartContextValue {
-  items: CartItem[];
+  items: QuoteItem[];
   isOpen: boolean;
   totalCount: number;
-  subtotal: number;
-  addItem: (item: Omit<CartItem, "quantity">) => void;
+  addItem: (item: QuoteItem) => void;
   removeItem: (id: string) => void;
-  updateQuantity: (id: string, quantity: number) => void;
-  clearCart: () => void;
+  clearQuote: () => void;
   openCart: () => void;
   closeCart: () => void;
 }
@@ -97,9 +72,9 @@ const CartContext = createContext<CartContextValue | null>(null);
 // ─── Provider ─────────────────────────────────────────────────────────────────
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [state, dispatch] = useReducer(cartReducer, { items: [], isOpen: false });
+  const [state, dispatch] = useReducer(quoteReducer, { items: [], isOpen: false });
 
-  const addItem = useCallback((item: Omit<CartItem, "quantity">) => {
+  const addItem = useCallback((item: QuoteItem) => {
     dispatch({ type: "ADD_ITEM", payload: item });
   }, []);
 
@@ -107,16 +82,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     dispatch({ type: "REMOVE_ITEM", payload: { id } });
   }, []);
 
-  const updateQuantity = useCallback((id: string, quantity: number) => {
-    dispatch({ type: "UPDATE_QUANTITY", payload: { id, quantity } });
-  }, []);
-
-  const clearCart = useCallback(() => dispatch({ type: "CLEAR_CART" }), []);
+  const clearQuote = useCallback(() => dispatch({ type: "CLEAR_QUOTE" }), []);
   const openCart = useCallback(() => dispatch({ type: "OPEN_CART" }), []);
   const closeCart = useCallback(() => dispatch({ type: "CLOSE_CART" }), []);
 
-  const totalCount = state.items.reduce((sum, i) => sum + i.quantity, 0);
-  const subtotal = state.items.reduce((sum, i) => sum + i.priceValue * i.quantity, 0);
+  const totalCount = state.items.length;
 
   return (
     <CartContext.Provider
@@ -124,11 +94,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         items: state.items,
         isOpen: state.isOpen,
         totalCount,
-        subtotal,
         addItem,
         removeItem,
-        updateQuantity,
-        clearCart,
+        clearQuote,
         openCart,
         closeCart,
       }}

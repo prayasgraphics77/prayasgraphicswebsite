@@ -37,11 +37,12 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div className="hidden items-center gap-8 md:flex">
-          <NavLink href="/shop">Shop</NavLink>
+        <div className="hidden items-center gap-6 md:flex">
+          <NavLink href="/shop">Catalog</NavLink>
+          <NavLink href="/services">Services</NavLink>
+          <NavLink href="/gallery">Gallery</NavLink>
           <NavLink href="/about">About</NavLink>
-          <NavLink href="/support">Support</NavLink>
-          <NavLink href="/blog">Blog</NavLink>
+          <NavLink href="/contact">Contact</NavLink>
         </div>
 
         <div className="flex items-center gap-4">
@@ -52,7 +53,7 @@ export default function Navbar() {
           {/* Cart trigger button with live count badge */}
           <button
             onClick={openCart}
-            aria-label={`Open cart, ${totalCount} item${totalCount !== 1 ? "s" : ""}`}
+            aria-label={`Open quote request, ${totalCount} service${totalCount !== 1 ? "s" : ""}`}
             className="relative flex items-center gap-2 text-zinc-500 transition-colors hover:text-zinc-950"
           >
             <ShoppingBag className="h-4 w-4" />
@@ -97,10 +98,11 @@ export default function Navbar() {
             className="fixed top-20 left-1/2 -translate-x-1/2 z-40 w-[95%] rounded-3xl bg-white p-6 shadow-lg md:hidden"
           >
             <div className="flex flex-col gap-4">
-              <MobileNavLink href="/shop" onClick={() => setMobileMenuOpen(false)}>Shop</MobileNavLink>
+              <MobileNavLink href="/shop" onClick={() => setMobileMenuOpen(false)}>Catalog</MobileNavLink>
+              <MobileNavLink href="/services" onClick={() => setMobileMenuOpen(false)}>Services</MobileNavLink>
+              <MobileNavLink href="/gallery" onClick={() => setMobileMenuOpen(false)}>Gallery</MobileNavLink>
               <MobileNavLink href="/about" onClick={() => setMobileMenuOpen(false)}>About</MobileNavLink>
-              <MobileNavLink href="/support" onClick={() => setMobileMenuOpen(false)}>Support</MobileNavLink>
-              <MobileNavLink href="/blog" onClick={() => setMobileMenuOpen(false)}>Blog</MobileNavLink>
+              <MobileNavLink href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</MobileNavLink>
               <div className="mt-4 border-t border-zinc-100 pt-4 flex flex-col gap-3">
                 <button className="flex w-full items-center gap-2 text-[15px] font-medium text-zinc-600">
                   <Search className="h-4 w-4" /> Search
@@ -110,7 +112,7 @@ export default function Navbar() {
                   className="flex w-full items-center gap-2 text-[15px] font-medium text-zinc-600"
                 >
                   <ShoppingBag className="h-4 w-4" />
-                  Cart
+                  Quote Request
                   {totalCount > 0 && (
                     <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-zinc-900 text-xs font-bold text-white">
                       {totalCount}

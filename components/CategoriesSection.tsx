@@ -4,16 +4,16 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function CategoriesSection() {
-  const categories = ["Abstract", "Minimalist", "Nature", "Urban", "Pop Art", "Vintage"];
+  const categories = ["LED Signs", "Acrylic Letters", "ACP Boards", "Neon Signs", "Flex Hoardings", "Directional Signs"];
 
   return (
     <section className="mx-auto w-full max-w-7xl px-4 py-8 md:px-6">
       <div className="flex flex-col items-center justify-center rounded-[32px] bg-white px-6 py-16 shadow-sm md:py-24">
         <h2 className="font-heading text-4xl font-extrabold tracking-tight text-zinc-900 md:text-5xl">
-          Shop by Categories
+          Browse Categories
         </h2>
         <p className="mt-4 text-center text-[15px] font-medium text-zinc-500 max-w-md">
-          Explore collections that match your unique style.
+          Explore solutions tailored perfectly for your brand's unique needs.
         </p>
 
         <div className="mt-12 grid w-full max-w-4xl grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">

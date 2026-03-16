@@ -26,8 +26,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Prayas Graphics - Ecommerce Template",
-  description: "Launch your online store effortlessly with Prayas Graphics, a sleek and modern ecommerce template.",
+  title: "Prayas Graphics - Premium Signboards & Display Solutions",
+  description: "High-quality custom signboards, LED letters, ACP boards, and display advertising solutions. Elevate your brand's presence today.",
 };
 
 export default function RootLayout({

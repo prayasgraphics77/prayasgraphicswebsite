@@ -7,14 +7,14 @@ export default function StorySection() {
     <section className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-8 md:flex-row md:px-6">
       <div className="flex flex-1 flex-col justify-center rounded-[32px] bg-white p-8 md:p-14 shadow-sm">
         <h2 className="max-w-md font-heading text-4xl font-extrabold leading-tight tracking-tight text-zinc-900 md:text-5xl lg:text-[56px]">
-          Let Your Walls Tell Your Story!
+          Let Your Signage Tell Your Brand's Story!
         </h2>
         <p className="mt-6 max-w-sm text-base font-medium text-zinc-500">
-          From vibrant art prints to minimalist designs, we offer a diverse collection perfect for home, office, or gifting.
+          From custom LED letters to premium architectural signs, we build displays that capture attention and elevate your business presence.
         </p>
         <div className="mt-10">
           <button className="flex w-fit items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-blue-700">
-            Explore Our Collection
+            Explore Our Signboards
           </button>
         </div>
       </div>

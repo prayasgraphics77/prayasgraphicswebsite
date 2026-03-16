@@ -5,28 +5,28 @@ import { Star } from "lucide-react";
 export default function TestimonialsSection() {
   const testimonials = [
     {
-      name: "Sarah M.",
-      quote: "The quality is simply stunning. The colors are vibrant and the paper stock feels incredibly premium. It completely transformed my living room ambiance.",
+      name: "Sarah M. (Café Owner)",
+      quote: "The quality of our new LED signboard is simply stunning. It's incredibly bright and completely transformed our storefront at night.",
     },
     {
-      name: "Michael T.",
-      quote: "I was looking for something unique for my home office, and Prayas Graphics delivered perfectly. The minimalist designs are exactly what I needed.",
+      name: "Michael T. (Retail Director)",
+      quote: "We were looking for impactful channel letters for our new branch. Prayas Graphics delivered perfectly on time and on budget.",
     },
     {
-      name: "Emma Davis",
-      quote: "Fast shipping and secure packaging. My art prints arrived in perfect condition. I've already received so many compliments from guests!",
+      name: "Emma Davis (Agency Partner)",
+      quote: "Fast production and expert installation. Our corporate office acrylic signage looks incredibly premium.",
     },
     {
-      name: "David Chen",
-      quote: "The attention to detail is remarkable. You can tell they care about their craft. I'll definitely be ordering more for my bedrooms.",
+      name: "David Chen (Tech Startup)",
+      quote: "The attention to detail on our lobby's edge-lit logo is remarkable. I'll definitely be using Prayas Graphics for all future locations.",
     },
     {
-      name: "Jessica P.",
-      quote: "Beautiful artwork that speaks to the soul. I love how the frames perfectly complement the pieces without distracting from the art.",
+      name: "Jessica P. (Boutique Owner)",
+      quote: "Beautiful craftsmanship. The mirror gold acrylic letters give our boutique exactly the luxurious feel we were aiming for.",
     },
     {
-      name: "Robert K.",
-      quote: "Exceeded my expectations in every way. The vintage collection is gorgeous and gives my space such a nostalgic, warm feel.",
+      name: "Robert K. (Restaurant Manager)",
+      quote: "Exceeded my expectations. The flex backlit board is huge, vibrant, and draws in so many walking customers.",
     },
   ];
 
@@ -34,7 +34,7 @@ export default function TestimonialsSection() {
     <section className="mx-auto w-full max-w-7xl px-4 py-16 md:px-6">
       <div className="flex flex-col items-center justify-center rounded-[32px] bg-zinc-100 px-6 py-20 shadow-sm md:py-32">
         <h2 className="text-center font-heading text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl">
-          Real Stories From Happy Walls
+          Real Stories From Happy Clients
         </h2>
         <p className="mt-4 text-center text-[15px] font-medium text-zinc-500">
           See what our customers have to say

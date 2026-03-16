@@ -4,21 +4,21 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { useCart } from "@/lib/cart-context";
 import DimensionModal, { type DimensionFormValues } from "@/components/DimensionModal";
-import { ShoppingBag, Plus } from "lucide-react";
+import { Plus, ShoppingBag } from "lucide-react";
 
-export interface ProductCardProps {
+export interface ServiceCardProps {
   id: string;
-  title: string;
-  price: string;
-  originalPrice?: string;
-  badges?: { text: string; type: "sale" | "popular" | "new" }[];
+  serviceName: string;
+  description: string;
+  badges?: { text: string; type: "popular" | "new" }[];
 }
 
-/**
- * Legacy product card: adds to quote with dimensions (same flow as ServiceCard).
- * Prefer ServiceCard for new usage.
- */
-export default function ProductCard({ id, title, price, originalPrice, badges }: ProductCardProps) {
+export default function ServiceCard({
+  id,
+  serviceName,
+  description,
+  badges,
+}: ServiceCardProps) {
   const { addItem, openCart } = useCart();
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -29,7 +29,7 @@ export default function ProductCard({ id, title, price, originalPrice, badges }:
   const handleConfirmDimensions = (values: DimensionFormValues) => {
     addItem({
       id: `${id}-${Date.now()}`,
-      serviceName: title,
+      serviceName,
       width: values.width,
       height: values.height,
       unit: values.unit,
@@ -50,11 +50,9 @@ export default function ProductCard({ id, title, price, originalPrice, badges }:
                   key={idx}
                   className={cn(
                     "rounded-full px-3 py-1 text-xs font-semibold",
-                    badge.type === "sale" && "border border-blue-200 text-blue-500 bg-white",
                     badge.type === "popular" && "bg-blue-600 text-white",
                     badge.type === "new" && "bg-blue-600 text-white",
-                    idx > 0 && badge.type === "sale" ? "ml-auto" : "",
-                    idx > 0 && badge.type !== "sale" ? "ml-auto" : ""
+                    idx > 0 ? "ml-auto" : ""
                   )}
                 >
                   {badge.text}
@@ -71,7 +69,7 @@ export default function ProductCard({ id, title, price, originalPrice, badges }:
             <button
               onClick={handleAddToQuote}
               className="flex w-full items-center justify-center gap-2 rounded-full bg-zinc-900 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:bg-zinc-700 active:scale-[0.97]"
-              aria-label={`Add ${title} to quote`}
+              aria-label={`Add ${serviceName} to quote`}
             >
               <Plus className="h-3.5 w-3.5" />
               Add to Quote
@@ -80,20 +78,14 @@ export default function ProductCard({ id, title, price, originalPrice, badges }:
         </div>
 
         <div className="flex flex-col gap-1 border-t border-zinc-100 p-5 bg-white">
-          <h3 className="font-heading text-lg font-bold text-zinc-900">{title}</h3>
-          <div className="flex items-center justify-between gap-2">
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-bold text-zinc-900">{price}</span>
-              {originalPrice && (
-                <span className="text-sm font-medium text-zinc-400 line-through">
-                  {originalPrice}
-                </span>
-              )}
-            </div>
+          <h3 className="font-heading text-lg font-bold text-zinc-900">{serviceName}</h3>
+          <p className="text-sm text-zinc-500 line-clamp-2">{description}</p>
+          <div className="flex items-center justify-between gap-2 mt-2">
+            <span className="text-sm font-semibold text-zinc-600">Price on Request</span>
             <button
               onClick={handleAddToQuote}
               className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-zinc-200 text-zinc-500 transition-all hover:border-zinc-900 hover:bg-zinc-900 hover:text-white sm:hidden"
-              aria-label={`Add ${title} to quote`}
+              aria-label={`Add ${serviceName} to quote`}
             >
               <ShoppingBag className="h-3.5 w-3.5" />
             </button>
@@ -104,7 +96,7 @@ export default function ProductCard({ id, title, price, originalPrice, badges }:
       <DimensionModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        serviceName={title}
+        serviceName={serviceName}
         onConfirm={handleConfirmDimensions}
       />
     </>

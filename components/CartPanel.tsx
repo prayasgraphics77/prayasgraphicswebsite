@@ -1,17 +1,72 @@
 "use client";
 
+import { useState } from "react";
 import { useCart } from "@/lib/cart-context";
+import { formatDimensions } from "@/lib/quote-utils";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Minus, Plus, ShoppingBag, Trash2, ArrowRight } from "lucide-react";
+import { X, ShoppingBag, Trash2, ArrowRight, Mail } from "lucide-react";
+
+const ENQUIRY_EMAIL = "prayasgraphics@email.com";
+const SUBJECT = "Enquiry for Signage Work - Prayas Graphics";
+
+function buildEmailBody(
+  items: { serviceName: string; width?: number; height?: number; unit?: "ft" | "in"; area?: number }[],
+  name?: string,
+  phone?: string
+): string {
+  const servicesBlock = items
+    .map((item, i) => {
+      const size =
+        item.width != null && item.height != null && item.unit
+          ? `Size: ${item.width} ${item.unit} x ${item.height} ${item.unit}`
+          : "Size: Not specified";
+      const areaLine =
+        item.area != null ? `\n   Area: ${item.area.toFixed(2)} sq.ft` : "";
+      return `${i + 1}. ${item.serviceName}\n   ${size}${areaLine}`;
+    })
+    .join("\n\n");
+
+  let body = `Hi Prayas Graphics Team,
+
+I am interested in the following services and would like rate details.
+
+Services Requested:
+
+${servicesBlock}
+
+Please let me know:
+
+* Rate per sq.ft
+* Material options
+* Estimated timeline
+
+Thank you.`;
+
+  if (name?.trim() || phone?.trim()) {
+    body =
+      (name?.trim() ? `Name: ${name.trim()}\n` : "") +
+      (phone?.trim() ? `Phone: ${phone.trim()}\n\n` : "") +
+      body;
+  }
+
+  return body;
+}
 
 export default function CartPanel() {
-  const { items, isOpen, closeCart, subtotal, removeItem, updateQuantity } = useCart();
+  const { items, isOpen, closeCart, removeItem } = useCart();
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const handleSendEnquiry = () => {
+    const body = buildEmailBody(items, name, phone);
+    const mailtoLink = `mailto:${ENQUIRY_EMAIL}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  };
 
   return (
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* ── Backdrop ─────────────────────────────────────────────────── */}
           <motion.div
             key="cart-backdrop"
             initial={{ opacity: 0 }}
@@ -23,7 +78,6 @@ export default function CartPanel() {
             aria-hidden="true"
           />
 
-          {/* ── Panel ────────────────────────────────────────────────────── */}
           <motion.aside
             key="cart-panel"
             initial={{ x: "100%" }}
@@ -31,31 +85,29 @@ export default function CartPanel() {
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 28, stiffness: 260 }}
             className="fixed right-0 top-0 z-70 flex h-full w-full flex-col bg-white shadow-2xl sm:w-[420px]"
-            aria-label="Shopping cart"
+            aria-label="Your quote request"
           >
-            {/* Header */}
             <div className="flex items-center justify-between border-b border-zinc-100 px-6 py-5">
               <div className="flex items-center gap-3">
                 <ShoppingBag className="h-5 w-5 text-zinc-800" />
                 <h2 className="font-heading text-lg font-bold tracking-tight text-zinc-900">
-                  Your Cart
+                  Your Quote Request
                 </h2>
                 {items.length > 0 && (
                   <span className="rounded-full bg-zinc-900 px-2.5 py-0.5 text-xs font-semibold text-white">
-                    {items.reduce((s, i) => s + i.quantity, 0)}
+                    {items.length}
                   </span>
                 )}
               </div>
               <button
                 onClick={closeCart}
                 className="flex h-8 w-8 items-center justify-center rounded-full text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
-                aria-label="Close cart"
+                aria-label="Close quote panel"
               >
                 <X className="h-4 w-4" />
               </button>
             </div>
 
-            {/* Items */}
             <div className="flex-1 overflow-y-auto px-6 py-4">
               {items.length === 0 ? (
                 <div className="flex h-full flex-col items-center justify-center gap-4 text-center">
@@ -64,17 +116,17 @@ export default function CartPanel() {
                   </div>
                   <div>
                     <p className="font-heading text-base font-semibold text-zinc-700">
-                      Your cart is empty
+                      Your quote request list is empty
                     </p>
                     <p className="mt-1 text-sm text-zinc-400">
-                      Add some posters you love!
+                      Add services you need rates for!
                     </p>
                   </div>
                   <button
                     onClick={closeCart}
                     className="mt-2 flex items-center gap-2 rounded-full border border-zinc-900 px-5 py-2 text-sm font-semibold text-zinc-900 transition-all hover:bg-zinc-900 hover:text-white"
                   >
-                    Continue Shopping
+                    Browse Services
                     <ArrowRight className="h-3.5 w-3.5" />
                   </button>
                 </div>
@@ -90,51 +142,35 @@ export default function CartPanel() {
                       transition={{ duration: 0.2 }}
                       className="flex items-start gap-4 rounded-2xl border border-zinc-100 bg-zinc-50 p-4"
                     >
-                      {/* Thumbnail placeholder */}
                       <div className="h-16 w-14 shrink-0 rounded-xl bg-linear-to-tr from-zinc-200 to-zinc-100 shadow-sm" />
 
-                      {/* Details */}
-                      <div className="flex flex-1 flex-col gap-2">
+                      <div className="flex flex-1 flex-col gap-2 min-w-0">
                         <div className="flex items-start justify-between gap-2">
                           <p className="font-heading text-sm font-semibold leading-tight text-zinc-900">
-                            {item.title}
+                            {item.serviceName}
                           </p>
                           <button
                             onClick={() => removeItem(item.id)}
                             className="shrink-0 text-zinc-300 transition-colors hover:text-red-400"
-                            aria-label={`Remove ${item.title}`}
+                            aria-label={`Remove ${item.serviceName}`}
                           >
                             <Trash2 className="h-3.5 w-3.5" />
                           </button>
                         </div>
 
-                        <div className="flex items-center justify-between">
-                          {/* Quantity controls */}
-                          <div className="flex items-center gap-1 rounded-full border border-zinc-200 bg-white px-1 py-1">
-                            <button
-                              onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                              className="flex h-6 w-6 items-center justify-center rounded-full text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 disabled:opacity-30"
-                              aria-label="Decrease quantity"
-                            >
-                              <Minus className="h-3 w-3" />
-                            </button>
-                            <span className="w-6 text-center text-sm font-semibold text-zinc-900">
-                              {item.quantity}
-                            </span>
-                            <button
-                              onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                              className="flex h-6 w-6 items-center justify-center rounded-full text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
-                              aria-label="Increase quantity"
-                            >
-                              <Plus className="h-3 w-3" />
-                            </button>
-                          </div>
-
-                          {/* Item total */}
-                          <p className="text-sm font-bold text-zinc-900">
-                            ${(item.priceValue * item.quantity).toFixed(2)}
+                        {item.width != null && item.height != null && item.unit && (
+                          <p className="text-sm text-zinc-600">
+                            Size: {formatDimensions(item.width, item.height, item.unit)}
                           </p>
-                        </div>
+                        )}
+                        {item.area != null && (
+                          <p className="text-sm font-medium text-zinc-700">
+                            Area: {item.area.toFixed(2)} sq.ft
+                          </p>
+                        )}
+                        {item.notes && (
+                          <p className="text-xs text-zinc-500 italic">{item.notes}</p>
+                        )}
                       </div>
                     </motion.li>
                   ))}
@@ -142,34 +178,42 @@ export default function CartPanel() {
               )}
             </div>
 
-            {/* Footer */}
             {items.length > 0 && (
-              <div className="border-t border-zinc-100 px-6 py-6">
-                {/* Subtotal row */}
-                <div className="mb-4 flex items-center justify-between">
-                  <span className="text-sm font-medium text-zinc-500">Subtotal</span>
-                  <span className="font-heading text-xl font-bold text-zinc-900">
-                    ${subtotal.toFixed(2)}
-                  </span>
-                </div>
-
-                {/* Divider */}
-                <p className="mb-4 text-center text-xs text-zinc-400">
-                  Shipping & taxes calculated at checkout
+              <div className="border-t border-zinc-100 px-6 py-6 mt-auto space-y-4">
+                <p className="text-center text-sm text-zinc-500">
+                  We’ll prepare rates based on your dimensions. Optional details below will be included in your enquiry.
                 </p>
 
-                {/* Checkout button */}
-                <button className="group flex w-full items-center justify-center gap-2 rounded-full bg-zinc-900 px-6 py-4 text-sm font-semibold text-white shadow-lg transition-all hover:bg-zinc-800 active:scale-[0.98]">
-                  Proceed to Checkout
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <div className="space-y-2">
+                  <input
+                    type="text"
+                    placeholder="Your name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full rounded-xl border border-zinc-200 px-4 py-2.5 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-400 focus:outline-none focus:ring-1 focus:ring-zinc-400"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone number"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full rounded-xl border border-zinc-200 px-4 py-2.5 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-400 focus:outline-none focus:ring-1 focus:ring-zinc-400"
+                  />
+                </div>
+
+                <button
+                  onClick={handleSendEnquiry}
+                  className="group flex w-full items-center justify-center gap-2 rounded-full bg-zinc-900 px-6 py-4 text-sm font-semibold text-white shadow-lg transition-all hover:bg-zinc-800 active:scale-[0.98]"
+                >
+                  <Mail className="h-4 w-4" />
+                  Request Rates / Send Enquiry
                 </button>
 
-                {/* Continue shopping */}
                 <button
                   onClick={closeCart}
-                  className="mt-3 w-full text-center text-xs font-medium text-zinc-400 underline-offset-2 transition-colors hover:text-zinc-700 hover:underline"
+                  className="w-full text-center text-xs font-medium text-zinc-400 underline-offset-2 transition-colors hover:text-zinc-700 hover:underline"
                 >
-                  Continue Shopping
+                  Browse Services
                 </button>
               </div>
             )}

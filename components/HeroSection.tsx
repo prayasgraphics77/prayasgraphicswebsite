@@ -15,11 +15,6 @@ export default function HeroSection() {
         className="flex min-h-[450px] flex-1 flex-col justify-between overflow-hidden rounded-[24px] bg-white p-6 md:min-h-[600px] md:p-10 shadow-sm"
       >
         <div className="flex flex-col gap-6">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-600">
-            <span className="flex h-2 w-2 rounded-full bg-blue-500"></span>
-            Premium Signboards & Display Solutions
-          </div>
-
           <div className="max-w-md pt-12 md:pt-24">
             <h1 className="font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-zinc-900 md:text-5xl lg:text-[72px]">
               High-Quality Signboards for Every Business.

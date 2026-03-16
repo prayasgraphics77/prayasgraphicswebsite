@@ -61,6 +61,63 @@ const services = [
       "Double-sided protruding signs, often circular or custom-shaped. Essential for capturing foot traffic attention from multiple directions.",
     tag: "Foot-Traffic",
   },
+  // Additional services requested
+  {
+    icon: Layers,
+    title: "Acrylic ACP Signboard",
+    description:
+      "Premium acrylic branding mounted on ACP panels, combining depth, durability, and a clean corporate finish.",
+    tag: "Premium",
+  },
+  {
+    icon: Printer,
+    title: "Inner Cut ACP Signboard",
+    description:
+      "Inner-cut ACP signboards with precision-cut text and logos, optionally backlit for an eye-catching effect.",
+    tag: "Architectural",
+  },
+  {
+    icon: Truck,
+    title: "Flex Backlit Signboard",
+    description:
+      "Illuminated flex signboards with internal lighting that keep your brand visible day and night.",
+    tag: "High-Visibility",
+  },
+  {
+    icon: Frame,
+    title: "Flex on Frame",
+    description:
+      "Economical flex prints stretched on sturdy frames for hoardings, site boards, and campaign displays.",
+    tag: "Standard",
+  },
+  {
+    icon: Sparkles,
+    title: "Back Lit Letters",
+    description:
+      "3D letters with soft rear lighting that create a subtle halo glow on the wall for a luxurious appearance.",
+    tag: "Luxury",
+  },
+  {
+    icon: Sparkles,
+    title: "Golden Acrylic Letters",
+    description:
+      "Mirror-gold acrylic letters that instantly elevate receptions, storefronts, and feature walls.",
+    tag: "Luxury",
+  },
+  {
+    icon: Layers,
+    title: "ACP Elevation Work",
+    description:
+      "Complete ACP elevation cladding for building facades, giving your showroom or office a modern, unified look.",
+    tag: "Facade",
+  },
+  {
+    icon: Palette,
+    title: "Flex Roll Up Standee",
+    description:
+      "Lightweight roll up standees in flex for events, exhibitions, and in-store promotions.",
+    tag: "Events",
+  },
 ];
 
 const containerVariants: Variants = {

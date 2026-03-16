@@ -4,7 +4,15 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function CategoriesSection() {
-  const categories = ["LED Signs", "Acrylic Letters", "ACP Boards", "Neon Signs", "Flex Hoardings", "Directional Signs"];
+  const categories = [
+    "LED Signs",
+    "Acrylic Letters",
+    "ACP Boards",
+    "Flex Backlit Boards",
+    "Roll Up Standees",
+    "ACP Elevation Work",
+    "Golden Acrylic Letters",
+  ];
 
   return (
     <section className="mx-auto w-full max-w-7xl px-4 py-8 md:px-6">

@@ -53,6 +53,58 @@ const services = [
     serviceName: "Totem & Pylon Signs",
     description: "Freestanding totem and pylon signs for wayfinding and outdoor branding.",
   },
+  // Additional services requested
+  {
+    id: "service-acrylic-acp-signboard",
+    serviceName: "Acrylic ACP Signboard",
+    description: "Premium acrylic letters mounted on ACP panels for a sleek, long-lasting storefront presence.",
+    badges: [{ text: "Premium", type: "popular" as const }],
+  },
+  {
+    id: "service-inner-cut-acp-signboard",
+    serviceName: "Inner Cut ACP Signboard",
+    description: "Precision inner-cut ACP signage with illuminated or non-illuminated options for modern branding.",
+    badges: [{ text: "Architectural", type: "new" as const }],
+  },
+  {
+    id: "service-flex-backlit-signboard",
+    serviceName: "Flex Backlit Signboard",
+    description: "Illuminated flex signboards with internal lighting for high night-time visibility on main roads.",
+    badges: [{ text: "High-Visibility", type: "popular" as const }],
+  },
+  {
+    id: "service-flex-on-frame",
+    serviceName: "Flex on Frame",
+    description: "Cost-effective flex prints stretched on MS frames for hoardings, site boards, and event branding.",
+  },
+  {
+    id: "service-back-lit-letters",
+    serviceName: "Back Lit Letters",
+    description: "3D letters with soft rear illumination creating a halo glow on the wall for a premium look.",
+    badges: [{ text: "Luxury", type: "popular" as const }],
+  },
+  {
+    id: "service-aluminium-channel-letter",
+    serviceName: "Aluminium Channel Letter",
+    description: "Durable aluminium channel letters with acrylic faces, ideal for outdoor building branding.",
+  },
+  {
+    id: "service-flex-roll-up-standee",
+    serviceName: "Flex Roll Up Standee",
+    description: "Portable roll up standees with flex prints for exhibitions, events, and in-store promotions.",
+    badges: [{ text: "Event Favourite", type: "new" as const }],
+  },
+  {
+    id: "service-acp-elevation-work",
+    serviceName: "ACP Elevation Work",
+    description: "Complete ACP elevation cladding for showrooms and buildings for a clean, modern facade.",
+  },
+  {
+    id: "service-golden-acrylic-letters",
+    serviceName: "Golden Acrylic Letters",
+    description: "Mirror-finish golden acrylic letters that add a rich, luxurious touch to your brand identity.",
+    badges: [{ text: "Luxury", type: "popular" as const }],
+  },
 ];
 
 export default function ShopPage() {

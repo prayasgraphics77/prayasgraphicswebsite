@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,9 +7,22 @@ export default function Footer() {
       <div className="flex flex-col gap-8 rounded-[32px] bg-white px-8 py-12 shadow-sm md:px-16 md:py-16">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-start">
           {/* Brand */}
-          <div className="flex flex-col gap-3">
-            <Link href="/" className="font-heading text-2xl font-bold text-zinc-900">
-              Prayas Graphics
+          <div className="flex flex-col gap-6">
+            <Link href="/" aria-label="Prayas Graphics Home" className="flex items-center gap-2 sm:gap-3">
+              <Image
+                src="/Prayas-Graphics-Logo.svg"
+                alt="Prayas Graphics Logo"
+                width={80}
+                height={80}
+                className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 transition-all object-contain shrink-0"
+              />
+              <Image
+                src="/Prayas-Graphics-title.svg"
+                alt="Prayas Graphics Title"
+                width={250}
+                height={80}
+                className="h-8 w-auto sm:h-10 lg:h-12 transition-all object-contain shrink-0"
+              />
             </Link>
             <p className="text-sm font-medium text-zinc-500 max-w-xs">
               Premium Signboards and Display Advertising Solutions for Every Business.

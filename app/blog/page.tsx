@@ -1,4 +1,3 @@
-import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 
@@ -72,7 +71,6 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <Newsletter />
       <Footer />
     </main>
   );

@@ -12,6 +12,10 @@
     --foreground: #121212;
     --primary: #0068f0;
   }
+
+  html {
+    font-size: 14px;
+  }
 }
 
 body {

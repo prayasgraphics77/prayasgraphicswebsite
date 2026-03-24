@@ -4,7 +4,6 @@ import AboutStory from "@/components/AboutStory";
 import FeaturesSection from "@/components/FeaturesSection";
 import BlogSection from "@/components/BlogSection";
 import CtaSection from "@/components/CtaSection";
-import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 
 export default function AboutPage() {
@@ -16,7 +15,6 @@ export default function AboutPage() {
       <FeaturesSection />
       <BlogSection />
       <CtaSection />
-      <Newsletter />
       <Footer />
     </main>
   );

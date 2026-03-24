@@ -3,6 +3,7 @@ import { DM_Sans, Bricolage_Grotesque, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import CartPanel from "@/components/CartPanel";
 import { CartProvider } from "@/lib/cart-context";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -44,6 +45,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <CartPanel />
+          <FloatingWhatsApp />
         </CartProvider>
       </body>
     </html>

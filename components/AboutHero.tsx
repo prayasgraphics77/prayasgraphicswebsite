@@ -6,7 +6,7 @@ export default function AboutHero() {
   return (
     <section className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 pt-24 pb-8 md:flex-row md:px-6">
       <div className="flex flex-1 flex-col justify-center rounded-[32px] bg-white px-6 py-10 md:p-14 shadow-sm min-h-[400px] md:min-h-[500px]">
-        <h1 className="max-w-md font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-zinc-900 md:text-5xl lg:text-[72px]">
+        <h1 className="max-w-md font-heading text-3xl font-extrabold leading-[1.1] tracking-tight text-zinc-900 md:text-4xl lg:text-[52px]">
           Elevating Brands, One Signage at a Time
         </h1>
         <p className="mt-6 max-w-[400px] text-[15px] font-medium text-zinc-500 leading-relaxed md:text-base">

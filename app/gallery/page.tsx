@@ -1,6 +1,5 @@
 import GalleryGrid from "@/components/GalleryGrid";
 import CtaSection from "@/components/CtaSection";
-import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 
 export const metadata = {
@@ -13,7 +12,6 @@ export default function GalleryPage() {
     <main className="flex min-h-screen flex-col items-center bg-stone-50 pb-20 overflow-x-hidden">
       <GalleryGrid />
       <CtaSection />
-      <Newsletter />
       <Footer />
     </main>
   );

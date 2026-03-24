@@ -9,11 +9,14 @@ export type DimensionUnit = "ft" | "in";
 export interface QuoteItem {
   id: string;
   serviceName: string;
+  serviceSlug?: string;
   width?: number;
   height?: number;
   unit?: DimensionUnit;
   area?: number;
   notes?: string;
+  details?: Record<string, string>;
+  estimatedPrice?: number;
 }
 
 interface QuoteState {

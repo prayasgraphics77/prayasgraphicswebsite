@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Search, ShoppingBag, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -32,13 +33,27 @@ export default function Navbar() {
         )}
       >
         <div className="flex items-center gap-2">
-          <Link href="/" className="text-xl font-heading font-semibold tracking-tight" onClick={() => setMobileMenuOpen(false)}>
-            Prayas Graphics
+          <Link href="/" onClick={() => setMobileMenuOpen(false)} aria-label="Prayas Graphics Home" className="flex items-center gap-2 sm:gap-3">
+            <Image
+              src="/Prayas-Graphics-Logo.svg"
+              alt="Prayas Graphics Logo"
+              width={64}
+              height={64}
+              className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 transition-all object-contain shrink-0"
+              priority
+            />
+            <Image
+              src="/Prayas-Graphics-title.svg"
+              alt="Prayas Graphics Title"
+              width={200}
+              height={64}
+              className="h-6 w-auto sm:h-8 md:h-10 lg:h-12 transition-all object-contain shrink-0"
+              priority
+            />
           </Link>
         </div>
 
         <div className="hidden items-center gap-6 md:flex">
-          <NavLink href="/shop">Catalog</NavLink>
           <NavLink href="/services">Services</NavLink>
           <NavLink href="/gallery">Gallery</NavLink>
           <NavLink href="/about">About</NavLink>
@@ -98,7 +113,6 @@ export default function Navbar() {
             className="fixed top-20 left-1/2 -translate-x-1/2 z-40 w-[95%] rounded-3xl bg-white p-6 shadow-lg md:hidden"
           >
             <div className="flex flex-col gap-4">
-              <MobileNavLink href="/shop" onClick={() => setMobileMenuOpen(false)}>Catalog</MobileNavLink>
               <MobileNavLink href="/services" onClick={() => setMobileMenuOpen(false)}>Services</MobileNavLink>
               <MobileNavLink href="/gallery" onClick={() => setMobileMenuOpen(false)}>Gallery</MobileNavLink>
               <MobileNavLink href="/about" onClick={() => setMobileMenuOpen(false)}>About</MobileNavLink>

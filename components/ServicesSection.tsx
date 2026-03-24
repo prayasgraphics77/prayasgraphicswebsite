@@ -2,123 +2,8 @@
 
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { Printer, Palette, Frame, Truck, Sparkles, Layers } from "lucide-react";
-
-const services = [
-  {
-    icon: Printer,
-    title: "ACP Inlay Signboard",
-    description:
-      "Durable Aluminum Composite Panel with precision-cut inlay text and logos. Ideal for sleek, modern, and long-lasting corporate identities.",
-    tag: "Premium",
-  },
-  {
-    icon: Layers,
-    title: "Acrylic Letter Signboard",
-    description:
-      "Vibrant and versatile 3D acrylic letters. Perfect for indoor and outdoor retail environments requiring high visibility and depth.",
-    tag: "Popular",
-  },
-  {
-    icon: Sparkles,
-    title: "Aluminium Channel Letter",
-    description:
-      "Robust aluminium channels with illuminated acrylic faces. Built for maximum architectural impact and weather resistance.",
-    tag: "Architectural",
-  },
-  {
-    icon: Frame,
-    title: "Acrylic Mirror Gold Signboard",
-    description:
-      "Luxurious mirror-finish gold acrylic elements. Designed to give your brand a high-end, sophisticated aesthetic.",
-    tag: "Luxury",
-  },
-  {
-    icon: Palette,
-    title: "Edge Lit Acrylic Letters",
-    description:
-      "Sleek acrylic letters illuminated from the edge, creating a stunning halo effect. Excellent for modern interiors and elegant storefronts.",
-    tag: "Modern",
-  },
-  {
-    icon: Truck,
-    title: "Backlit Letters Signboard",
-    description:
-      "Bold letters with powerful rear illumination. Creates a striking contrast against any facade, ensuring your business stands out at night.",
-    tag: "High-Visibility",
-  },
-  {
-    icon: Printer,
-    title: "Flex Backlit Board (GSB)",
-    description:
-      "Cost-effective, large-format flexible material stretched over a custom frame with internal lighting. The standard for large retail signage.",
-    tag: "Standard",
-  },
-  {
-    icon: Palette,
-    title: "Lollipop Board",
-    description:
-      "Double-sided protruding signs, often circular or custom-shaped. Essential for capturing foot traffic attention from multiple directions.",
-    tag: "Foot-Traffic",
-  },
-  // Additional services requested
-  {
-    icon: Layers,
-    title: "Acrylic ACP Signboard",
-    description:
-      "Premium acrylic branding mounted on ACP panels, combining depth, durability, and a clean corporate finish.",
-    tag: "Premium",
-  },
-  {
-    icon: Printer,
-    title: "Inner Cut ACP Signboard",
-    description:
-      "Inner-cut ACP signboards with precision-cut text and logos, optionally backlit for an eye-catching effect.",
-    tag: "Architectural",
-  },
-  {
-    icon: Truck,
-    title: "Flex Backlit Signboard",
-    description:
-      "Illuminated flex signboards with internal lighting that keep your brand visible day and night.",
-    tag: "High-Visibility",
-  },
-  {
-    icon: Frame,
-    title: "Flex on Frame",
-    description:
-      "Economical flex prints stretched on sturdy frames for hoardings, site boards, and campaign displays.",
-    tag: "Standard",
-  },
-  {
-    icon: Sparkles,
-    title: "Back Lit Letters",
-    description:
-      "3D letters with soft rear lighting that create a subtle halo glow on the wall for a luxurious appearance.",
-    tag: "Luxury",
-  },
-  {
-    icon: Sparkles,
-    title: "Golden Acrylic Letters",
-    description:
-      "Mirror-gold acrylic letters that instantly elevate receptions, storefronts, and feature walls.",
-    tag: "Luxury",
-  },
-  {
-    icon: Layers,
-    title: "ACP Elevation Work",
-    description:
-      "Complete ACP elevation cladding for building facades, giving your showroom or office a modern, unified look.",
-    tag: "Facade",
-  },
-  {
-    icon: Palette,
-    title: "Flex Roll Up Standee",
-    description:
-      "Lightweight roll up standees in flex for events, exhibitions, and in-store promotions.",
-    tag: "Events",
-  },
-];
+import Link from "next/link";
+import { servicesData } from "@/lib/services-data";
 
 const containerVariants: Variants = {
   hidden: {},
@@ -161,30 +46,33 @@ export default function ServicesSection() {
         animate="show"
         className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
       >
-        {services.map((service) => {
+        {servicesData.map((service) => {
           const Icon = service.icon;
           return (
-            <motion.div
-              key={service.title}
-              variants={cardVariants}
-              className="group flex flex-col justify-between rounded-[24px] bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-md"
-            >
-              <div>
-                <div className="mb-6 flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-zinc-950 transition-colors duration-300">
-                    <Icon className="h-5 w-5 text-zinc-700 group-hover:text-white transition-colors duration-300" />
+            <motion.div key={service.slug} variants={cardVariants}>
+              <Link href={`/services/${service.slug}`} className="group flex flex-col justify-between rounded-[24px] bg-white p-8 shadow-sm border border-zinc-100 transition-all duration-300 hover:shadow-md hover:border-zinc-200 h-full">
+                <div>
+                  <div className="mb-6 flex items-center justify-between">
+                    <div className="flex relative items-center justify-center rounded-2xl bg-zinc-100 group-hover:bg-zinc-950 transition-colors duration-300 w-12 h-12">
+                      <Icon className="h-5 w-5 text-zinc-700 group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <span className="rounded-full border border-zinc-200 px-3 py-1 text-xs font-semibold text-zinc-500">
+                      {service.tag}
+                    </span>
                   </div>
-                  <span className="rounded-full border border-zinc-200 px-3 py-1 text-xs font-semibold text-zinc-500">
-                    {service.tag}
-                  </span>
+                  <h2 className="font-heading text-xl font-bold text-zinc-900 tracking-tight group-hover:text-blue-600 transition-colors">
+                    {service.title}
+                  </h2>
+                  <p className="mt-3 text-[14px] leading-relaxed font-medium text-zinc-500 line-clamp-2">
+                    {service.description}
+                  </p>
                 </div>
-                <h2 className="font-heading text-xl font-bold text-zinc-900 tracking-tight">
-                  {service.title}
-                </h2>
-                <p className="mt-3 text-[14px] leading-relaxed font-medium text-zinc-500">
-                  {service.description}
-                </p>
-              </div>
+                
+                <div className="mt-6 flex items-center text-sm font-semibold text-zinc-900 group-hover:text-blue-600 transition-colors">
+                  Get a Quote 
+                  <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+              </Link>
             </motion.div>
           );
         })}

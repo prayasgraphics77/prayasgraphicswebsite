@@ -2,7 +2,7 @@ import HeroSection from "@/components/HeroSection";
 import PopularPosters from "@/components/PopularPosters";
 import StorySection from "@/components/StorySection";
 import FeaturesSection from "@/components/FeaturesSection";
-import CategoriesSection from "@/components/CategoriesSection";
+import HowItWorks from "@/components/HowItWorks";
 import CtaSection from "@/components/CtaSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import BlogSection from "@/components/BlogSection";
@@ -15,7 +15,7 @@ export default function Home() {
       <PopularPosters />
       <StorySection />
       <FeaturesSection />
-      <CategoriesSection />
+      <HowItWorks />
       <CtaSection />
       <TestimonialsSection />
       <BlogSection />

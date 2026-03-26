@@ -4,14 +4,16 @@ import Link from "next/link";
 export default function BlogSection() {
   const posts = [
     {
-      title: "Why LED Signboards are Trending in Retail",
-      excerpt: "Explore the reasons behind the rise of illuminated signage and how it can elevate your storefront.",
-      date: "Oct 12, 2026",
+      title: "Signboard Prices in Nagpur — The Honest 2025 Cost Guide",
+      excerpt: "Everything you need to know about the pricing of ACP, Acrylic, and Flex signboards in Nagpur.",
+      date: "March 2025",
+      slug: "/signboard-price-nagpur-2025-guide"
     },
     {
-      title: "How to Choose the Perfect Outdoor Signage",
-      excerpt: "A comprehensive guide on selecting the right materials and lighting to maximize your brand's visibility.",
-      date: "Sep 28, 2026",
+      title: "5 Costly Signboard Mistakes Nagpur Businesses Make",
+      excerpt: "Is your signboard hurting your business? Discover the 5 most common and costly signboard mistakes.",
+      date: "March 2025",
+      slug: "/signboard-mistakes-nagpur-businesses"
     },
   ];
 
@@ -28,7 +30,7 @@ export default function BlogSection() {
         <div className="mt-16 grid w-full max-w-5xl grid-cols-1 gap-6 md:grid-cols-2">
           {posts.map((post, idx) => (
             <Link
-              href="/blog"
+              href={post.slug}
               key={idx}
               className="group flex flex-col gap-6 rounded-2xl border border-zinc-100 bg-white p-4 transition-all hover:border-zinc-300 hover:shadow-md"
             >

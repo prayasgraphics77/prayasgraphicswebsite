@@ -57,6 +57,7 @@ export default function Navbar() {
           <NavLink href="/services">Services</NavLink>
           <NavLink href="/gallery">Gallery</NavLink>
           <NavLink href="/about">About</NavLink>
+          <NavLink href="/blog">Blog</NavLink>
           <NavLink href="/contact">Contact</NavLink>
         </div>
 
@@ -116,6 +117,7 @@ export default function Navbar() {
               <MobileNavLink href="/services" onClick={() => setMobileMenuOpen(false)}>Services</MobileNavLink>
               <MobileNavLink href="/gallery" onClick={() => setMobileMenuOpen(false)}>Gallery</MobileNavLink>
               <MobileNavLink href="/about" onClick={() => setMobileMenuOpen(false)}>About</MobileNavLink>
+              <MobileNavLink href="/blog" onClick={() => setMobileMenuOpen(false)}>Blog</MobileNavLink>
               <MobileNavLink href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</MobileNavLink>
               <div className="mt-4 border-t border-zinc-100 pt-4 flex flex-col gap-3">
                 <button className="flex w-full items-center gap-2 text-[15px] font-medium text-zinc-600">

@@ -62,9 +62,6 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <button aria-label="Search" className="hidden text-zinc-500 transition-colors hover:text-zinc-950 sm:flex">
-            <Search className="h-4 w-4" />
-          </button>
 
           {/* Cart trigger button with live count badge */}
           <button
@@ -120,9 +117,6 @@ export default function Navbar() {
               <MobileNavLink href="/blog" onClick={() => setMobileMenuOpen(false)}>Blog</MobileNavLink>
               <MobileNavLink href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</MobileNavLink>
               <div className="mt-4 border-t border-zinc-100 pt-4 flex flex-col gap-3">
-                <button className="flex w-full items-center gap-2 text-[15px] font-medium text-zinc-600">
-                  <Search className="h-4 w-4" /> Search
-                </button>
                 <button
                   onClick={() => { setMobileMenuOpen(false); openCart(); }}
                   className="flex w-full items-center gap-2 text-[15px] font-medium text-zinc-600"

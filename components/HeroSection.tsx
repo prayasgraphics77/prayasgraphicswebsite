@@ -64,14 +64,6 @@ export default function HeroSection() {
               <div className="relative h-full w-8 bg-white/20" />
             </div>
           </button>
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search signboards..."
-              className="w-full rounded-full border border-zinc-200 py-3 pl-4 pr-10 text-sm font-medium outline-none transition-colors focus:border-zinc-300"
-            />
-            <Search className="absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-zinc-400" />
-          </div>
         </div>
       </motion.div>
 

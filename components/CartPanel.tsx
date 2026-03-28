@@ -44,15 +44,37 @@ export default function CartPanel() {
         }),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        // Prepare WhatsApp message
+        const messageHeader = `*New Quote Request from Prayas Graphics Site*\n\n`;
+        const customerInfo = `*Customer:* ${customerDetails.fullName}\n*WhatsApp:* ${customerDetails.whatsapp}\n*City:* ${customerDetails.city}\n${customerDetails.businessName ? `*Business:* ${customerDetails.businessName}\n` : ""}*Urgency:* ${customerDetails.urgency}\n\n`;
+        
+        const itemsList = items.map((item, idx) => {
+          const specs = item.details ? Object.entries(item.details)
+            .filter(([_, v]) => v && v !== "Select")
+            .map(([k, v]) => `${k}: ${v}`).join(", ") : "None";
+          
+          return `${idx + 1}. *${item.serviceName}*\n   Size: ${item.width}x${item.height} ${item.unit}\n   Rate: ₹${item.estimatedPrice?.toLocaleString('en-IN')}\n   Specs: ${specs}\n`;
+        }).join("\n");
+
+        const footer = `\n*TOTAL ESTIMATED RATE: ₹${totalEstimatedPrice.toLocaleString('en-IN')}*\n\n_Please confirm the design files and final quote._`;
+        
+        const fullMessage = encodeURIComponent(messageHeader + customerInfo + itemsList + footer);
+        const whatsappUrl = `https://wa.me/919545465555?text=${fullMessage}`; // Replaced with Prayas Graphics WhatsApp
+
         clearQuote();
         closeCart();
+        
+        // Open WhatsApp in new tab and redirect to thank-you
+        window.open(whatsappUrl, "_blank");
         router.push("/thank-you");
       } else {
-        throw new Error("Failed to submit");
+        throw new Error(result.error || "Failed to submit");
       }
-    } catch (err) {
-      setError("Failed to submit. Please try again.");
+    } catch (err: any) {
+      setError(err?.message || "Failed to submit. Please try again.");
       setIsSubmitting(false);
     }
   };
@@ -67,7 +89,7 @@ export default function CartPanel() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[100] bg-zinc-950/40 backdrop-blur-sm"
+            className="fixed inset-0 z-100 bg-zinc-950/40 backdrop-blur-sm"
             onClick={closeCart}
             aria-hidden="true"
           />
@@ -78,7 +100,7 @@ export default function CartPanel() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 28, stiffness: 260 }}
-            className="fixed right-0 top-0 z-[101] flex h-full w-full flex-col bg-white shadow-2xl sm:w-[500px]"
+            className="fixed right-0 top-0 z-101 flex h-full w-full flex-col bg-white shadow-2xl sm:w-[500px]"
             aria-label="Your quote request cart"
           >
             {/* Header */}

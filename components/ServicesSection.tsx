@@ -26,7 +26,7 @@ export default function ServicesSection() {
         className="rounded-[32px] bg-zinc-950 px-8 py-14 text-white md:px-16 md:py-20 mb-4"
       >
         <div className="inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/70 mb-6">
-          <span className="flex h-2 w-2 rounded-full bg-blue-400" />
+          <span className="flex h-2 w-2 rounded-full bg-[#800080]/80" />
           What We Offer
         </div>
         <h1 className="font-heading text-4xl font-extrabold leading-tight tracking-tight md:text-5xl lg:text-6xl max-w-2xl">
@@ -60,7 +60,7 @@ export default function ServicesSection() {
                       {service.tag}
                     </span>
                   </div>
-                  <h2 className="font-heading text-xl font-bold text-zinc-900 tracking-tight group-hover:text-blue-600 transition-colors">
+                  <h2 className="font-heading text-xl font-bold text-zinc-900 tracking-tight group-hover:text-[#800080] transition-colors">
                     {service.title}
                   </h2>
                   <p className="mt-3 text-[14px] leading-relaxed font-medium text-zinc-500 line-clamp-2">
@@ -68,7 +68,7 @@ export default function ServicesSection() {
                   </p>
                 </div>
                 
-                <div className="mt-6 flex items-center text-sm font-semibold text-zinc-900 group-hover:text-blue-600 transition-colors">
+                <div className="mt-6 flex items-center text-sm font-semibold text-zinc-900 group-hover:text-[#800080] transition-colors">
                   Get a Quote 
                   <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
                 </div>

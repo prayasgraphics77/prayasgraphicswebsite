@@ -57,8 +57,8 @@ export default function ServiceCard({
                   key={idx}
                   className={cn(
                     "rounded-full px-3 py-1 text-xs font-semibold shadow-sm",
-                    badge.type === "popular" && "bg-blue-600 text-white",
-                    badge.type === "new" && "bg-blue-600 text-white",
+                    badge.type === "popular" && "bg-[#800080] text-white",
+                    badge.type === "new" && "bg-[#800080] text-white",
                     idx > 0 ? "ml-auto" : ""
                   )}
                 >

@@ -111,7 +111,7 @@ export default function CartPanel() {
                   Quote Cart
                 </h2>
                 {items.length > 0 && (
-                  <span className="rounded-full bg-blue-600 px-2.5 py-0.5 text-xs font-semibold text-white">
+                  <span className="rounded-full bg-[#800080] px-2.5 py-0.5 text-xs font-semibold text-white">
                     {items.length}
                   </span>
                 )}
@@ -144,7 +144,7 @@ export default function CartPanel() {
                         closeCart();
                         router.push("/services");
                     }}
-                    className="mt-2 flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-blue-700 shadow-md"
+                    className="mt-2 flex items-center gap-2 rounded-full bg-[#800080] px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-[#800080]/90 shadow-md"
                   >
                     Browse Services
                     <ArrowRight className="h-3.5 w-3.5" />
@@ -212,12 +212,12 @@ export default function CartPanel() {
                   <div className="rounded-2xl bg-white border border-zinc-100 p-6 shadow-sm space-y-5 relative">
                     <div className="flex items-center justify-between border-b border-zinc-100 pb-4 mb-2">
                        <h3 className="font-heading text-lg font-bold text-zinc-900">Estimated Total</h3>
-                       <p className="font-heading text-2xl font-black text-blue-600 tracking-tight">
+                       <p className="font-heading text-2xl font-black text-[#800080] tracking-tight">
                           ₹{totalEstimatedPrice.toLocaleString('en-IN')}
                        </p>
                     </div>
 
-                    <p className="text-xs text-zinc-500 bg-blue-50/80 p-3 rounded-xl font-medium">
+                    <p className="text-xs text-zinc-500 bg-[#800080]/5 p-3 rounded-xl font-medium">
                        * Note: This is a demo estimated rate calculated via base sq.ft metrics. The exact quote will be confirmed upon receiving proper design files.
                     </p>
 
@@ -236,7 +236,7 @@ export default function CartPanel() {
                           placeholder="Your Full Name *"
                           value={customerDetails.fullName}
                           onChange={(e) => setCustomerDetails(c => ({...c, fullName: e.target.value}))}
-                          className="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 bg-zinc-50 hover:bg-white transition-colors"
+                          className="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-500 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] bg-zinc-50 hover:bg-white transition-colors"
                         />
                       </div>
                       <div className="grid grid-cols-2 gap-3">
@@ -246,7 +246,7 @@ export default function CartPanel() {
                               placeholder="WhatsApp *"
                               value={customerDetails.whatsapp}
                               onChange={(e) => setCustomerDetails(c => ({...c, whatsapp: e.target.value}))}
-                              className="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 bg-zinc-50 hover:bg-white transition-colors"
+                              className="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-500 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] bg-zinc-50 hover:bg-white transition-colors"
                             />
                           </div>
                           <div>
@@ -255,7 +255,7 @@ export default function CartPanel() {
                               placeholder="City *"
                               value={customerDetails.city}
                               onChange={(e) => setCustomerDetails(c => ({...c, city: e.target.value}))}
-                              className="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 bg-zinc-50 hover:bg-white transition-colors"
+                              className="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-500 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] bg-zinc-50 hover:bg-white transition-colors"
                             />
                           </div>
                       </div>

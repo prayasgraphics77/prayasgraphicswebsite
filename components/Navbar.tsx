@@ -87,7 +87,7 @@ export default function Navbar() {
             </AnimatePresence>
             {/* Dot indicator when cart has items */}
             {totalCount > 0 && (
-              <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-blue-500" />
+              <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-[#800080]" />
             )}
           </button>
 

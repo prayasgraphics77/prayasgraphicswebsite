@@ -93,8 +93,8 @@ export default function QuoteForm({
     setServiceDetails((prev) => ({ ...prev, [key]: value }));
   };
 
-  const commonSelectClass = "w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-zinc-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors";
-  const commonInputClass = "w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-zinc-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors";
+  const commonSelectClass = "w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-zinc-900 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors";
+  const commonInputClass = "w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-zinc-900 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors";
 
   const renderDimensionInputs = (label = "Size (Width × Height)") => (
     <div>
@@ -118,20 +118,20 @@ export default function QuoteForm({
         <select 
           value={dimensions.unit} 
           onChange={(e) => setDimensions(prev => ({...prev, unit: e.target.value as DimensionUnit}))} 
-          className="w-24 rounded-xl border border-zinc-200 bg-white px-3 py-3 text-zinc-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors"
+          className="w-24 rounded-xl border border-zinc-200 bg-white px-3 py-3 text-zinc-900 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors"
         >
           <option value="ft">ft</option>
           <option value="in">in</option>
         </select>
       </div>
       {area > 0 && (
-         <div className="mt-3 inline-flex flex-wrap items-center gap-4 text-sm font-semibold rounded-xl bg-blue-50/50 border border-blue-100 px-4 py-3 w-full">
-           <div className="flex items-center gap-1.5 min-w-max text-blue-800">
+         <div className="mt-3 inline-flex flex-wrap items-center gap-4 text-sm font-semibold rounded-xl bg-[#800080]/5 border border-[#800080]/10 px-4 py-3 w-full">
+           <div className="flex items-center gap-1.5 min-w-max text-[#800080]">
              <span className="opacity-70 font-medium">Total Area:</span> 
              {area.toFixed(2)} sq.ft
            </div>
            
-           <div className="w-[1px] h-4 bg-blue-200/60 hidden sm:block"></div>
+           <div className="w-px h-4 bg-[#800080]/20 hidden sm:block"></div>
            
            <div className="flex items-center gap-1.5 min-w-max text-emerald-700">
              <span className="opacity-70 font-medium">Approximate Rate:</span> 
@@ -367,9 +367,9 @@ export default function QuoteForm({
                 <button
                   key={s.slug}
                   onClick={() => setSelectedService(s.slug)}
-                  className={`text-left p-4 rounded-xl border-2 transition-all duration-200 flex items-center gap-4 ${selectedService === s.slug ? "border-blue-600 bg-blue-50 ring-4 ring-blue-600/10" : "border-zinc-100 hover:border-zinc-300 bg-white"}`}
+                  className={`text-left p-4 rounded-xl border-2 transition-all duration-200 flex items-center gap-4 ${selectedService === s.slug ? "border-[#800080] bg-[#800080]/5 ring-4 ring-[#800080]/10" : "border-zinc-100 hover:border-zinc-300 bg-white"}`}
                 >
-                  <div className={`p-2 rounded-lg ${selectedService === s.slug ? "bg-blue-600 text-white" : "bg-zinc-100 text-zinc-600"}`}>
+                  <div className={`p-2 rounded-lg ${selectedService === s.slug ? "bg-[#800080] text-white" : "bg-zinc-100 text-zinc-600"}`}>
                      <s.icon className="w-5 h-5" />
                   </div>
                   <span className="font-semibold text-zinc-900">{s.title}</span>
@@ -399,7 +399,7 @@ export default function QuoteForm({
         ) : <div></div>}
 
         {step === 1 ? (
-          <button onClick={handleNext} className="flex items-center gap-2 px-8 py-3 rounded-full font-bold text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20 hover:scale-[1.02]">
+          <button onClick={handleNext} className="flex items-center gap-2 px-8 py-3 rounded-full font-bold text-white bg-[#800080] hover:bg-[#800080]/90 transition-colors shadow-lg shadow-[#800080]/20 hover:scale-[1.02]">
             Continue Details <ChevronRight className="w-4 h-4" />
           </button>
         ) : (

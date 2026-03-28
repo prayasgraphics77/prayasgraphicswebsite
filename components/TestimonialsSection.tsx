@@ -15,7 +15,7 @@ const testimonials = [
     name: "Michael T.",
     role: "Retail Director",
     quote: "We were looking for impactful channel letters for our new branch. Prayas Graphics delivered perfectly on time and on budget.",
-    gradient: "from-blue-500/10 to-indigo-500/5",
+    gradient: "from-[#800080]/10 to-indigo-500/5",
   },
   {
     name: "Emma Davis",
@@ -39,7 +39,7 @@ const testimonials = [
     name: "Robert K.",
     role: "Restaurant Manager",
     quote: "Exceeded my expectations. The flex backlit board is huge, vibrant, and draws in so many walking customers.",
-    gradient: "from-cyan-500/10 to-blue-500/5",
+    gradient: "from-cyan-500/10 to-[#800080]/5",
   },
 ];
 
@@ -70,7 +70,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
         <div>
           <div className="flex items-center gap-1.5">
             <span className="text-sm font-bold text-zinc-900">{testimonial.name}</span>
-            <CheckCircle2 className="h-3.5 w-3.5 text-blue-500" />
+            <CheckCircle2 className="h-3.5 w-3.5 text-[#800080]" />
           </div>
           <span className="text-xs font-semibold text-zinc-400 uppercase tracking-tight">{testimonial.role}</span>
         </div>

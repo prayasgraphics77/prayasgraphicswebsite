@@ -51,7 +51,7 @@ export default function StorySection() {
           From vibrant art prints to minimalist designs, we offer a diverse collection perfect for home, office, or gifting. Make a lasting impression today.
         </p>
         <div className="mt-10">
-          <button className="flex w-fit items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-white transition-all hover:bg-blue-700 hover:scale-[1.02] active:scale-95">
+          <button className="flex w-fit items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-white transition-all hover:bg-[#800080]/90 hover:scale-[1.02] active:scale-95">
             Explore Our Collection
           </button>
         </div>

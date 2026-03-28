@@ -21,7 +21,7 @@ const blogPosts = [
     category: "Materials",
     date: "March 2025",
     slug: "/acp-vs-acrylic-vs-flex-signboard-nagpur",
-    imagePlaceholder: "bg-linear-to-bl from-blue-600 to-indigo-800",
+    imagePlaceholder: "bg-linear-to-bl from-[#800080] to-indigo-900",
   },
   {
     title: "Best Signboard Ideas for Restaurants & Cafes in Nagpur",

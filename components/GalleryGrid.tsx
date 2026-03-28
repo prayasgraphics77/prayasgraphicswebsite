@@ -54,7 +54,7 @@ export default function GalleryGrid() {
         className="rounded-[32px] bg-white px-8 py-12 shadow-sm md:px-14 mb-4"
       >
         <div className="inline-flex w-fit items-center gap-2 rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-600 mb-4">
-          <span className="flex h-2 w-2 rounded-full bg-blue-500" />
+          <span className="flex h-2 w-2 rounded-full bg-[#800080]" />
           Our Work
         </div>
         <h1 className="font-heading text-4xl font-extrabold leading-tight tracking-tight text-zinc-900 md:text-5xl">

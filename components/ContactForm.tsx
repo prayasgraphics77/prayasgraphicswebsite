@@ -45,7 +45,7 @@ export default function ContactForm() {
               className="w-full resize-none rounded-2xl bg-zinc-100 p-6 text-sm font-medium outline-none transition-colors focus:bg-zinc-200/50 md:min-h-auto min-h-[150px]"
             ></textarea>
           </div>
-          <button className="mt-6 flex w-full items-center justify-center rounded-full bg-primary py-4 text-sm font-semibold text-white transition-colors hover:bg-blue-700">
+          <button className="mt-6 flex w-full items-center justify-center rounded-full bg-primary py-4 text-sm font-semibold text-white transition-colors hover:bg-[#800080]/90">
             Send message
           </button>
         </div>

@@ -14,7 +14,7 @@ export function Callout({ variant, icon, title, children }: CalloutProps) {
     red: "bg-[#fdf3f2] border-red-600",
     gold: "bg-[#fdf8ec] border-amber-500",
     green: "bg-[#f0f9f4] border-emerald-600",
-    blue: "bg-[#f0f4fc] border-blue-600",
+    blue: "bg-[#800080]/5 border-[#800080]",
   };
   return (
     <div className={"rounded-xl p-6 my-8 border-l-4 " + styles[variant]}>

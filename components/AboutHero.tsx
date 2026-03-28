@@ -13,7 +13,7 @@ export default function AboutHero() {
           Welcome to Prayas Graphics, Nagpur's leading manufacturer of premium signboards and display solutions. We believe your brand deserves to shine...
         </p>
         <div className="mt-10">
-          <Link href="/services" className="inline-flex w-fit items-center justify-center rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 md:py-4 md:text-base">
+          <Link href="/services" className="inline-flex w-fit items-center justify-center rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#800080]/90 md:py-4 md:text-base">
             Explore our solutions
           </Link>
         </div>

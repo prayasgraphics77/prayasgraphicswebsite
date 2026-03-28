@@ -30,7 +30,7 @@ export default function HowItWorks() {
   return (
     <section className="mx-auto w-full max-w-7xl px-4 py-24 md:px-6 border-t border-zinc-100">
       <div className="text-center mb-16">
-        <div className="mx-auto inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600 mb-6">
+        <div className="mx-auto inline-flex items-center gap-2 rounded-full bg-[#800080]/5 px-3 py-1 text-xs font-semibold text-[#800080] mb-6">
           Simple Process
         </div>
         <h2 className="font-heading text-3xl font-extrabold tracking-tight md:text-5xl text-zinc-900 mb-4">
@@ -55,10 +55,10 @@ export default function HowItWorks() {
             className="flex flex-col items-center text-center relative"
           >
             <div className="h-24 w-24 rounded-full bg-white shadow-lg border border-zinc-100 flex items-center justify-center mb-6 relative z-10 mx-auto">
-              <div className="absolute -top-2 -right-2 h-8 w-8 rounded-full bg-blue-600 border-4 border-white flex items-center justify-center text-white text-sm font-bold shadow-sm">
+              <div className="absolute -top-2 -right-2 h-8 w-8 rounded-full bg-[#800080] border-4 border-white flex items-center justify-center text-white text-sm font-bold shadow-sm">
                 {idx + 1}
               </div>
-              <step.icon className="h-8 w-8 text-blue-600" />
+              <step.icon className="h-8 w-8 text-[#800080]" />
             </div>
             <h3 className="text-xl font-bold font-heading text-zinc-900 mb-3">{step.title}</h3>
             <p className="text-zinc-500 font-medium px-4 leading-relaxed">{step.description}</p>

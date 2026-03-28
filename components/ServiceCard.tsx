@@ -25,13 +25,30 @@ export default function ServiceCard({
 }: ServiceCardProps) {
   const [modalOpen, setModalOpen] = useState(false);
 
-  const handleAddToQuote = () => {
+  const handleAddToQuote = (e?: React.MouseEvent | React.KeyboardEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     setModalOpen(true);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      handleAddToQuote(e);
+    }
   };
 
   return (
     <>
-      <div className="group relative flex flex-col overflow-hidden rounded-[20px] border border-zinc-200 bg-white hover:border-zinc-300 transition-colors h-full">
+      <div 
+        onClick={() => handleAddToQuote()}
+        onKeyDown={handleKeyDown}
+        role="button"
+        tabIndex={0}
+        className="group relative flex flex-col overflow-hidden rounded-[20px] border border-zinc-200 bg-white hover:border-zinc-400 hover:shadow-md transition-all h-full cursor-pointer"
+        aria-label={`View details and get a quote for ${serviceName}`}
+      >
         <div className="relative flex aspect-4/3 items-center justify-center bg-zinc-100 w-full overflow-hidden">
           {badges && badges.length > 0 && (
             <div className="absolute left-4 right-4 top-4 flex justify-between z-20">
@@ -70,7 +87,10 @@ export default function ServiceCard({
 
           <div className="absolute bottom-0 left-0 right-0 translate-y-full opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 px-4 pb-4 z-20">
             <button
-              onClick={handleAddToQuote}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleAddToQuote();
+              }}
               className="flex w-full items-center justify-center gap-2 rounded-full bg-zinc-900 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:bg-zinc-700 active:scale-[0.97]"
               aria-label={`Get a quote for ${serviceName}`}
             >
@@ -86,11 +106,14 @@ export default function ServiceCard({
           <div className="flex items-center justify-between gap-2 mt-4 pt-4 border-t border-zinc-50">
             <span className="text-sm font-semibold text-zinc-600">Price on Request</span>
             <button
-              onClick={handleAddToQuote}
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-zinc-200 text-zinc-500 transition-all hover:border-zinc-900 hover:bg-zinc-900 hover:text-white sm:hidden"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleAddToQuote();
+              }}
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-zinc-200 text-zinc-500 transition-all hover:border-zinc-900 hover:bg-zinc-900 hover:text-white"
               aria-label={`Get a quote for ${serviceName}`}
             >
-              <ShoppingBag className="h-3.5 w-3.5" />
+              <ShoppingBag className="h-4 w-4" />
             </button>
           </div>
         </div>

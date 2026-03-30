@@ -1,22 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
-const placeholderItems = [1, 2, 3, 4];
+interface ClientLogo {
+  src: string;
+  alt: string;
+  name: string;
+}
+
+const allLogos: ClientLogo[] = [
+  { src: "/clients/logo (1).jpeg", alt: "Chola Logo", name: "Chola" },
+  { src: "/clients/logo (2).jpeg", alt: "SMFG India Credit Logo", name: "SMFG India Credit" },
+  { src: "/clients/logo (3).jpeg", alt: "Fortune Logo", name: "Fortune" },
+  { src: "/clients/logo (4).jpeg", alt: "NoBroker Logo", name: "NoBroker" },
+  { src: "/clients/logo (5).jpeg", alt: "PNB Logo", name: "PNB" },
+  { src: "/clients/logo (6).jpeg", alt: "QuickClean Logo", name: "QuickClean" },
+  { src: "/clients/logo (7).jpeg", alt: "Cube Highways Trust Logo", name: "Cube Highways Trust" },
+  { src: "/clients/logo (8).jpeg", alt: "EazyDiner Logo", name: "EazyDiner" },
+  { src: "/clients/logo (9).jpeg", alt: "Samsung Logo", name: "Samsung" },
+  { src: "/clients/logo (10).jpeg", alt: "Terex Logo", name: "Terex" },
+  { src: "/clients/logo (11).jpeg", alt: "Mankind Logo", name: "Mankind" },
+];
+
+const column1Logos = [allLogos[0], allLogos[3], allLogos[6], allLogos[9]];
+const column2Logos = [allLogos[1], allLogos[4], allLogos[7], allLogos[10]];
+const column3Logos = [allLogos[2], allLogos[5], allLogos[8], allLogos[10]];
 
 function Column({
-  items,
+  logos,
   reverse = false,
   className,
-  speed = 20,
+  speed = 25,
 }: {
-  items: number[];
+  logos: ClientLogo[];
   reverse?: boolean;
   className?: string;
   speed?: number;
 }) {
   return (
-    <div className={`relative flex flex-col gap-4 min-w-[140px] sm:min-w-[180px] md:min-w-[220px] ${className || ""}`}>
+    <div
+      className={`relative flex flex-col gap-6 min-w-[150px] sm:min-w-[170px] md:min-w-[210px] ${className || ""}`}
+    >
       <motion.div
         animate={{ y: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
         transition={{
@@ -24,15 +49,30 @@ function Column({
           ease: "linear",
           repeat: Infinity,
         }}
-        className="flex flex-col gap-4"
+        className="flex flex-col gap-6"
       >
-        {/* Render items twice to create the seamless infinite scroll effect */}
-        {[...items, ...items].map((_, i) => (
-          <div
-            key={i}
-            className="group relative aspect-4/3 w-full overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
+        {[...logos, ...logos, ...logos, ...logos].map((logo, i) => (
+          <motion.div
+            key={`${logo.name}-${i}`}
+            whileHover={{ 
+              scale: 1.05,
+              y: -5,
+              transition: { type: "spring", stiffness: 400, damping: 10 }
+            }}
+            className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg cursor-pointer transition-all duration-300 hover:shadow-purple-500/30 hover:border-purple-400/50"
           >
-          </div>
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10 pointer-events-none z-0" />
+            <div className="relative z-10 w-full h-full flex items-center justify-center p-6 bg-white/95 transition-colors duration-300 group-hover:bg-white">
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                fill
+                sizes="(max-width: 640px) 150px, (max-width: 768px) 170px, 210px"
+                className="object-contain p-4 transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          </motion.div>
         ))}
       </motion.div>
     </div>
@@ -41,59 +81,68 @@ function Column({
 
 export default function StorySection() {
   return (
-    <section className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-8 md:flex-row md:p-6 lg:p-8">
-      {/* Left Section: Information and Call to Action */}
-      <div className="flex flex-1 flex-col justify-center rounded-[32px] bg-white p-8 shadow-sm md:p-14">
-        <h2 className="max-w-md font-heading text-4xl font-extrabold leading-tight tracking-tight text-zinc-900 md:text-5xl lg:text-[56px]">
+    <section className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-8 md:flex-row md:py-12 lg:p-8">
+      <div className="flex flex-1 flex-col items-start justify-center rounded-[40px] bg-white p-8 text-left shadow-sm ring-1 ring-zinc-100 md:aspect-square md:p-14 lg:p-16 xl:p-20">
+        <div className="mb-6 flex items-center gap-3">
+          <span className="h-px w-10 bg-purple-500/50" />
+          <span className="text-sm font-bold uppercase tracking-widest text-purple-600">
+            Professional Printing Excellence
+          </span>
+        </div>
+        <h2 className="max-w-md font-heading text-3xl font-bold leading-tight tracking-tight text-zinc-900 md:text-4xl lg:text-5xl">
           Let Your Signage Tell Your Brand&apos;s Story!
         </h2>
-        <p className="mt-6 max-w-sm text-base leading-relaxed text-zinc-500">
-          From vibrant art prints to minimalist designs, we offer a diverse collection perfect for home, office, or gifting. Make a lasting impression today.
+        <p className="mt-6 max-w-sm text-base leading-relaxed text-zinc-500 md:text-lg">
+          Partnering with leading brands to create impactful visual identities. High-precision printing architecture for modern commercial signage.
         </p>
-        <div className="mt-10">
-          <button className="flex w-fit items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-white transition-all hover:bg-[#800080]/90 hover:scale-[1.02] active:scale-95">
-            Explore Our Collection
-          </button>
-        </div>
       </div>
 
-      {/* Right Section: Animated Dynamic Carousel */}
-      <div className="relative flex flex-1 items-center justify-center overflow-hidden rounded-[32px] bg-zinc-100 p-8 shadow-sm min-h-[500px] md:min-h-[600px] lg:min-h-[640px]">
-        {/* Animated Background Grid */}
+      <div className="relative flex flex-1 items-center justify-center overflow-hidden rounded-[40px] bg-zinc-950 p-6 shadow-2xl md:aspect-square">
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
+          style={{ backgroundImage: `radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)`, backgroundSize: `32px 32px` }}
+        />
+
         <div
-          className="absolute inset-0 flex items-center justify-center gap-4 px-4 opacity-80 mask-[linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+          className="absolute inset-0 flex items-center justify-center gap-4 px-4 opacity-40 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]"
           aria-hidden="true"
         >
-          {/* Column 1 */}
           <Column
-            items={placeholderItems}
+            logos={column1Logos}
             reverse={false}
-            speed={25}
-            className="translate-y-[-10%]"
+            speed={35}
+            className="mt-[-20%]"
           />
-          {/* Column 2 */}
           <Column
-            items={placeholderItems}
+            logos={column2Logos}
             reverse={true}
-            speed={20}
-            className="translate-y-[10%]"
+            speed={30}
+            className="mt-[10%]"
           />
-          {/* Column 3 (Hidden on smaller screens to prevent crowding) */}
           <Column
-            items={placeholderItems}
+            logos={column3Logos}
             reverse={false}
-            speed={28}
-            className="hidden sm:flex translate-y-[-5%]"
+            speed={40}
+            className="hidden lg:flex mt-[-15%]"
           />
         </div>
 
-        {/* Center Static Overlay */}
-        <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-          <div className="flex aspect-4/3 w-[280px] md:w-[320px] items-center justify-center rounded-2xl bg-white shadow-2xl border-12 border-white md:rounded-3xl">
-            <h3 className="font-heading text-4xl font-extrabold tracking-tight text-zinc-900">
-              Prayas Graphics
-            </h3>
-          </div>
+        <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+          <motion.div 
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="group relative flex aspect-square w-[150px] md:w-[200px] lg:w-[220px] items-center justify-center rounded-[48px] bg-white shadow-[0_10px_40px_rgba(0,0,0,0.5)] border-[6px] border-zinc-900/30 backdrop-blur-3xl"
+          >
+            <div className="relative w-24 h-24 md:w-36 md:h-36 lg:w-40 lg:h-40">
+              <Image
+                src="/Prayas-Graphics-Logo.svg"
+                alt="Prayas Graphics Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

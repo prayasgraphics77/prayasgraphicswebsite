@@ -25,21 +25,23 @@ export async function POST(request: Request) {
     const { items, totalEstimatedPrice, customerDetails } = validatedData;
 
     // 1. Log to Supabase
-    const { error: dbError } = await supabase
-      .from("customer_enquiries")
-      .insert({
-        customer_name: customerDetails.fullName,
-        customer_whatsapp: customerDetails.whatsapp,
-        customer_city: customerDetails.city,
-        items,
-        total_estimated_rate: totalEstimatedPrice,
-        status: "pending",
-      });
+    if (supabase) {
+      const { error: dbError } = await supabase
+        .from("customer_enquiries")
+        .insert({
+          customer_name: customerDetails.fullName,
+          customer_whatsapp: customerDetails.whatsapp,
+          customer_city: customerDetails.city,
+          items,
+          total_estimated_rate: totalEstimatedPrice,
+          status: "pending",
+        });
 
-    if (dbError) {
-      console.error("Supabase Error:", dbError);
-      // We continue even if DB fails, to ensure email is still sent? 
-      // Or fail fast? Let's log it and continue for now.
+      if (dbError) {
+        console.error("Supabase Error:", dbError);
+      }
+    } else {
+      console.warn("Supabase not initialized. Skipping database log.");
     }
 
     // 2. Send email via Resend

@@ -40,7 +40,7 @@ export default function AboutStory() {
          {/* Placeholder for the framed poster in About Story */}
          <div className="relative aspect-3/4 w-3/4 max-w-[280px] shadow-2xl transition-transform duration-500 hover:scale-105 border-12 md:border-16 border-zinc-900 bg-white">
             <div className="absolute inset-0 bg-zinc-900/5 m-3 md:m-4 flex items-center justify-center overflow-hidden">
-               <div className="h-full w-full bg-zinc-900"></div>
+               <div className="h-full w-full bg-cover bg-center" style={{ backgroundImage: "url('/about/prayasgraphicsshop.jpeg')" }}></div>
             </div>
          </div>
          {/* Drop shadow effect under frame */}

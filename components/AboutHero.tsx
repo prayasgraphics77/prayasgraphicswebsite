@@ -22,7 +22,7 @@ export default function AboutHero() {
       <div className="relative flex flex-1 overflow-hidden rounded-[32px] shadow-sm min-h-[300px] md:min-h-[500px]">
         <div className="absolute inset-0 bg-zinc-200">
            {/* Placeholder for About Hero Image */}
-           <div className="h-full w-full bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?q=80&w=2000&auto=format&fit=crop')" }}></div>
+           <div className="h-full w-full bg-cover bg-center" style={{ backgroundImage: "url('/about/prayasgraphicsshop.jpeg')" }}></div>
         </div>
       </div>
     </section>

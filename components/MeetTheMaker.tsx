@@ -6,7 +6,7 @@ export default function MeetTheMaker() {
       <div className="relative flex flex-1 overflow-hidden rounded-[32px] shadow-sm min-h-[400px] md:min-h-[500px]">
          <div className="absolute inset-0 bg-zinc-200">
              {/* Placeholder for Maker Image */}
-             <div className="h-full w-full bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2000&auto=format&fit=crop')" }}></div>
+             <div className="h-full w-full bg-cover bg-center" style={{ backgroundImage: "url('/about/rohitmore.jpeg')" }}></div>
          </div>
       </div>
 

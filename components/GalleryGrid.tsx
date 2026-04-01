@@ -53,41 +53,41 @@ export default function GalleryGrid() {
       : galleryItems.filter((item) => item.category === activeCategory);
 
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 pt-10 pb-8 md:px-6">
+    <section className="mx-auto w-full max-w-7xl px-4 pt-4 sm:pt-10 pb-8 md:px-6">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="relative overflow-hidden rounded-[40px] bg-white border border-zinc-100 p-8 md:p-16 mb-12 shadow-sm"
+        className="relative overflow-hidden rounded-[32px] md:rounded-[40px] bg-white border border-zinc-100 p-6 sm:p-10 md:p-16 mb-8 md:mb-12 shadow-sm"
       >
         <div className="absolute top-0 right-0 -mr-20 -mt-20 h-64 w-64 rounded-full bg-purple-50 blur-3xl opacity-50" />
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 h-64 w-64 rounded-full bg-blue-50 blur-3xl opacity-50" />
         
         <div className="relative z-10">
-          <div className="inline-flex items-center gap-2 rounded-full bg-zinc-100 px-4 py-1.5 text-[13px] font-bold text-zinc-600 mb-6 tracking-tight">
+          <div className="inline-flex items-center gap-2 rounded-full bg-zinc-100 px-3 py-1 sm:px-4 sm:py-1.5 text-[11px] sm:text-[13px] font-bold text-zinc-600 mb-4 sm:mb-6 tracking-tight">
             <span className="flex h-2 w-2 rounded-full bg-[#800080] animate-pulse" />
-            Manufacturing Excellence
+            Product Gallery
           </div>
-          <h1 className="font-heading text-4xl md:text-6xl font-black leading-[1.1] tracking-tight text-zinc-900 mb-6">
-            Our Work <span className="text-zinc-400">Gallery</span>
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-6xl font-black leading-[1.1] tracking-tight text-zinc-900 mb-4 sm:mb-6">
+            The Signage <span className="text-zinc-400">Vault</span>
           </h1>
-          <p className="max-w-2xl text-lg md:text-xl font-medium text-zinc-500 leading-relaxed">
-            From iconic building facades to high-impact retail signage, explore our portfolio of precision-engineered visual solutions across Nagpur and Central India.
+          <p className="max-w-2xl text-base sm:text-lg md:text-xl font-medium text-zinc-500 leading-relaxed">
+            From precision-cut ACP letters to custom-built LED displays, every project in this gallery represents our commitment to manufacturing excellence and durable visual branding.
           </p>
         </div>
       </motion.div>
 
       {/* Filter Toolbar */}
-      <div className="sticky top-24 z-30 mb-8 flex flex-wrap items-center justify-between gap-4 rounded-[28px] bg-white/70 border border-white/20 p-2 backdrop-blur-xl shadow-xl ring-1 ring-zinc-950/5">
-        <div className="flex flex-wrap gap-1.5 p-1">
+      <div className="sticky top-20 sm:top-24 z-30 mb-8 flex items-center justify-between gap-4 rounded-[28px] bg-white/70 border border-white/20 p-2 backdrop-blur-xl shadow-xl ring-1 ring-zinc-950/5">
+        <div className="no-scrollbar flex w-full overflow-x-auto gap-1 sm:gap-1.5 p-1 md:w-auto md:flex-wrap">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={cn(
-                "relative rounded-2xl px-5 py-2.5 text-sm font-bold transition-all duration-300 overflow-hidden",
+                "relative flex-shrink-0 rounded-2xl px-4 py-2 sm:px-5 sm:py-2.5 text-[13px] sm:text-sm font-bold transition-all duration-300 overflow-hidden",
                 activeCategory === cat
                   ? "text-white shadow-md"
                   : "text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900"
@@ -104,8 +104,8 @@ export default function GalleryGrid() {
             </button>
           ))}
         </div>
-        <div className="hidden md:flex items-center gap-2 pr-6">
-           <p className="text-[11px] font-bold text-zinc-400 uppercase tracking-widest">
+        <div className="hidden lg:flex items-center gap-2 pr-6 border-l border-zinc-200 ml-4 pl-6">
+           <p className="text-[11px] font-bold text-zinc-400 uppercase tracking-widest whitespace-nowrap">
              {filtered.length} Projects
            </p>
         </div>
@@ -114,7 +114,7 @@ export default function GalleryGrid() {
       {/* Grid Container */}
       <motion.div
         layout
-        className="grid grid-cols-2 gap-4 md:grid-cols-4 auto-rows-[220px] md:auto-rows-[280px]"
+        className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 auto-rows-[160px] sm:auto-rows-[220px] md:auto-rows-[260px] lg:auto-rows-[280px]"
       >
         <AnimatePresence mode="popLayout">
           {filtered.map((item, index) => (
@@ -130,7 +130,7 @@ export default function GalleryGrid() {
                 ease: [0.23, 1, 0.32, 1] 
               }}
               className={cn(
-                "group relative cursor-pointer overflow-hidden rounded-[24px] md:rounded-[32px] border border-zinc-100 shadow-xs transition-all duration-500 hover:shadow-2xl hover:shadow-zinc-950/10 hover:border-zinc-200",
+                "group relative cursor-pointer overflow-hidden rounded-[20px] sm:rounded-[24px] md:rounded-[32px] border border-zinc-100 shadow-xs transition-all duration-500 hover:shadow-2xl hover:shadow-zinc-950/10 hover:border-zinc-200",
                 aspectClasses[item.aspect] ?? ""
               )}
               onClick={() => setLightboxItem(item)}
@@ -140,32 +140,34 @@ export default function GalleryGrid() {
                   src={item.src}
                   alt={item.title}
                   fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 
                 {/* Visual Polish Overlay */}
-                <div className="absolute inset-0 bg-linear-to-t from-zinc-950/90 via-zinc-950/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-linear-to-t from-zinc-950/90 via-zinc-950/20 to-transparent opacity-0 sm:opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 
                 {/* Content Overlay */}
-                <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-7 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                   <div className="flex items-center gap-2 mb-2">
-                     <span className="h-1.5 w-1.5 rounded-full bg-[#800080]" />
-                     <span className="text-[10px] font-bold uppercase tracking-wider text-white/70">
-                       {item.category}
-                     </span>
+                <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-5 md:p-7 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                   <div className="flex items-center gap-2 mb-1 sm:mb-2 text-[10px] font-bold uppercase tracking-wider text-white/70">
+                     <span className="h-1 sm:h-1.5 w-1 sm:w-1.5 rounded-full bg-[#800080]" />
+                     {item.category}
                    </div>
-                   <h3 className="font-heading text-lg md:text-xl font-bold text-white leading-tight">
+                   <h3 className="font-heading text-base sm:text-lg md:text-xl font-bold text-white leading-tight">
                      {item.title}
                    </h3>
-                   <div className="mt-4 flex items-center gap-2 text-white/50 text-xs font-semibold group-hover:text-white/80 transition-colors">
-                      View Project <ArrowRight className="h-3 w-3" />
-                   </div>
+                </div>
+
+                {/* Mobile Always-Visible Category Indicator - Hidden on Hover */}
+                <div className="absolute left-3 top-3 group-hover:hidden sm:hidden">
+                    <span className="rounded-full bg-black/40 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white backdrop-blur-md border border-white/10">
+                      {item.category}
+                    </span>
                 </div>
 
                 {/* Zoom indicator */}
-                <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 opacity-0 backdrop-blur-md transition-all duration-300 group-hover:opacity-100 border border-white/20 hover:bg-white/20">
-                  <ZoomIn className="h-5 w-5 text-white" />
+                <div className="absolute right-3 top-3 sm:right-4 sm:top-4 flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/10 opacity-0 backdrop-blur-md transition-all duration-300 group-hover:opacity-100 border border-white/20 hover:bg-white/20">
+                  <ZoomIn className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                 </div>
               </div>
             </motion.div>
@@ -180,7 +182,7 @@ export default function GalleryGrid() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-zinc-950/98 p-4 backdrop-blur-2xl"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-zinc-950/98 p-3 sm:p-4 backdrop-blur-2xl"
             onClick={() => setLightboxItem(null)}
           >
             <motion.div
@@ -188,7 +190,7 @@ export default function GalleryGrid() {
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 40, opacity: 0 }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="relative aspect-auto max-h-[90vh] w-full max-w-5xl overflow-hidden rounded-[40px] bg-zinc-900 shadow-2xl border border-white/5"
+              className="relative aspect-auto max-h-[90dvh] w-full max-w-5xl overflow-hidden rounded-[28px] sm:rounded-[40px] bg-zinc-900 shadow-2xl border border-white/5"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative aspect-video w-full bg-zinc-800">
@@ -200,26 +202,26 @@ export default function GalleryGrid() {
                   priority
                 />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-zinc-950 via-zinc-950/50 to-transparent p-8 md:p-14">
-                <div className="flex items-center gap-3 mb-4">
-                   <div className="h-2 w-2 rounded-full bg-[#800080]" />
-                   <span className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
+              <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-zinc-950 via-zinc-950/60 to-transparent p-6 sm:p-8 md:p-14">
+                <div className="flex items-center gap-3 mb-2 sm:mb-4">
+                   <div className="h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-[#800080]" />
+                   <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
                      {lightboxItem.category}
                    </span>
                 </div>
-                <h2 className="font-heading text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
+                <h2 className="font-heading text-2xl sm:text-4xl md:text-6xl font-black text-white mb-3 sm:mb-6 tracking-tight">
                   {lightboxItem.title}
                 </h2>
-                <p className="text-zinc-400 text-base md:text-lg max-w-xl leading-relaxed">
+                <p className="text-zinc-400 text-sm sm:text-base md:text-lg max-w-xl leading-relaxed line-clamp-2 sm:line-clamp-none">
                   A comprehensive showcase of our premium {lightboxItem.category} project. This implementation features high-grade materials and precision engineering to ensure lasting impact and durability.
                 </p>
               </div>
               
               <button
                 onClick={() => setLightboxItem(null)}
-                className="absolute right-8 top-8 flex h-14 w-14 items-center justify-center rounded-full bg-white/5 text-white backdrop-blur-xl transition-all hover:bg-white/10 hover:scale-110 active:scale-95 border border-white/10 group"
+                className="absolute right-4 top-4 sm:right-8 sm:top-8 flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-white/5 text-white backdrop-blur-xl transition-all hover:bg-white/10 hover:scale-110 active:scale-95 border border-white/10 group"
               >
-                <X className="h-7 w-7 transition-transform group-hover:rotate-90" />
+                <X className="h-5 w-5 sm:h-7 sm:w-7 transition-transform group-hover:rotate-90" />
               </button>
             </motion.div>
           </motion.div>

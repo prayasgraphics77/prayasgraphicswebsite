@@ -3,7 +3,7 @@ import { supabase } from "@/lib/supabase";
 import { Resend } from "resend";
 import { z } from "zod";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || "missing_key");
 
 const enquirySchema = z.object({
   items: z.array(z.any()),
@@ -24,9 +24,10 @@ export async function POST(request: Request) {
     
     const { items, totalEstimatedPrice, customerDetails } = validatedData;
 
+    let dbError: any = null;
     // 1. Log to Supabase
     if (supabase) {
-      const { error: dbError } = await supabase
+      const { error } = await supabase
         .from("customer_enquiries")
         .insert({
           customer_name: customerDetails.fullName,
@@ -37,7 +38,8 @@ export async function POST(request: Request) {
           status: "pending",
         });
 
-      if (dbError) {
+      if (error) {
+        dbError = error;
         console.error("Supabase Error:", dbError);
       }
     } else {
@@ -83,7 +85,7 @@ export async function POST(request: Request) {
 
     const { data: emailData, error: emailError } = await resend.emails.send({
       from: "Prayas Graphics <onboarding@resend.dev>", // Replace with verified domain if available
-      to: "prayasgraphics@gmail.com", // Prayas Graphics official email
+      to: "prayasgraphics77@gmail.com", // Prayas Graphics official email
       subject: `New Enquiry from ${customerDetails.fullName} - ₹${totalEstimatedPrice}`,
       html: emailHtml,
     });
@@ -95,6 +97,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ 
       success: true, 
       message: "Quote submitted successfully.",
+      debug_supabase_null: !supabase,
+      debug_db_error: typeof dbError !== 'undefined' ? dbError : null,
       enquiryData: {
         customerName: customerDetails.fullName,
         whatsapp: customerDetails.whatsapp,

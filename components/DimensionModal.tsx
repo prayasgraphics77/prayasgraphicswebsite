@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, AlertCircle } from "lucide-react";
 import type { DimensionUnit } from "@/lib/cart-context";
 import { computeArea } from "@/lib/quote-utils";
 
@@ -36,9 +36,14 @@ export default function DimensionModal({
   const h = parseFloat(height) || 0;
   const area = w > 0 && h > 0 ? computeArea(w, h, unit) : 0;
 
+  let errorMessage: string | null = null;
+  if (serviceName === "Acrylic ACP Signboard" && area > 0 && area < 32) {
+    errorMessage = "Minimum size required is 8x4 feet (32 sq.ft) or more.";
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (w <= 0 || h <= 0) return;
+    if (w <= 0 || h <= 0 || !!errorMessage) return;
     onConfirm({
       width: w,
       height: h,
@@ -134,6 +139,13 @@ export default function DimensionModal({
                 </div>
               </div>
 
+              {serviceName === "Acrylic ACP Signboard" && (
+                <div className="flex items-start gap-2 rounded-xl bg-zinc-50 p-3 text-xs md:text-sm font-medium text-zinc-600 border border-zinc-200">
+                  <span className="text-zinc-400 shrink-0 mt-0.5">ℹ️</span>
+                  <span>Note: Acrylic ACP Signboard in 10 by 4 sheet only 200 inches of letter would be provided if your calculation exceeds that more charges would be added.</span>
+                </div>
+              )}
+
               <div>
                 <label className="mb-1 block text-sm font-medium text-zinc-700">
                   Unit
@@ -165,9 +177,17 @@ export default function DimensionModal({
               </div>
 
               {area > 0 && (
-                <p className="rounded-xl bg-zinc-100 px-4 py-2.5 text-sm font-semibold text-zinc-800">
-                  Area: {area.toFixed(2)} sq.ft
-                </p>
+                <div className="flex flex-col gap-2">
+                  <p className="rounded-xl bg-zinc-100 px-4 py-2.5 text-sm font-semibold text-zinc-800">
+                    Area: {area.toFixed(2)} sq.ft
+                  </p>
+                  {errorMessage && (
+                    <div className="flex items-start gap-2 rounded-xl bg-red-50 px-4 py-2.5 text-sm font-medium text-red-600">
+                      <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
+                </div>
               )}
 
               <div>
@@ -194,7 +214,7 @@ export default function DimensionModal({
                 </button>
                 <button
                   type="submit"
-                  disabled={area <= 0}
+                  disabled={area <= 0 || !!errorMessage}
                   className="flex-1 rounded-full bg-zinc-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-zinc-800 disabled:opacity-50"
                 >
                   Add to Quote

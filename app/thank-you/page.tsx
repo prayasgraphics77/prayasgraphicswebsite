@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default function ThankYouPage() {
-  const whatsappNumber = "919876543210"; // Placeholder for client number
+  const whatsappNumber = "918788270495"; 
   const whatsappMessage = encodeURIComponent("Hi, I just submitted an enquiry on the website and wanted to follow up.");
   
   return (

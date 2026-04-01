@@ -62,13 +62,12 @@ export default function CartPanel() {
         const footer = `\n*TOTAL ESTIMATED RATE: ₹${totalEstimatedPrice.toLocaleString('en-IN')}*\n\n_Please confirm the design files and final quote._`;
         
         const fullMessage = encodeURIComponent(messageHeader + customerInfo + itemsList + footer);
-        const whatsappUrl = `https://wa.me/919545465555?text=${fullMessage}`; // Replaced with Prayas Graphics WhatsApp
+        const whatsappUrl = `https://wa.me/918788270495?text=${fullMessage}`; // Updated with Prayas Graphics WhatsApp
 
         clearQuote();
         closeCart();
         
-        // Open WhatsApp in new tab and redirect to thank-you
-        window.open(whatsappUrl, "_blank");
+        // window.open(whatsappUrl, "_blank"); // Disabled until premium is paid
         router.push("/thank-you");
       } else {
         throw new Error(result.error || "Failed to submit");

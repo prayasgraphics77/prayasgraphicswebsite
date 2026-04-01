@@ -15,6 +15,7 @@ export default function NmcRulesPage() {
       metaDescription={metadata.description as string}
       eyebrow="Legal Guide · NMC Regulations"
       slug="nmc-signboard-rules-nagpur-2025"
+      image="/blog/NMC Signboard Rules Nagpur 2025 — What Every Shop Owner Must Know Before Installing.png"
       date="2025-03-24T00:00:00.000Z"
       readTime="9 min read"
       lede="NMC can fine and forcibly remove unauthorised signboards in Nagpur. Before your signage is installed, understand the permission process, size limits, and annual licence requirements."

@@ -1,11 +1,31 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Search, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+const heroImages = [
+  { src: "/hero/hero (1).jpg", alt: "Premium Signage Showcase 1" },
+  { src: "/hero/hero (2).png", alt: "Premium Signage Showcase 2" },
+  { src: "/hero/hero (3).webp", alt: "Premium Signage Showcase 3" },
+  { src: "/hero/hero (4).webp", alt: "Premium Signage Showcase 4" },
+  { src: "/hero/hero (5).webp", alt: "Premium Signage Showcase 5" },
+  { src: "/hero/hero (6).webp", alt: "Premium Signage Showcase 6" },
+  { src: "/hero/hero (7).webp", alt: "Premium Signage Showcase 7" },
+];
+
 export default function HeroSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 pt-24 pb-8 md:flex-row md:px-6">
       <motion.div
@@ -74,11 +94,27 @@ export default function HeroSection() {
         className="flex min-h-[450px] flex-1 flex-col justify-between overflow-hidden rounded-[24px] bg-white p-6 shadow-sm md:min-h-[600px]"
       >
         <div className="flex flex-1 items-center justify-center">
-          {/* Main Showcase Image Placeholder */}
-          <div className="relative aspect-3/4 w-2/3 max-w-[320px] shadow-2xl transition-transform duration-500 hover:scale-105">
-            <div className="absolute inset-0 bg-zinc-100 flex items-center justify-center overflow-hidden">
-               <div className="h-full w-full bg-linear-to-tr from-zinc-200 to-zinc-50" />
-            </div>
+          {/* Main Showcase Image Carousel */}
+          <div className="relative aspect-3/4 w-2/3 max-w-[320px] shadow-2xl transition-transform duration-500 hover:scale-[1.02] rounded-[16px] overflow-hidden bg-zinc-100">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={heroImages[activeIndex].src}
+                  alt={heroImages[activeIndex].alt}
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 66vw, 320px"
+                />
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
 
@@ -88,17 +124,27 @@ export default function HeroSection() {
             <span className="text-sm font-semibold text-zinc-800">Custom Built</span>
           </div>
 
-          <div className="grid grid-cols-4 gap-3">
-            {[1, 2, 3, 4].map((i) => (
+          <div className="grid grid-cols-7 gap-2">
+            {heroImages.map((img, i) => (
               <div
                 key={i}
+                onClick={() => setActiveIndex(i)}
                 className={cn(
-                  "relative aspect-square cursor-pointer overflow-hidden rounded-xl border-2 transition-colors",
-                  i === 1 ? "border-zinc-800 p-1" : "border-transparent hover:border-zinc-200"
+                  "relative aspect-square cursor-pointer overflow-hidden rounded-lg border-2 transition-colors duration-300",
+                  activeIndex === i ? "border-zinc-800 p-0.5" : "border-transparent hover:border-zinc-200"
                 )}
               >
-                <div className="h-full w-full bg-zinc-100 rounded-lg overflow-hidden">
-                   <div className="h-full w-full bg-linear-to-br from-zinc-200 to-zinc-50" />
+                <div className="relative h-full w-full rounded-lg overflow-hidden bg-zinc-100">
+                  <Image
+                    src={img.src}
+                    alt={`Thumbnail ${img.alt}`}
+                    fill
+                    className={cn(
+                      "object-cover transition-transform duration-500",
+                      activeIndex !== i && "hover:scale-110"
+                    )}
+                    sizes="(max-width: 768px) 33vw, 20vw"
+                  />
                 </div>
               </div>
             ))}

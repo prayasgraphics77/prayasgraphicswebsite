@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "@/components/Footer";
 import StructuredData from "./StructuredData";
 import Link from "next/link";
+import Image from "next/image";
 
 
 export interface BlogPostLayoutProps {
@@ -13,6 +14,7 @@ export interface BlogPostLayoutProps {
   readTime: string;
   location?: string;
   lede: string;
+  image?: string;
   children: React.ReactNode;
   keywords?: string[];
   toc?: { title: string; id: string }[];
@@ -27,6 +29,7 @@ export default function BlogPostLayout({
   readTime,
   location = "Nagpur, Maharashtra",
   lede,
+  image,
   children,
   keywords = [],
   toc = [],
@@ -59,6 +62,11 @@ export default function BlogPostLayout({
           {/* Main Article Content */}
           <div className="art-content min-w-0">
             <header className="mb-10">
+              {image && (
+                <div className="relative aspect-21/9 w-full mb-8 overflow-hidden rounded-2xl bg-zinc-100">
+                  <Image src={image} alt={title} fill className="object-cover" />
+                </div>
+              )}
               <p className="text-[11px] font-bold tracking-widest uppercase text-red-600 mb-3 block">
                 {eyebrow}
               </p>

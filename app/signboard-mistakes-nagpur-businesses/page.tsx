@@ -15,6 +15,7 @@ export default function SignboardMistakesPage() {
       metaDescription={metadata.description as string}
       eyebrow="Business Advice · Signage"
       slug="signboard-mistakes-nagpur-businesses"
+      image="/blog/5 Costly Signboard Mistakes Nagpur Businesses Make — And How to Avoid Every One.png"
       date="2025-03-24T00:00:00.000Z"
       readTime="8 min read"
       lede="Over 500+ signage installations across Nagpur have shown us the same mistakes again and again. Here's what they are — and exactly how to avoid paying for them twice."

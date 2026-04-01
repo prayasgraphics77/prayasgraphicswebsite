@@ -1,64 +1,7 @@
 import Footer from "@/components/Footer";
 import Link from "next/link";
-
-const blogPosts = [
-  {
-    title: "Signboard Prices in Nagpur — The Honest 2025 Cost Guide",
-    category: "Pricing Guide",
-    date: "March 2025",
-    slug: "/signboard-price-nagpur-2025-guide",
-    imagePlaceholder: "bg-linear-to-tr from-red-600 to-rose-400",
-  },
-  {
-    title: "5 Costly Signboard Mistakes Nagpur Businesses Make",
-    category: "Business Advice",
-    date: "March 2025",
-    slug: "/signboard-mistakes-nagpur-businesses",
-    imagePlaceholder: "bg-linear-to-br from-zinc-800 to-zinc-900",
-  },
-  {
-    title: "ACP vs Acrylic vs Flex — Which Survives Nagpur's Weather?",
-    category: "Materials",
-    date: "March 2025",
-    slug: "/acp-vs-acrylic-vs-flex-signboard-nagpur",
-    imagePlaceholder: "bg-linear-to-bl from-[#800080] to-indigo-900",
-  },
-  {
-    title: "Best Signboard Ideas for Restaurants & Cafes in Nagpur",
-    category: "Food & Beverage",
-    date: "March 2025",
-    slug: "/restaurant-cafe-signboard-ideas-nagpur",
-    imagePlaceholder: "bg-linear-to-tl from-green-600 to-emerald-400",
-  },
-  {
-    title: "NMC Signboard Rules Nagpur 2025 — Essential Guide",
-    category: "Legal Guide",
-    date: "March 2025",
-    slug: "/nmc-signboard-rules-nagpur-2025",
-    imagePlaceholder: "bg-linear-to-t from-purple-600 to-fuchsia-400",
-  },
-  {
-    title: "Golden Acrylic vs Stainless Steel Letters in Nagpur",
-    category: "Luxury Signage",
-    date: "March 2025",
-    slug: "/golden-acrylic-vs-ss-letters-nagpur",
-    imagePlaceholder: "bg-linear-to-b from-amber-400 to-yellow-600",
-  },
-  {
-    title: "ACP Elevation Cladding Nagpur — Architects Guide",
-    category: "Architecture",
-    date: "March 2025",
-    slug: "/acp-elevation-cladding-nagpur-guide",
-    imagePlaceholder: "bg-linear-to-r from-stone-500 to-stone-700",
-  },
-  {
-    title: "Best Signboard Makers on Wardha Road Nagpur",
-    category: "Local Spotlight",
-    date: "March 2025",
-    slug: "/best-signboard-makers-wardha-road-nagpur",
-    imagePlaceholder: "bg-linear-to-l from-red-500 to-orange-500",
-  },
-];
+import Image from "next/image";
+import { blogPosts } from "@/lib/blog-data";
 
 export default function BlogPage() {
   return (
@@ -87,7 +30,7 @@ export default function BlogPage() {
             >
               <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl bg-zinc-100">
                  <div className="absolute inset-0 bg-linear-to-b from-transparent to-zinc-900/10 group-hover:to-zinc-900/30 transition-all z-10" />
-                 <div className={`h-full w-full ${post.imagePlaceholder} group-hover:scale-105 transition-transform duration-500`} />
+                 <Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                  <span className="absolute top-4 right-4 z-20 rounded-full bg-white px-3 py-1 text-xs font-bold text-zinc-800">
                     {post.category}
                  </span>

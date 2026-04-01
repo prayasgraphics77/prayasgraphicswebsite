@@ -7,7 +7,7 @@ import { servicesData } from "@/lib/services-data";
 
 export default function PopularPosters() {
   // Grab 3 featured services automatically.
-  const featuredSlugs = ["acrylic-acp-signboard", "back-lit-letters", "flex-roll-up-standee"];
+  const featuredSlugs = ["acrylic-acp-signboard", "ss-letter-backlit-golden", "flex-roll-up-standee"];
   const featuredServices = servicesData.filter((s) => featuredSlugs.includes(s.slug));
 
   return (

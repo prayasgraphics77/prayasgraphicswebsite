@@ -17,7 +17,7 @@ export default function ContactForm() {
             </div>
             <div className="flex items-center justify-between rounded-full border border-zinc-200 px-6 py-3.5">
               <span className="text-sm font-medium text-zinc-500">Phone</span>
-              <span className="text-[13px] font-semibold text-zinc-900 md:text-sm">(123) 456-7890</span>
+              <span className="text-[13px] font-semibold text-zinc-900 md:text-sm">+91 878 827 0495</span>
             </div>
             <p className="mt-4 text-center text-xs font-medium text-zinc-400">
               We assess inquiries in 24 hours (usually, we aim to respond within 14 hours).

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function FloatingWhatsApp() {
   const [isVisible, setIsVisible] = useState(false);
-  const whatsappNumber = "919876543210"; // Placeholder
+  const whatsappNumber = "918788270495"; 
 
   useEffect(() => {
     // Small delay before showing so it doesn't pop in immediately

@@ -1,21 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { blogPosts } from "@/lib/blog-data";
 
 export default function BlogSection() {
-  const posts = [
-    {
-      title: "Signboard Prices in Nagpur — The Honest 2025 Cost Guide",
-      excerpt: "Everything you need to know about the pricing of ACP, Acrylic, and Flex signboards in Nagpur.",
-      date: "March 2025",
-      slug: "/signboard-price-nagpur-2025-guide"
-    },
-    {
-      title: "5 Costly Signboard Mistakes Nagpur Businesses Make",
-      excerpt: "Is your signboard hurting your business? Discover the 5 most common and costly signboard mistakes.",
-      date: "March 2025",
-      slug: "/signboard-mistakes-nagpur-businesses"
-    },
-  ];
+  const [posts, setPosts] = useState(blogPosts.slice(0, 2));
+
+  useEffect(() => {
+    // Shuffle the blog posts and pick 2 randomly
+    const shuffled = [...blogPosts].sort(() => 0.5 - Math.random());
+    setPosts(shuffled.slice(0, 2));
+  }, []);
 
   return (
     <section className="mx-auto w-full max-w-7xl px-4 py-8 md:px-6">
@@ -36,9 +33,9 @@ export default function BlogSection() {
             >
               <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-zinc-100">
                  <div className="absolute inset-0 bg-linear-to-b from-transparent to-zinc-900/10 group-hover:to-zinc-900/30 transition-all z-10" />
-                 <div className="h-full w-full bg-linear-to-r from-zinc-200 to-zinc-100 group-hover:scale-105 transition-transform duration-500" />
+                 <Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                  <span className="absolute top-4 left-4 z-20 rounded-full bg-white px-3 py-1 text-xs font-bold text-zinc-800">
-                    Signage Guide
+                    {post.category}
                  </span>
               </div>
               <div className="flex flex-col gap-2 px-2 pb-2">

@@ -1,0 +1,842 @@
+diff --git a/app/acp-elevation-cladding-nagpur-guide/page.tsx b/app/acp-elevation-cladding-nagpur-guide/page.tsx
+index 830e2ab..f48418c 100644
+--- a/app/acp-elevation-cladding-nagpur-guide/page.tsx
++++ b/app/acp-elevation-cladding-nagpur-guide/page.tsx
+@@ -15,6 +15,7 @@ export default function AcpElevationGuidePage() {
+       metaDescription={metadata.description as string}
+       eyebrow="Architecture Guide · Building Facades"
+       slug="acp-elevation-cladding-nagpur-guide"
++      image="/blog/ACP Elevation Cladding in Nagpur — A Complete Guide for Building Owners & Architects.png"
+       date="2025-03-24T00:00:00.000Z"
+       readTime="11 min read"
+       lede="ACP elevation work is one of the highest-ROI improvements a commercial building in Nagpur can make — transforming an aged concrete exterior into a sleek, branded architectural presence that lasts 20+ years."
+diff --git a/app/acp-vs-acrylic-vs-flex-signboard-nagpur/page.tsx b/app/acp-vs-acrylic-vs-flex-signboard-nagpur/page.tsx
+index 739f678..8577cd5 100644
+--- a/app/acp-vs-acrylic-vs-flex-signboard-nagpur/page.tsx
++++ b/app/acp-vs-acrylic-vs-flex-signboard-nagpur/page.tsx
+@@ -15,6 +15,7 @@ export default function AcpVsAcrylicVsFlexPage() {
+       metaDescription={metadata.description as string}
+       eyebrow="Comparison Guide · Materials"
+       slug="acp-vs-acrylic-vs-flex-signboard-nagpur"
++      image="/blog/ACP vs Acrylic vs Flex — Which Signboard Material Survives Nagpur's Extreme Weather.png"
+       date="2025-03-24T00:00:00.000Z"
+       readTime="12 min read"
+       lede="Nagpur is one of India's hottest cities, regularly breaching 47°C in May — and then getting drenched in June monsoons. The signboard material you choose will either survive this or won't. Here's the definitive comparison."
+diff --git a/app/api/quote/route.ts b/app/api/quote/route.ts
+index a2076ec..61ead1d 100644
+--- a/app/api/quote/route.ts
++++ b/app/api/quote/route.ts
+@@ -3,7 +3,7 @@ import { supabase } from "@/lib/supabase";
+ import { Resend } from "resend";
+ import { z } from "zod";
+ 
+-const resend = new Resend(process.env.RESEND_API_KEY);
++const resend = new Resend(process.env.RESEND_API_KEY || "missing_key");
+ 
+ const enquirySchema = z.object({
+   items: z.array(z.any()),
+diff --git a/app/best-signboard-makers-wardha-road-nagpur/page.tsx b/app/best-signboard-makers-wardha-road-nagpur/page.tsx
+index ee52734..55989b0 100644
+--- a/app/best-signboard-makers-wardha-road-nagpur/page.tsx
++++ b/app/best-signboard-makers-wardha-road-nagpur/page.tsx
+@@ -15,6 +15,7 @@ export default function WardhaRoadSignboardsPage() {
+       metaDescription={metadata.description as string}
+       eyebrow="Local Spotlight · Wardha Road"
+       slug="best-signboard-makers-wardha-road-nagpur"
++      image="/blog/Best Signboard Makers on Wardha Road Nagpur — Elevate Your Commercial Presence.png"
+       date="2025-03-24T00:00:00.000Z"
+       readTime="6 min read"
+       lede="Wardha Road is Nagpur's fastest-growing commercial artery. If you're opening a showroom, restaurant, or clinic along this stretch, your signboard needs to stand out against intense competition. Here's why the top brands choose Prayas Graphics."
+diff --git a/app/blog/page.tsx b/app/blog/page.tsx
+index 6968bdd..6129c89 100644
+--- a/app/blog/page.tsx
++++ b/app/blog/page.tsx
+@@ -1,64 +1,7 @@
+ import Footer from "@/components/Footer";
+ import Link from "next/link";
+-
+-const blogPosts = [
+-  {
+-    title: "Signboard Prices in Nagpur — The Honest 2025 Cost Guide",
+-    category: "Pricing Guide",
+-    date: "March 2025",
+-    slug: "/signboard-price-nagpur-2025-guide",
+-    imagePlaceholder: "bg-linear-to-tr from-red-600 to-rose-400",
+-  },
+-  {
+-    title: "5 Costly Signboard Mistakes Nagpur Businesses Make",
+-    category: "Business Advice",
+-    date: "March 2025",
+-    slug: "/signboard-mistakes-nagpur-businesses",
+-    imagePlaceholder: "bg-linear-to-br from-zinc-800 to-zinc-900",
+-  },
+-  {
+-    title: "ACP vs Acrylic vs Flex — Which Survives Nagpur's Weather?",
+-    category: "Materials",
+-    date: "March 2025",
+-    slug: "/acp-vs-acrylic-vs-flex-signboard-nagpur",
+-    imagePlaceholder: "bg-linear-to-bl from-[#800080] to-indigo-900",
+-  },
+-  {
+-    title: "Best Signboard Ideas for Restaurants & Cafes in Nagpur",
+-    category: "Food & Beverage",
+-    date: "March 2025",
+-    slug: "/restaurant-cafe-signboard-ideas-nagpur",
+-    imagePlaceholder: "bg-linear-to-tl from-green-600 to-emerald-400",
+-  },
+-  {
+-    title: "NMC Signboard Rules Nagpur 2025 — Essential Guide",
+-    category: "Legal Guide",
+-    date: "March 2025",
+-    slug: "/nmc-signboard-rules-nagpur-2025",
+-    imagePlaceholder: "bg-linear-to-t from-purple-600 to-fuchsia-400",
+-  },
+-  {
+-    title: "Golden Acrylic vs Stainless Steel Letters in Nagpur",
+-    category: "Luxury Signage",
+-    date: "March 2025",
+-    slug: "/golden-acrylic-vs-ss-letters-nagpur",
+-    imagePlaceholder: "bg-linear-to-b from-amber-400 to-yellow-600",
+-  },
+-  {
+-    title: "ACP Elevation Cladding Nagpur — Architects Guide",
+-    category: "Architecture",
+-    date: "March 2025",
+-    slug: "/acp-elevation-cladding-nagpur-guide",
+-    imagePlaceholder: "bg-linear-to-r from-stone-500 to-stone-700",
+-  },
+-  {
+-    title: "Best Signboard Makers on Wardha Road Nagpur",
+-    category: "Local Spotlight",
+-    date: "March 2025",
+-    slug: "/best-signboard-makers-wardha-road-nagpur",
+-    imagePlaceholder: "bg-linear-to-l from-red-500 to-orange-500",
+-  },
+-];
++import Image from "next/image";
++import { blogPosts } from "@/lib/blog-data";
+ 
+ export default function BlogPage() {
+   return (
+@@ -87,7 +30,7 @@ export default function BlogPage() {
+             >
+               <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl bg-zinc-100">
+                  <div className="absolute inset-0 bg-linear-to-b from-transparent to-zinc-900/10 group-hover:to-zinc-900/30 transition-all z-10" />
+-                 <div className={`h-full w-full ${post.imagePlaceholder} group-hover:scale-105 transition-transform duration-500`} />
++                 <Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <span className="absolute top-4 right-4 z-20 rounded-full bg-white px-3 py-1 text-xs font-bold text-zinc-800">
+                     {post.category}
+                  </span>
+diff --git a/app/golden-acrylic-vs-ss-letters-nagpur/page.tsx b/app/golden-acrylic-vs-ss-letters-nagpur/page.tsx
+index f7af023..9d1953d 100644
+--- a/app/golden-acrylic-vs-ss-letters-nagpur/page.tsx
++++ b/app/golden-acrylic-vs-ss-letters-nagpur/page.tsx
+@@ -15,6 +15,7 @@ export default function GoldenVsSSLettersPage() {
+       metaDescription={metadata.description as string}
+       eyebrow="Comparison · Luxury Signage"
+       slug="golden-acrylic-vs-ss-letters-nagpur"
++      image="/blog/Golden Acrylic Letters vs Stainless Steel Letters — Which Signals Luxury for Your Nagpur Business.png"
+       date="2025-03-24T00:00:00.000Z"
+       readTime="8 min read"
+       lede="If your business needs to communicate exclusivity and trust — as a jeweller, financial firm, law office, or premium hotel — the choice between golden acrylic and stainless steel letters has real brand consequences."
+diff --git a/app/layout.tsx b/app/layout.tsx
+index fa15abe..fda86a2 100644
+--- a/app/layout.tsx
++++ b/app/layout.tsx
+@@ -37,9 +37,10 @@ export default function RootLayout({
+   children: React.ReactNode;
+ }>) {
+   return (
+-    <html lang="en">
++    <html lang="en" suppressHydrationWarning>
+       <body
+         className={`${dmSans.variable} ${bricolageGrotesque.variable} ${inter.variable} font-sans antialiased text-zinc-950 bg-stone-50`}
++        suppressHydrationWarning
+       >
+         <CartProvider>
+           <Navbar />
+diff --git a/app/nmc-signboard-rules-nagpur-2025/page.tsx b/app/nmc-signboard-rules-nagpur-2025/page.tsx
+index a3b7ff6..20e9e45 100644
+--- a/app/nmc-signboard-rules-nagpur-2025/page.tsx
++++ b/app/nmc-signboard-rules-nagpur-2025/page.tsx
+@@ -15,6 +15,7 @@ export default function NmcRulesPage() {
+       metaDescription={metadata.description as string}
+       eyebrow="Legal Guide · NMC Regulations"
+       slug="nmc-signboard-rules-nagpur-2025"
++      image="/blog/NMC Signboard Rules Nagpur 2025 — What Every Shop Owner Must Know Before Installing.png"
+       date="2025-03-24T00:00:00.000Z"
+       readTime="9 min read"
+       lede="NMC can fine and forcibly remove unauthorised signboards in Nagpur. Before your signage is installed, understand the permission process, size limits, and annual licence requirements."
+diff --git a/app/page.tsx b/app/page.tsx
+index 3898e54..3551f24 100644
+--- a/app/page.tsx
++++ b/app/page.tsx
+@@ -1,5 +1,5 @@
+ import HeroSection from "@/components/HeroSection";
+-import PopularPosters from "@/components/PopularPosters";
++import ServicesSection from "@/components/ServicesSection";
+ import StorySection from "@/components/StorySection";
+ import FeaturesSection from "@/components/FeaturesSection";
+ import HowItWorks from "@/components/HowItWorks";
+@@ -12,7 +12,7 @@ export default function Home() {
+   return (
+     <main className="flex min-h-screen flex-col items-center bg-stone-50 pb-20 overflow-x-hidden">
+       <HeroSection />
+-      <PopularPosters />
++      <ServicesSection />
+       <StorySection />
+       <FeaturesSection />
+       <HowItWorks />
+diff --git a/app/restaurant-cafe-signboard-ideas-nagpur/page.tsx b/app/restaurant-cafe-signboard-ideas-nagpur/page.tsx
+index f5d47d3..1cc40c6 100644
+--- a/app/restaurant-cafe-signboard-ideas-nagpur/page.tsx
++++ b/app/restaurant-cafe-signboard-ideas-nagpur/page.tsx
+@@ -15,6 +15,7 @@ export default function RestaurantSignboardIdeasPage() {
+       metaDescription={metadata.description as string}
+       eyebrow="Industry Guide · Food & Beverage"
+       slug="restaurant-cafe-signboard-ideas-nagpur"
++      image="/blog/Best Signboard Ideas for Restaurants, Cafes & Hotels in Nagpur.png"
+       date="2025-03-24T00:00:00.000Z"
+       readTime="10 min read"
+       lede="The right signage can fill tables. The wrong signage (or none) empties them. Here's exactly what works for Nagpur's competitive food and hospitality scene — backed by real installations."
+diff --git a/app/signboard-mistakes-nagpur-businesses/page.tsx b/app/signboard-mistakes-nagpur-businesses/page.tsx
+index 167fcf9..ac0e6c4 100644
+--- a/app/signboard-mistakes-nagpur-businesses/page.tsx
++++ b/app/signboard-mistakes-nagpur-businesses/page.tsx
+@@ -15,6 +15,7 @@ export default function SignboardMistakesPage() {
+       metaDescription={metadata.description as string}
+       eyebrow="Business Advice · Signage"
+       slug="signboard-mistakes-nagpur-businesses"
++      image="/blog/5 Costly Signboard Mistakes Nagpur Businesses Make — And How to Avoid Every One.png"
+       date="2025-03-24T00:00:00.000Z"
+       readTime="8 min read"
+       lede="Over 500+ signage installations across Nagpur have shown us the same mistakes again and again. Here's what they are — and exactly how to avoid paying for them twice."
+diff --git a/app/signboard-price-nagpur-2025-guide/page.tsx b/app/signboard-price-nagpur-2025-guide/page.tsx
+deleted file mode 100644
+index 3263c46..0000000
+--- a/app/signboard-price-nagpur-2025-guide/page.tsx
++++ /dev/null
+@@ -1,99 +0,0 @@
+-import BlogPostLayout from "@/components/blog/BlogPostLayout";
+-import { PriceCard, Callout, FaqItem } from "@/components/blog/shared";
+-import { Metadata } from "next";
+-
+-export const metadata: Metadata = {
+-  title: "Signboard Price in Nagpur 2025 — Complete Cost Guide | Prayas Graphics",
+-  description:
+-    "Wondering how much a signboard costs in Nagpur? From ACP boards at ₹150/sq ft to channel letters and ACP elevation, get honest pricing from Prayas Graphics.",
+-};
+-
+-export default function SignboardPriceGuidePage() {
+-  return (
+-    <BlogPostLayout
+-      title="Signboard Prices in Nagpur — The Honest 2025 Cost Guide"
+-      metaDescription={metadata.description as string}
+-      eyebrow="Pricing Guide · 2025"
+-      slug="signboard-price-nagpur-2025-guide"
+-      date="2025-03-24T00:00:00.000Z"
+-      readTime="10 min read"
+-      lede="Before you commission a single signboard for your Nagpur business, get crystal-clear on real market pricing. No vague estimates — actual figures, per sq. ft. and per unit, across every signage type Prayas Graphics offers."
+-      keywords={[
+-        "signboard price Nagpur",
+-        "signboard cost Nagpur",
+-        "ACP board rate Nagpur",
+-        "flex signboard cost",
+-        "channel letter price Nagpur",
+-        "acrylic letter cost Nagpur",
+-      ]}
+-      toc={[
+-        { title: "2025 Price List", id: "price-list" },
+-        { title: "Cost Factors", id: "cost-factors" },
+-        { title: "Quality vs. Cheap", id: "quality-vs-cheap" },
+-        { title: "FAQ", id: "faq" },
+-      ]}
+-    >
+-      <p>
+-        The most-Googled question among Nagpur business owners exploring signage is: <strong>"How much does a signboard cost in Nagpur?"</strong> And it's a fair question — because the answer varies enormously depending on material, illumination, size, and the quality of workmanship. A signboard can cost ₹80 per sq. ft. at a local printer's shop, or ₹800+ per sq. ft. at a premium fabricator — and the difference matters enormously to how your brand is perceived.
+-      </p>
+-      <p>
+-        This guide gives you the honest, current pricing landscape for signboards in Nagpur in 2025 — straight from Prayas Graphics, with no hidden surprises.
+-      </p>
+-
+-      <h2 id="price-list">Signboard Price List in Nagpur (2025)</h2>
+-      <p>
+-        All prices below are approximate market rates. Final pricing depends on exact size, quantity, complexity of design, and installation requirements. Contact Prayas Graphics for a precise quote.
+-      </p>
+-
+-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-8">
+-        <PriceCard name="Flex Backlit Signboard" price="₹120–₹200" unit="per sq. ft." life="Life: 3–5 years" />
+-        <PriceCard name="Flex on Frame (Hoarding)" price="₹80–₹150" unit="per sq. ft." life="Life: 2–4 years" />
+-        <PriceCard name="Acrylic ACP Signboard" price="₹200–₹350" unit="per sq. ft." life="Life: 8–12 years" featured />
+-        <PriceCard name="Inner Cut ACP Signboard" price="₹280–₹500" unit="per sq. ft." life="Life: 8–12 years" />
+-        <PriceCard name="Back Lit Letters" price="₹350–₹600" unit="per sq. ft." life="Life: 7–10 years" />
+-        <PriceCard name="Aluminium Channel Letters" price="₹500–₹900" unit="per sq. ft." life="Life: 10–15 years" featured />
+-        <PriceCard name="Golden Acrylic Letters" price="₹400–₹700" unit="per sq. ft." life="Life: 6–10 years" />
+-        <PriceCard name="Flex Roll Up Standee" price="₹1,200–₹2,500" unit="per unit (2×6 ft)" life="Life: 5+ years" />
+-        <PriceCard name="ACP Elevation Work" price="₹180–₹400" unit="per sq. ft." life="Life: 20+ years" />
+-      </div>
+-
+-      <h2 id="cost-factors">What Factors Affect Signboard Cost in Nagpur?</h2>
+-      <ul>
+-        <li><strong>Size:</strong> Larger boards aren't always proportionally more expensive per sq. ft. — bulk fabrication often brings the unit cost down.</li>
+-        <li><strong>Illumination:</strong> Adding LED modules adds ₹60–₹150 per sq. ft. to the base material cost, but dramatically increases visibility and ROI.</li>
+-        <li><strong>Material quality:</strong> Branded ACP (e.g., Alubond, Viva) costs more than generic ACP but lasts twice as long and doesn't warp or fade.</li>
+-        <li><strong>Design complexity:</strong> A simple text board costs less than a multi-colour logo cutout. Complex shapes require more CNC time and material waste allowance.</li>
+-        <li><strong>Installation difficulty:</strong> Ground-floor installations are simpler. Elevated shopfronts, multi-storey buildings, and scaffolding-required jobs carry higher installation charges.</li>
+-        <li><strong>Structural work:</strong> If your wall isn't suitable for direct mounting (old brick, cement, irregular surface), additional metal framework may be needed.</li>
+-      </ul>
+-
+-      <Callout variant="gold" icon="💡" title="The Right Way to Calculate Signboard Cost">
+-        <p>Don't just compare upfront prices. Calculate <strong>cost-per-day</strong> over the sign's lifespan. A ₹5,000 flex sign that lasts 2 years = ₹6.85/day. A ₹20,000 ACP sign that lasts 10 years = ₹5.48/day — and looks dramatically better. Premium signs are almost always cheaper in the long run.</p>
+-      </Callout>
+-
+-      <h2 id="quality-vs-cheap">Cheapest vs. Quality: What Nagpur Business Owners Get Wrong</h2>
+-      <p>
+-        The signboard market in Nagpur is competitive, and some vendors offer extremely low prices by cutting corners on materials — using unbranded ACP that warps in summer heat, low-grade LED modules that flicker within 18 months, or flex materials that fade after the first monsoon. This is false economy.
+-      </p>
+-      <p>
+-        At Prayas Graphics, we use only branded ACP panels, IP65-rated LED modules rated for 50,000 hours, and UV-resistant printing inks — because our warranty has to back the work we install.
+-      </p>
+-
+-      <h2 id="faq">Frequently Asked Questions</h2>
+-      <div className="my-6">
+-        <FaqItem
+-          question="Is GST included in signboard prices in Nagpur?"
+-          answer="Signboards fall under 18% GST in India. Professional signage fabricators like Prayas Graphics will provide a proper GST invoice. Always ask for this — it protects you if the sign needs warranty repairs, and you can claim input tax credit if you're GST-registered."
+-        />
+-        <FaqItem
+-          question="Is installation included in the signboard price?"
+-          answer="At Prayas Graphics, basic installation is included for most signboard types within Nagpur city limits. For locations outside Nagpur, elevated installations requiring scaffolding, or large elevation projects, installation is quoted separately after a site visit."
+-        />
+-        <FaqItem
+-          question="Can I get a signboard on EMI in Nagpur?"
+-          answer="For larger projects (₹50,000+), Prayas Graphics can discuss phased payment structures. Please contact us directly to discuss options for your specific project size."
+-        />
+-      </div>
+-    </BlogPostLayout>
+-  );
+-}
+diff --git a/components/BlogSection.tsx b/components/BlogSection.tsx
+index 5dbbd06..1115012 100644
+--- a/components/BlogSection.tsx
++++ b/components/BlogSection.tsx
+@@ -1,21 +1,18 @@
++"use client";
++
+ import Image from "next/image";
+ import Link from "next/link";
++import { useState, useEffect } from "react";
++import { blogPosts } from "@/lib/blog-data";
+ 
+ export default function BlogSection() {
+-  const posts = [
+-    {
+-      title: "Signboard Prices in Nagpur — The Honest 2025 Cost Guide",
+-      excerpt: "Everything you need to know about the pricing of ACP, Acrylic, and Flex signboards in Nagpur.",
+-      date: "March 2025",
+-      slug: "/signboard-price-nagpur-2025-guide"
+-    },
+-    {
+-      title: "5 Costly Signboard Mistakes Nagpur Businesses Make",
+-      excerpt: "Is your signboard hurting your business? Discover the 5 most common and costly signboard mistakes.",
+-      date: "March 2025",
+-      slug: "/signboard-mistakes-nagpur-businesses"
+-    },
+-  ];
++  const [posts, setPosts] = useState(blogPosts.slice(0, 2));
++
++  useEffect(() => {
++    // Shuffle the blog posts and pick 2 randomly
++    const shuffled = [...blogPosts].sort(() => 0.5 - Math.random());
++    setPosts(shuffled.slice(0, 2));
++  }, []);
+ 
+   return (
+     <section className="mx-auto w-full max-w-7xl px-4 py-8 md:px-6">
+@@ -36,9 +33,9 @@ export default function BlogSection() {
+             >
+               <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-zinc-100">
+                  <div className="absolute inset-0 bg-linear-to-b from-transparent to-zinc-900/10 group-hover:to-zinc-900/30 transition-all z-10" />
+-                 <div className="h-full w-full bg-linear-to-r from-zinc-200 to-zinc-100 group-hover:scale-105 transition-transform duration-500" />
++                 <Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <span className="absolute top-4 left-4 z-20 rounded-full bg-white px-3 py-1 text-xs font-bold text-zinc-800">
+-                    Signage Guide
++                    {post.category}
+                  </span>
+               </div>
+               <div className="flex flex-col gap-2 px-2 pb-2">
+diff --git a/components/DimensionModal.tsx b/components/DimensionModal.tsx
+index ae5c275..01a89fe 100644
+--- a/components/DimensionModal.tsx
++++ b/components/DimensionModal.tsx
+@@ -2,7 +2,7 @@
+ 
+ import { useState } from "react";
+ import { motion, AnimatePresence } from "framer-motion";
+-import { X } from "lucide-react";
++import { X, AlertCircle } from "lucide-react";
+ import type { DimensionUnit } from "@/lib/cart-context";
+ import { computeArea } from "@/lib/quote-utils";
+ 
+@@ -36,9 +36,14 @@ export default function DimensionModal({
+   const h = parseFloat(height) || 0;
+   const area = w > 0 && h > 0 ? computeArea(w, h, unit) : 0;
+ 
++  let errorMessage: string | null = null;
++  if (serviceName === "Acrylic ACP Signboard" && area > 0 && area < 32) {
++    errorMessage = "Minimum size required is 8x4 feet (32 sq.ft) or more.";
++  }
++
+   const handleSubmit = (e: React.FormEvent) => {
+     e.preventDefault();
+-    if (w <= 0 || h <= 0) return;
++    if (w <= 0 || h <= 0 || !!errorMessage) return;
+     onConfirm({
+       width: w,
+       height: h,
+@@ -134,6 +139,13 @@ export default function DimensionModal({
+                 </div>
+               </div>
+ 
++              {serviceName === "Acrylic ACP Signboard" && (
++                <div className="flex items-start gap-2 rounded-xl bg-zinc-50 p-3 text-xs md:text-sm font-medium text-zinc-600 border border-zinc-200">
++                  <span className="text-zinc-400 shrink-0 mt-0.5">ℹ️</span>
++                  <span>Note: Acrylic ACP Signboard in 10 by 4 sheet only 200 inches of letter would be provided if your calculation exceeds that more charges would be added.</span>
++                </div>
++              )}
++
+               <div>
+                 <label className="mb-1 block text-sm font-medium text-zinc-700">
+                   Unit
+@@ -165,9 +177,17 @@ export default function DimensionModal({
+               </div>
+ 
+               {area > 0 && (
+-                <p className="rounded-xl bg-zinc-100 px-4 py-2.5 text-sm font-semibold text-zinc-800">
+-                  Area: {area.toFixed(2)} sq.ft
+-                </p>
++                <div className="flex flex-col gap-2">
++                  <p className="rounded-xl bg-zinc-100 px-4 py-2.5 text-sm font-semibold text-zinc-800">
++                    Area: {area.toFixed(2)} sq.ft
++                  </p>
++                  {errorMessage && (
++                    <div className="flex items-start gap-2 rounded-xl bg-red-50 px-4 py-2.5 text-sm font-medium text-red-600">
++                      <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
++                      <span>{errorMessage}</span>
++                    </div>
++                  )}
++                </div>
+               )}
+ 
+               <div>
+@@ -194,7 +214,7 @@ export default function DimensionModal({
+                 </button>
+                 <button
+                   type="submit"
+-                  disabled={area <= 0}
++                  disabled={area <= 0 || !!errorMessage}
+                   className="flex-1 rounded-full bg-zinc-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-zinc-800 disabled:opacity-50"
+                 >
+                   Add to Quote
+diff --git a/components/PopularPosters.tsx b/components/PopularPosters.tsx
+index 236fc37..8a55bb9 100644
+--- a/components/PopularPosters.tsx
++++ b/components/PopularPosters.tsx
+@@ -7,7 +7,7 @@ import { servicesData } from "@/lib/services-data";
+ 
+ export default function PopularPosters() {
+   // Grab 3 featured services automatically.
+-  const featuredSlugs = ["acrylic-acp-signboard", "back-lit-letters", "flex-roll-up-standee"];
++  const featuredSlugs = ["acrylic-acp-signboard", "ss-letter-backlit-golden", "flex-roll-up-standee"];
+   const featuredServices = servicesData.filter((s) => featuredSlugs.includes(s.slug));
+ 
+   return (
+diff --git a/components/QuoteForm.tsx b/components/QuoteForm.tsx
+index 779ff02..409b6b5 100644
+--- a/components/QuoteForm.tsx
++++ b/components/QuoteForm.tsx
+@@ -62,6 +62,11 @@ export default function QuoteForm({
+     const service = servicesData.find((s) => s.slug === selectedService);
+     if (!service) return;
+ 
++    if (selectedService === "acrylic-acp-signboard" && area < 32) {
++      setError("Please provide dimensions yielding a minimum of 32 sq.ft (e.g. 8x4) for Acrylic ACP Signboard.");
++      return;
++    }
++
+     addItem({
+       id: Math.random().toString(36).substring(2, 9),
+       serviceName: service.title,
+@@ -104,7 +109,7 @@ export default function QuoteForm({
+           type="number" 
+           placeholder="Width" 
+           value={dimensions.width} 
+-          onChange={(e) => setDimensions(prev => ({...prev, width: e.target.value}))} 
++          onChange={(e) => { setDimensions(prev => ({...prev, width: e.target.value})); setError(""); }} 
+           className={commonInputClass} 
+         />
+         <span className="text-zinc-400 font-medium font-mono text-sm">×</span>
+@@ -112,12 +117,12 @@ export default function QuoteForm({
+           type="number" 
+           placeholder="Height" 
+           value={dimensions.height} 
+-          onChange={(e) => setDimensions(prev => ({...prev, height: e.target.value}))} 
++          onChange={(e) => { setDimensions(prev => ({...prev, height: e.target.value})); setError(""); }} 
+           className={commonInputClass} 
+         />
+         <select 
+           value={dimensions.unit} 
+-          onChange={(e) => setDimensions(prev => ({...prev, unit: e.target.value as DimensionUnit}))} 
++          onChange={(e) => { setDimensions(prev => ({...prev, unit: e.target.value as DimensionUnit})); setError(""); }} 
+           className="w-24 rounded-xl border border-zinc-200 bg-white px-3 py-3 text-zinc-900 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors"
+         >
+           <option value="ft">ft</option>
+@@ -125,18 +130,30 @@ export default function QuoteForm({
+         </select>
+       </div>
+       {area > 0 && (
+-         <div className="mt-3 inline-flex flex-wrap items-center gap-4 text-sm font-semibold rounded-xl bg-[#800080]/5 border border-[#800080]/10 px-4 py-3 w-full">
+-           <div className="flex items-center gap-1.5 min-w-max text-[#800080]">
+-             <span className="opacity-70 font-medium">Total Area:</span> 
+-             {area.toFixed(2)} sq.ft
+-           </div>
+-           
+-           <div className="w-px h-4 bg-[#800080]/20 hidden sm:block"></div>
+-           
+-           <div className="flex items-center gap-1.5 min-w-max text-emerald-700">
+-             <span className="opacity-70 font-medium">Approximate Rate:</span> 
+-             ₹{estimatedPrice.toLocaleString('en-IN')}
++         <div className="mt-3 flex flex-col gap-2">
++           <div className="inline-flex flex-wrap items-center gap-4 text-sm font-semibold rounded-xl bg-[#800080]/5 border border-[#800080]/10 px-4 py-3 w-full">
++             <div className="flex items-center gap-1.5 min-w-max text-[#800080]">
++               <span className="opacity-70 font-medium">Total Area:</span> 
++               {area.toFixed(2)} sq.ft
++             </div>
++             
++             {estimatedPrice > 0 && (
++               <>
++                 <div className="w-px h-4 bg-[#800080]/20 hidden sm:block"></div>
++                 
++                 <div className="flex items-center gap-1.5 min-w-max text-emerald-700">
++                   <span className="opacity-70 font-medium">Approximate Rate:</span> 
++                   ₹{estimatedPrice.toLocaleString('en-IN')}
++                 </div>
++               </>
++             )}
+            </div>
++           {selectedService === "acrylic-acp-signboard" && area < 32 && (
++             <div className="flex items-center gap-1.5 mt-1 text-sm font-medium text-red-600 px-1">
++               <span className="shrink-0">•</span>
++               <span>Minimum area for Acrylic ACP should be 32 sq.ft</span>
++             </div>
++           )}
+          </div>
+       )}
+     </div>
+@@ -150,6 +167,10 @@ export default function QuoteForm({
+         return (
+           <div className="space-y-4">
+             {renderDimensionInputs()}
++            <div className="mt-1 flex items-start gap-2 rounded-xl bg-zinc-50 p-3 text-xs md:text-sm font-medium text-zinc-600 border border-zinc-200">
++              <span className="text-zinc-400 shrink-0 mt-0.5">ℹ️</span>
++              <span>Note: Acrylic ACP Signboard in 10 by 4 sheet only 200 inches of letter would be provided if your calculation exceeds that more charges would be added.</span>
++            </div>
+             <div className="grid grid-cols-2 gap-4 mt-2">
+               <div>
+                 <label className="block text-sm font-semibold text-zinc-700 mb-1">Quantity</label>
+@@ -256,9 +277,8 @@ export default function QuoteForm({
+           </div>
+         );
+ 
+-      case "back-lit-letters":
++      case "ss-letter-backlit-golden":
+       case "aluminium-channel-letter":
+-      case "golden-acrylic-letters":
+         return (
+           <div className="space-y-4">
+             <div>
+@@ -334,6 +354,68 @@ export default function QuoteForm({
+           </div>
+         );
+ 
++      case "visiting-cards":
++        return (
++          <div className="space-y-4">
++            <div className="grid grid-cols-2 gap-4">
++              <div>
++                <label className="block text-sm font-semibold text-zinc-700 mb-1">Quantity</label>
++                <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Quantity", e.target.value)}>
++                  <option>Select</option>
++                  <option>100</option>
++                  <option>200</option>
++                  <option>500</option>
++                  <option>1000+</option>
++                </select>
++              </div>
++              <div>
++                <label className="block text-sm font-semibold text-zinc-700 mb-1">Finish</label>
++                <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Finish", e.target.value)}>
++                  <option>Select</option>
++                  <option>Standard Matte</option>
++                  <option>Glossy</option>
++                  <option>Velvet Touch</option>
++                  <option>Spot UV</option>
++                  <option>Foil Stamping</option>
++                </select>
++              </div>
++            </div>
++            <div className="mt-2">
++              <label className="block text-sm font-semibold text-zinc-700 mb-1">Requirements Description</label>
++              <textarea placeholder="Any additional details or design requirements..." rows={3} className={commonInputClass} onChange={(e) => updateServiceDetail("Requirements", e.target.value)}></textarea>
++            </div>
++          </div>
++        );
++
++      case "lollipop-signboard":
++        return (
++          <div className="space-y-4">
++            <div className="grid grid-cols-2 gap-4">
++              <div>
++                <label className="block text-sm font-semibold text-zinc-700 mb-1">Material Variant</label>
++                <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Material", e.target.value)}>
++                  <option>Select</option>
++                  <option>Premium Acrylic (₹14.5k + GST)</option>
++                  <option>Flex Backlit (₹9.5k + GST)</option>
++                </select>
++              </div>
++              <div>
++                <label className="block text-sm font-semibold text-zinc-700 mb-1">Shape</label>
++                <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Shape", e.target.value)}>
++                  <option>Select</option>
++                  <option>Round</option>
++                  <option>Square</option>
++                  <option>Custom Shape</option>
++                </select>
++              </div>
++            </div>
++            <div className="mt-2">
++              <label className="block text-sm font-semibold text-zinc-700 mb-1">Requirements Description</label>
++              <textarea placeholder="Describe your requirement..." rows={3} className={commonInputClass} onChange={(e) => updateServiceDetail("Requirements", e.target.value)}></textarea>
++            </div>
++          </div>
++        );
++
+       default:
+         return (
+           <div className="space-y-4">
+diff --git a/components/blog/BlogPostLayout.tsx b/components/blog/BlogPostLayout.tsx
+index 6d627a2..8027214 100644
+--- a/components/blog/BlogPostLayout.tsx
++++ b/components/blog/BlogPostLayout.tsx
+@@ -2,6 +2,7 @@ import React from "react";
+ import Footer from "@/components/Footer";
+ import StructuredData from "./StructuredData";
+ import Link from "next/link";
++import Image from "next/image";
+ 
+ 
+ export interface BlogPostLayoutProps {
+@@ -13,6 +14,7 @@ export interface BlogPostLayoutProps {
+   readTime: string;
+   location?: string;
+   lede: string;
++  image?: string;
+   children: React.ReactNode;
+   keywords?: string[];
+   toc?: { title: string; id: string }[];
+@@ -27,6 +29,7 @@ export default function BlogPostLayout({
+   readTime,
+   location = "Nagpur, Maharashtra",
+   lede,
++  image,
+   children,
+   keywords = [],
+   toc = [],
+@@ -59,6 +62,11 @@ export default function BlogPostLayout({
+           {/* Main Article Content */}
+           <div className="art-content min-w-0">
+             <header className="mb-10">
++              {image && (
++                <div className="relative aspect-21/9 w-full mb-8 overflow-hidden rounded-2xl bg-zinc-100">
++                  <Image src={image} alt={title} fill className="object-cover" />
++                </div>
++              )}
+               <p className="text-[11px] font-bold tracking-widest uppercase text-red-600 mb-3 block">
+                 {eyebrow}
+               </p>
+diff --git a/lib/services-data.ts b/lib/services-data.ts
+index 8961d34..de05f54 100644
+--- a/lib/services-data.ts
++++ b/lib/services-data.ts
+@@ -20,14 +20,14 @@ export const servicesData: ServiceData[] = [
+     slug: "acrylic-acp-signboard",
+     title: "Acrylic ACP Signboard",
+     description: "Premium acrylic branding mounted on ACP panels, combining depth, durability, and a clean corporate finish.",
+-    longDescription: "Our Acrylic ACP Signboards are the gold standard for premium corporate branding. By combining weather-resistant Aluminum Composite Panels (ACP) with high-gloss 3D acrylic letters, we create signages that offer remarkable depth and durability. Custom-cut to perfection, these boards provide a clean, professional aesthetic that elevates your brand presence instantly.",
++    longDescription: "Our Acrylic ACP Signboards are the gold standard for premium corporate branding. By combining weather-resistant Aluminum Composite Panels (ACP) with high-gloss 3D acrylic letters, we create signages that offer remarkable depth and durability. Custom-cut to perfection, these boards provide a clean, professional aesthetic that elevates your brand presence instantly. Note: Acrylic ACP Signboard in 10 by 4 sheet only 200 inches of letter would be provided if your calculation exceeds that more charges would be added.",
+     tag: "Premium",
+     icon: Layers,
+     useCases: ["Corporate Offices", "Retail Storefronts", "Hospitals", "Showrooms"],
+     materials: ["3mm/4mm Premium ACP Sheet", "Imported Cast Acrylic (3mm-10mm)", "LED Modules (Optional)"],
+-    pricing: "Starting from ₹1,200/sq.ft",
++    pricing: "Rs. 700 per sq ft, only 10 by 4 and 8 by 4 feet.",
+     image: "/services/Acrylic ACP Signboard.png",
+-    demoRatePerSqFt: 1200,
++    demoRatePerSqFt: 700,
+   },
+   {
+     slug: "inner-cut-acp-signboard",
+@@ -38,9 +38,9 @@ export const servicesData: ServiceData[] = [
+     icon: Printer,
+     useCases: ["Boutiques", "High-end Clinics", "Tech Parks", "Restaurant Facades"],
+     materials: ["Router-cut ACP", "Translucent Acrylic Backing", "High-intensity LED Strips"],
+-    pricing: "Starting from ₹950/sq.ft",
++    pricing: "Rs. 600 per sq ft",
+     image: "/services/Inner Cut ACP Signboard.png",
+-    demoRatePerSqFt: 950,
++    demoRatePerSqFt: 600,
+   },
+   {
+     slug: "flex-backlit-signboard",
+@@ -51,9 +51,9 @@ export const servicesData: ServiceData[] = [
+     icon: Truck,
+     useCases: ["Supermarkets", "Dealerships", "Large Retail Outlets", "Highway Hoardings"],
+     materials: ["Star Backlit Flex", "MS Rectangular Pipe Frame", "Tube Lights or LED Modules"],
+-    pricing: "Price on Request",
++    pricing: "Rs. 300 per sq ft",
+     image: "/services/Flex Backlit Signboard.png",
+-    demoRatePerSqFt: 350,
++    demoRatePerSqFt: 300,
+   },
+   {
+     slug: "flex-on-frame",
+@@ -64,23 +64,23 @@ export const servicesData: ServiceData[] = [
+     icon: Frame,
+     useCases: ["Construction Site Hoardings", "Event Backdrops", "Promotional Campaigns", "Temporary Signage"],
+     materials: ["Frontlit Flex Banner", "MS Frame / Wooden Frame"],
+-    pricing: "Starting from ₹150/sq.ft",
++    pricing: "Rs. 65 per sq ft",
+     image: "/services/Flex On Frame.png",
+-    demoRatePerSqFt: 150,
++    demoRatePerSqFt: 65,
+     imageFit: "contain",
+   },
+   {
+-    slug: "back-lit-letters",
+-    title: "Back Lit Letters",
+-    description: "3D letters with soft rear lighting that create a subtle halo glow on the wall for a luxurious appearance.",
+-    longDescription: "Also known as Halo-Lit or Reverse-Lit letters. These 3D letters (typically crafted from SS, aluminium, or opaque acrylic) are mounted slightly off the wall. LED lights hidden behind the letters cast a warm, soft halo on the surface behind them, creating an incredibly luxurious and sophisticated floating effect.",
++    slug: "ss-letter-backlit-golden",
++    title: "SS Letter (Backlit Golden)",
++    description: "3D Stainless Steel letters with backlighting that create a golden halo glow on the wall for a luxurious appearance.",
++    longDescription: "Also known as Halo-Lit or Reverse-Lit letters. These 3D letters crafted from Premium Stainless Steel are mounted slightly off the wall. LED lights hidden behind the letters cast a warm, soft golden halo on the surface behind them, creating an incredibly luxurious and sophisticated floating effect. A perfect blend of metallic sheen and elegant illumination.",
+     tag: "Luxury",
+     icon: Sparkles,
+     useCases: ["Hotel Lobbies", "Law Firms", "Jewelry Stores", "Reception Walls"],
+-    materials: ["Stainless Steel/Aluminium/Acrylic", "Waterproof LED Modules", "Stand-off Mounts"],
+-    pricing: "Starting from ₹150/inch",
++    materials: ["Premium Stainless Steel", "Waterproof LED Modules", "Stand-off Mounts"],
++    pricing: "Rs. 380 per inch",
+     image: "/services/Back Lit Letters.png",
+-    demoRatePerSqFt: 2200, // Roughly converting letter pricing to a square foot coverage estimate for demo
++    demoRatePerSqFt: 380, // Updated base rate for demo
+   },
+   {
+     slug: "aluminium-channel-letter",
+@@ -91,9 +91,9 @@ export const servicesData: ServiceData[] = [
+     icon: Layers,
+     useCases: ["Malls", "Corporate Towers", "Standalone Retail Stores", "Cinemas"],
+     materials: ["Aluminium Coil (Returns)", "Cast Acrylic Face", "Trim Cap", "Samsung/Osram LEDs"],
+-    pricing: "Starting from ₹180/inch",
++    pricing: "Rs. 180 per sq inch",
+     image: "/services/Aluminum Channel Letter.webp",
+-    demoRatePerSqFt: 2500,
++    demoRatePerSqFt: 180,
+   },
+   {
+     slug: "flex-roll-up-standee",
+@@ -104,7 +104,7 @@ export const servicesData: ServiceData[] = [
+     icon: Palette,
+     useCases: ["Exhibitions", "Seminars", "Point of Sale displays", "Corporate Events"],
+     materials: ["Aluminium Retractable Base", "Star Flex / PP Non-tearable Print", "Carry Bag"],
+-    pricing: "Starting from ₹1,200/piece",
++    pricing: "Rs. 1500",
+     image: "/services/Flex Roll Up Standee.png",
+     demoRatePerSqFt: 150, // Roughly 1200 for 18 sq ft (6x3) -> ~66, but setting demo rate to standard print rate
+   },
+@@ -117,22 +117,62 @@ export const servicesData: ServiceData[] = [
+     icon: Palette,
+     useCases: ["Showroom Exteriors", "Office Buildings", "Petrol Pumps", "Restaurants"],
+     materials: ["Exterior Grade ACP Sheets", "Aluminium/MS Framework", "Weather-sealants"],
+-    pricing: "Price on Request (Subject to Site Survey)",
++    pricing: "Rs. 220 per sq ft only white or plain colour",
+     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+-    demoRatePerSqFt: 380,
++    demoRatePerSqFt: 220,
+   },
+   {
+-    slug: "golden-acrylic-letters",
+-    title: "Golden Acrylic Letters",
+-    description: "Mirror-gold acrylic letters that instantly elevate receptions, storefronts, and feature walls.",
+-    longDescription: "For brands that demand opulence. Golden Acrylic Letters utilize specialized mirror-finish gold acrylic sheets, precision laser-cut to match your custom typography or logo. They offer the luxurious look of solid brass or gold plating at a fraction of the cost and weight, maintaining their brilliant shine indefinitely.",
+-    tag: "Luxury",
+-    icon: Sparkles,
+-    useCases: ["Spa & Salons", "Jewelry Boutiques", "Executive Offices", "High-end Retail"],
+-    materials: ["Mirror Gold Acrylic Sheet", "Clear Acrylic/MDF Base (Optional)", "Stud/Flush Mounting"],
+-    pricing: "Starting from ₹120/inch",
+-    image: "/services/Golden Acrylic Letters.png",
+-    demoRatePerSqFt: 2100,
++    slug: "visiting-cards",
++    title: "Visiting Cards",
++    description: "Premium quality custom visiting cards to make a lasting first impression. Available in various finishes.",
++    longDescription: "Your visiting card is often the first physical touchpoint a client has with your brand. We design and print premium visiting cards with exquisite finishes such as matte, gloss, velvet touch, spot UV, and foil stamping. Elevate your networking with cards that exude professionalism and quality. Up for enquiry only.",
++    tag: "Print",
++    icon: Printer,
++    useCases: ["Networking Events", "Corporate Meetings", "Client Handouts", "Brand Identity"],
++    materials: ["Premium Cardstock", "Matte/Gloss Lamination", "Special Finishes (UV/Foil)"],
++    pricing: "For Enquiry Only",
++    image: "/services/Visiting Cards.png",
++    demoRatePerSqFt: 0,
++    imageFit: "contain",
++  },
++  {
++    slug: "lollipop-signboard",
++    title: "Lollipop Signboard",
++    description: "Double-sided illuminated projecting signs for maximum visibility from multiple directions.",
++    longDescription: "Lollipop or Flange signboards protrude from the wall, making them unmissable to foot and vehicle traffic approaching from either side. We offer two variants: Premium Acrylic for a crystal clear, glowing luxury look, or Flex Backlit for a highly economical and vibrant display. Perfect for cafes, clinics, and high-street retail.",
++    tag: "High-Visibility",
++    icon: Frame,
++    useCases: ["Cafes", "Clinics", "Retail Stores", "Street Navigation"],
++    materials: ["Acrylic or Flex Backlit", "Aluminium/MS Frame", "LED Illumination"],
++    pricing: "Acrylic: ₹14,500 | Flex: ₹9,500 (Excl. GST)",
++    image: "/services/Lollipop Signboard.png",
++    demoRatePerSqFt: 0,
++  },
++  {
++    slug: "event-stall-flex-printing",
++    title: "Event Stall Flex Printing",
++    description: "High-resolution flex prints custom-designed for exhibition stalls, events, and trade shows.",
++    longDescription: "Make your event stall stand out with our premium flex printing services. We seamlessly print large-format vibrant designs that perfectly fit around stall structures, creating an immersive brand environment. Ideal for short-term and medium-term exhibitions, providing an impactful backdrop for your audience. Up for enquiry only.",
++    tag: "Events",
++    icon: Printer,
++    useCases: ["Exhibitions", "Trade Shows", "Corporate Events", "Flea Markets"],
++    materials: ["Star Frontlit Flex", "High-Resolution Solvent/Eco-Solvent Print"],
++    pricing: "For Enquiry Only",
++    image: "/services/Event Stall Flex Printing.png",
++    demoRatePerSqFt: 0,
++  },
++  {
++    slug: "customise-wallpaper",
++    title: "Customise Wallpaper",
++    description: "Transform your interior spaces with high-definition, tailor-made wall graphics and wallpapers.",
++    longDescription: "Turn any blank wall into a masterpiece. Our customised wallpapers are printed on premium textured or smooth vinyl media, tailored perfectly to your wall dimensions and brand aesthetics. From corporate motifs and motivational quotes to stunning artistic landscapes for homes or cafes, we bring your vision to life. Up for enquiry only.",
++    tag: "Interior",
++    icon: Palette,
++    useCases: ["Office Interiors", "Cafes & Restaurants", "Living Rooms", "Retail Feature Walls"],
++    materials: ["Premium Printable Wallpaper", "Eco-Solvent/UV Inks", "Adhesive Backing"],
++    pricing: "For Enquiry Only",
++    image: "/services/Customise Wallpaper.png",
++    demoRatePerSqFt: 0,
+   }
+ ];
+ 

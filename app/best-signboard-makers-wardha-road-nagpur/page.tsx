@@ -15,6 +15,7 @@ export default function WardhaRoadSignboardsPage() {
       metaDescription={metadata.description as string}
       eyebrow="Local Spotlight · Wardha Road"
       slug="best-signboard-makers-wardha-road-nagpur"
+      image="/blog/Best Signboard Makers on Wardha Road Nagpur — Elevate Your Commercial Presence.png"
       date="2025-03-24T00:00:00.000Z"
       readTime="6 min read"
       lede="Wardha Road is Nagpur's fastest-growing commercial artery. If you're opening a showroom, restaurant, or clinic along this stretch, your signboard needs to stand out against intense competition. Here's why the top brands choose Prayas Graphics."

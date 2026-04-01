@@ -1,0 +1,20 @@
+diff --git a/app/page.tsx b/app/page.tsx
+index 3898e54..3551f24 100644
+--- a/app/page.tsx
++++ b/app/page.tsx
+@@ -1,5 +1,5 @@
+ import HeroSection from "@/components/HeroSection";
+-import PopularPosters from "@/components/PopularPosters";
++import ServicesSection from "@/components/ServicesSection";
+ import StorySection from "@/components/StorySection";
+ import FeaturesSection from "@/components/FeaturesSection";
+ import HowItWorks from "@/components/HowItWorks";
+@@ -12,7 +12,7 @@ export default function Home() {
+   return (
+     <main className="flex min-h-screen flex-col items-center bg-stone-50 pb-20 overflow-x-hidden">
+       <HeroSection />
+-      <PopularPosters />
++      <ServicesSection />
+       <StorySection />
+       <FeaturesSection />
+       <HowItWorks />

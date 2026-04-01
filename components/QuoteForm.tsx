@@ -62,6 +62,11 @@ export default function QuoteForm({
     const service = servicesData.find((s) => s.slug === selectedService);
     if (!service) return;
 
+    if (selectedService === "acrylic-acp-signboard" && area < 32) {
+      setError("Please provide dimensions yielding a minimum of 32 sq.ft (e.g. 8x4) for Acrylic ACP Signboard.");
+      return;
+    }
+
     addItem({
       id: Math.random().toString(36).substring(2, 9),
       serviceName: service.title,
@@ -104,7 +109,7 @@ export default function QuoteForm({
           type="number" 
           placeholder="Width" 
           value={dimensions.width} 
-          onChange={(e) => setDimensions(prev => ({...prev, width: e.target.value}))} 
+          onChange={(e) => { setDimensions(prev => ({...prev, width: e.target.value})); setError(""); }} 
           className={commonInputClass} 
         />
         <span className="text-zinc-400 font-medium font-mono text-sm">×</span>
@@ -112,12 +117,12 @@ export default function QuoteForm({
           type="number" 
           placeholder="Height" 
           value={dimensions.height} 
-          onChange={(e) => setDimensions(prev => ({...prev, height: e.target.value}))} 
+          onChange={(e) => { setDimensions(prev => ({...prev, height: e.target.value})); setError(""); }} 
           className={commonInputClass} 
         />
         <select 
           value={dimensions.unit} 
-          onChange={(e) => setDimensions(prev => ({...prev, unit: e.target.value as DimensionUnit}))} 
+          onChange={(e) => { setDimensions(prev => ({...prev, unit: e.target.value as DimensionUnit})); setError(""); }} 
           className="w-24 rounded-xl border border-zinc-200 bg-white px-3 py-3 text-zinc-900 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors"
         >
           <option value="ft">ft</option>
@@ -125,18 +130,30 @@ export default function QuoteForm({
         </select>
       </div>
       {area > 0 && (
-         <div className="mt-3 inline-flex flex-wrap items-center gap-4 text-sm font-semibold rounded-xl bg-[#800080]/5 border border-[#800080]/10 px-4 py-3 w-full">
-           <div className="flex items-center gap-1.5 min-w-max text-[#800080]">
-             <span className="opacity-70 font-medium">Total Area:</span> 
-             {area.toFixed(2)} sq.ft
+         <div className="mt-3 flex flex-col gap-2">
+           <div className="inline-flex flex-wrap items-center gap-4 text-sm font-semibold rounded-xl bg-[#800080]/5 border border-[#800080]/10 px-4 py-3 w-full">
+             <div className="flex items-center gap-1.5 min-w-max text-[#800080]">
+               <span className="opacity-70 font-medium">Total Area:</span> 
+               {area.toFixed(2)} sq.ft
+             </div>
+             
+             {estimatedPrice > 0 && (
+               <>
+                 <div className="w-px h-4 bg-[#800080]/20 hidden sm:block"></div>
+                 
+                 <div className="flex items-center gap-1.5 min-w-max text-emerald-700">
+                   <span className="opacity-70 font-medium">Approximate Rate:</span> 
+                   ₹{estimatedPrice.toLocaleString('en-IN')}
+                 </div>
+               </>
+             )}
            </div>
-           
-           <div className="w-px h-4 bg-[#800080]/20 hidden sm:block"></div>
-           
-           <div className="flex items-center gap-1.5 min-w-max text-emerald-700">
-             <span className="opacity-70 font-medium">Approximate Rate:</span> 
-             ₹{estimatedPrice.toLocaleString('en-IN')}
-           </div>
+           {selectedService === "acrylic-acp-signboard" && area < 32 && (
+             <div className="flex items-center gap-1.5 mt-1 text-sm font-medium text-red-600 px-1">
+               <span className="shrink-0">•</span>
+               <span>Minimum area for Acrylic ACP should be 32 sq.ft</span>
+             </div>
+           )}
          </div>
       )}
     </div>
@@ -150,6 +167,10 @@ export default function QuoteForm({
         return (
           <div className="space-y-4">
             {renderDimensionInputs()}
+            <div className="mt-1 flex items-start gap-2 rounded-xl bg-zinc-50 p-3 text-xs md:text-sm font-medium text-zinc-600 border border-zinc-200">
+              <span className="text-zinc-400 shrink-0 mt-0.5">ℹ️</span>
+              <span>Note: Acrylic ACP Signboard in 10 by 4 sheet only 200 inches of letter would be provided if your calculation exceeds that more charges would be added.</span>
+            </div>
             <div className="grid grid-cols-2 gap-4 mt-2">
               <div>
                 <label className="block text-sm font-semibold text-zinc-700 mb-1">Quantity</label>
@@ -256,9 +277,8 @@ export default function QuoteForm({
           </div>
         );
 
-      case "back-lit-letters":
+      case "ss-letter-backlit-golden":
       case "aluminium-channel-letter":
-      case "golden-acrylic-letters":
         return (
           <div className="space-y-4">
             <div>
@@ -330,6 +350,68 @@ export default function QuoteForm({
                   <option>No, I have exact specs</option>
                 </select>
               </div>
+            </div>
+          </div>
+        );
+
+      case "visiting-cards":
+        return (
+          <div className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-semibold text-zinc-700 mb-1">Quantity</label>
+                <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Quantity", e.target.value)}>
+                  <option>Select</option>
+                  <option>100</option>
+                  <option>200</option>
+                  <option>500</option>
+                  <option>1000+</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-zinc-700 mb-1">Finish</label>
+                <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Finish", e.target.value)}>
+                  <option>Select</option>
+                  <option>Standard Matte</option>
+                  <option>Glossy</option>
+                  <option>Velvet Touch</option>
+                  <option>Spot UV</option>
+                  <option>Foil Stamping</option>
+                </select>
+              </div>
+            </div>
+            <div className="mt-2">
+              <label className="block text-sm font-semibold text-zinc-700 mb-1">Requirements Description</label>
+              <textarea placeholder="Any additional details or design requirements..." rows={3} className={commonInputClass} onChange={(e) => updateServiceDetail("Requirements", e.target.value)}></textarea>
+            </div>
+          </div>
+        );
+
+      case "lollipop-signboard":
+        return (
+          <div className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-semibold text-zinc-700 mb-1">Material Variant</label>
+                <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Material", e.target.value)}>
+                  <option>Select</option>
+                  <option>Premium Acrylic (₹14.5k + GST)</option>
+                  <option>Flex Backlit (₹9.5k + GST)</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-zinc-700 mb-1">Shape</label>
+                <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Shape", e.target.value)}>
+                  <option>Select</option>
+                  <option>Round</option>
+                  <option>Square</option>
+                  <option>Custom Shape</option>
+                </select>
+              </div>
+            </div>
+            <div className="mt-2">
+              <label className="block text-sm font-semibold text-zinc-700 mb-1">Requirements Description</label>
+              <textarea placeholder="Describe your requirement..." rows={3} className={commonInputClass} onChange={(e) => updateServiceDetail("Requirements", e.target.value)}></textarea>
             </div>
           </div>
         );

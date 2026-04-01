@@ -15,6 +15,7 @@ export default function AcpVsAcrylicVsFlexPage() {
       metaDescription={metadata.description as string}
       eyebrow="Comparison Guide · Materials"
       slug="acp-vs-acrylic-vs-flex-signboard-nagpur"
+      image="/blog/ACP vs Acrylic vs Flex — Which Signboard Material Survives Nagpur's Extreme Weather.png"
       date="2025-03-24T00:00:00.000Z"
       readTime="12 min read"
       lede="Nagpur is one of India's hottest cities, regularly breaching 47°C in May — and then getting drenched in June monsoons. The signboard material you choose will either survive this or won't. Here's the definitive comparison."

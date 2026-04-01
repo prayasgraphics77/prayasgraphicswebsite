@@ -15,6 +15,7 @@ export default function GoldenVsSSLettersPage() {
       metaDescription={metadata.description as string}
       eyebrow="Comparison · Luxury Signage"
       slug="golden-acrylic-vs-ss-letters-nagpur"
+      image="/blog/Golden Acrylic Letters vs Stainless Steel Letters — Which Signals Luxury for Your Nagpur Business.png"
       date="2025-03-24T00:00:00.000Z"
       readTime="8 min read"
       lede="If your business needs to communicate exclusivity and trust — as a jeweller, financial firm, law office, or premium hotel — the choice between golden acrylic and stainless steel letters has real brand consequences."

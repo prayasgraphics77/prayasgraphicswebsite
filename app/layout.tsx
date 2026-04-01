@@ -37,9 +37,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${dmSans.variable} ${bricolageGrotesque.variable} ${inter.variable} font-sans antialiased text-zinc-950 bg-stone-50`}
+        suppressHydrationWarning
       >
         <CartProvider>
           <Navbar />

@@ -1,0 +1,45 @@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   app/acp-elevation-cladding-nagpur-guide/page.tsx
+	modified:   app/acp-vs-acrylic-vs-flex-signboard-nagpur/page.tsx
+	modified:   app/api/quote/route.ts
+	modified:   app/best-signboard-makers-wardha-road-nagpur/page.tsx
+	modified:   app/blog/page.tsx
+	modified:   app/golden-acrylic-vs-ss-letters-nagpur/page.tsx
+	modified:   app/layout.tsx
+	modified:   app/nmc-signboard-rules-nagpur-2025/page.tsx
+	modified:   app/page.tsx
+	modified:   app/restaurant-cafe-signboard-ideas-nagpur/page.tsx
+	modified:   app/signboard-mistakes-nagpur-businesses/page.tsx
+	deleted:    app/signboard-price-nagpur-2025-guide/page.tsx
+	modified:   components/BlogSection.tsx
+	modified:   components/DimensionModal.tsx
+	modified:   components/PopularPosters.tsx
+	modified:   components/QuoteForm.tsx
+	modified:   components/blog/BlogPostLayout.tsx
+	modified:   lib/services-data.ts
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	diff.js
+	diff_lib.txt
+	diff_page.txt
+	dump.js
+	git_status.txt
+	history_page.txt
+	history_services.txt
+	lib/blog-data.ts
+	old_services.tsx
+	old_services1.txt
+	old_services2.txt
+	old_services3.txt
+	public/blog/
+	public/gallery/2026-03-19.webp
+	public/hero/
+	tmp_log.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")

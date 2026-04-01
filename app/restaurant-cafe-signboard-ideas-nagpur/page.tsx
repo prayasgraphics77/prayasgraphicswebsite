@@ -15,6 +15,7 @@ export default function RestaurantSignboardIdeasPage() {
       metaDescription={metadata.description as string}
       eyebrow="Industry Guide · Food & Beverage"
       slug="restaurant-cafe-signboard-ideas-nagpur"
+      image="/blog/Best Signboard Ideas for Restaurants, Cafes & Hotels in Nagpur.png"
       date="2025-03-24T00:00:00.000Z"
       readTime="10 min read"
       lede="The right signage can fill tables. The wrong signage (or none) empties them. Here's exactly what works for Nagpur's competitive food and hospitality scene — backed by real installations."

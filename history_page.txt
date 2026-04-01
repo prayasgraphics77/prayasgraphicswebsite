@@ -1,0 +1,3 @@
+ef523fd feat: update assets, integrate quote flow, and refine navbar logo
+d9ad910 chore: prepare for deployment
+30a9839 Initial commit from Create Next App

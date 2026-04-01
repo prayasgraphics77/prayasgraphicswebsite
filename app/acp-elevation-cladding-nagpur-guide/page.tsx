@@ -15,6 +15,7 @@ export default function AcpElevationGuidePage() {
       metaDescription={metadata.description as string}
       eyebrow="Architecture Guide · Building Facades"
       slug="acp-elevation-cladding-nagpur-guide"
+      image="/blog/ACP Elevation Cladding in Nagpur — A Complete Guide for Building Owners & Architects.png"
       date="2025-03-24T00:00:00.000Z"
       readTime="11 min read"
       lede="ACP elevation work is one of the highest-ROI improvements a commercial building in Nagpur can make — transforming an aged concrete exterior into a sleek, branded architectural presence that lasts 20+ years."

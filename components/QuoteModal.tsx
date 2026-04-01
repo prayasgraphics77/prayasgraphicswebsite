@@ -15,7 +15,7 @@ export default function QuoteModal({ isOpen, onClose, serviceSlug }: QuoteModalP
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <div className="fixed inset-0 z-100 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
           <motion.div
             key="backdrop"
             initial={{ opacity: 0 }}
@@ -42,7 +42,7 @@ export default function QuoteModal({ isOpen, onClose, serviceSlug }: QuoteModalP
               </button>
             </div>
             
-            <div className="max-h-[90vh] overflow-y-auto rounded-[32px] custom-scrollbar">
+            <div className="max-h-[90vh] overflow-y-auto rounded-[32px] no-scrollbar">
               <QuoteForm inlineService={serviceSlug} onComplete={onClose} />
             </div>
           </motion.div>

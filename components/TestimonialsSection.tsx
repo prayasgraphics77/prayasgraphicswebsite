@@ -79,6 +79,16 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
   </div>
 );
 
+import Image from "next/image";
+
+const brandLogos = [
+  { src: "/clients/logo (1).jpeg", alt: "Chola Logo" },
+  { src: "/clients/logo (2).jpeg", alt: "SMFG India Credit Logo" },
+  { src: "/clients/logo (3).jpeg", alt: "Fortune Logo" },
+  { src: "/clients/logo (4).jpeg", alt: "NoBroker Logo" },
+  { src: "/clients/logo (5).jpeg", alt: "PNB Logo" },
+];
+
 export default function TestimonialsSection() {
   return (
     <section className="relative w-full py-24 overflow-hidden bg-white">
@@ -148,14 +158,23 @@ export default function TestimonialsSection() {
       </div>
 
       <div className="mt-20 flex justify-center">
-        <div className="flex -space-x-3">
-          {[1, 2, 3, 4, 5].map((i) => (
-             <div key={i} className="h-12 w-12 rounded-full border-4 border-white bg-zinc-100 flex items-center justify-center text-[10px] font-bold text-zinc-400">
-               {i}
-             </div>
+        <div className="flex -space-x-4">
+          {brandLogos.map((logo, i) => (
+            <div 
+              key={i} 
+              className="h-12 w-12 rounded-full border-4 border-white bg-white flex items-center justify-center overflow-hidden relative shadow-sm ring-1 ring-zinc-100"
+              style={{ zIndex: brandLogos.length - i }}
+            >
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                fill
+                className="object-contain p-2"
+              />
+            </div>
           ))}
-          <div className="flex items-center pl-6 text-zinc-900">
-            <span className="text-sm font-bold">500+ Businesses Served</span>
+          <div className="flex items-center pl-8 text-zinc-900">
+            <span className="text-sm font-bold tracking-tight">500+ Businesses Served</span>
           </div>
         </div>
       </div>

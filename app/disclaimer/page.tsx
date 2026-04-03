@@ -33,7 +33,7 @@ const sections = [
   },
   {
     heading: "Contact",
-    body: "If you have any questions about this disclaimer, please contact us at support@prayasgraphics.com.",
+    body: "If you have any questions about this disclaimer, please contact us at prayasgraphics77@gmail.com.",
   },
 ];
 

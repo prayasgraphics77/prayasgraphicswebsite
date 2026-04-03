@@ -61,7 +61,7 @@ const sections = [
   },
   {
     heading: "Contact Us",
-    body: "For any privacy-related questions or to exercise your rights, please email us at support@prayasgraphics.com.",
+    body: "For any privacy-related questions or to exercise your rights, please email us at prayasgraphics77@gmail.com.",
   },
 ];
 

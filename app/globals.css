@@ -4,6 +4,7 @@
   --font-sans: var(--font-dm-sans);
   --font-heading: var(--font-bricolage-grotesque);
   --font-inter: var(--font-inter);
+  --color-primary: #800080;
 }
 
 @layer base {

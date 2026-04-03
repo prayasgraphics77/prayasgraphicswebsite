@@ -33,7 +33,7 @@ const sections = [
   },
   {
     heading: "Contact",
-    body: "If you have any questions about this disclaimer, please contact us at prayasgraphics77@gmail.com.",
+    body: "If you have any questions about this disclaimer, please contact us at prayasgraphics77@gmail.com or visit us at Madhuvatsalya Apartment Shop no 3 Tukdoji Sqr, Manewada Rd, opp. MSEB Office, appt, Nagpur, Maharashtra 440027.",
   },
 ];
 

@@ -61,7 +61,7 @@ const sections = [
   },
   {
     heading: "Contact Us",
-    body: "For any privacy-related questions or to exercise your rights, please email us at prayasgraphics77@gmail.com.",
+    body: "For any privacy-related questions or to exercise your rights, please email us at prayasgraphics77@gmail.com or visit us at Madhuvatsalya Apartment Shop no 3 Tukdoji Sqr, Manewada Rd, opp. MSEB Office, appt, Nagpur, Maharashtra 440027.",
   },
 ];
 

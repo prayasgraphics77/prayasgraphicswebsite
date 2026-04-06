@@ -30,6 +30,8 @@ export default function PopularPosters() {
             description={service.description}
             image={service.image}
             imageFit={service.imageFit}
+            originalPrice={service.originalPrice}
+            offerPrice={service.offerPrice}
             badges={idx === 0 ? [{ text: "Core Service", type: "popular" as const }] : (idx === 1 ? [{ text: "Premium", type: "new" as const }] : [])}
           />
         ))}

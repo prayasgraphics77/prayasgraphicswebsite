@@ -78,8 +78,23 @@ export default async function ServiceDetailPage({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="rounded-[24px] bg-white p-8 shadow-sm border border-zinc-100">
             <h3 className="font-heading text-xl font-bold text-zinc-900 mb-4">Pricing</h3>
-            <p className="text-2xl font-semibold text-[#800080] mb-2">{service.pricing}</p>
-            <p className="text-sm text-zinc-500">Estimates may vary based on installation complexity, size, and material tier.</p>
+            <div className="flex flex-col gap-1 mb-2">
+              {service.originalPrice && (
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-bold uppercase tracking-wider text-zinc-400">Original Rate</span>
+                  <span className="text-zinc-400 line-through font-semibold">₹{service.originalPrice.toLocaleString('en-IN')}</span>
+                </div>
+              )}
+              <div className="flex flex-col">
+                {service.originalPrice && (
+                   <span className="text-xs font-bold uppercase tracking-wider text-[#800080] opacity-70">Offer Price</span>
+                )}
+                <p className="text-2xl font-bold text-[#800080] leading-tight">
+                  {service.pricing}
+                </p>
+              </div>
+            </div>
+            <p className="text-sm text-zinc-500 mt-4 leading-relaxed">Estimates may vary based on installation complexity, size, and material tier.</p>
           </div>
           
           <div className="rounded-[24px] bg-white p-8 shadow-sm border border-zinc-100">

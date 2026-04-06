@@ -56,7 +56,17 @@ export default function QuoteForm({
       area = dimensions.unit === "in" ? (widthNum * heightNum) / 144 : (widthNum * heightNum);
   }
   const currentService = servicesData.find(s => s.slug === selectedService);
-  const estimatedPrice = currentService && area > 0 ? Math.round(area * currentService.demoRatePerSqFt) : 0;
+  
+  // Custom pricing for services with offerPrice (like Roll up standee)
+  let estimatedPrice = 0;
+  if (currentService) {
+    if (currentService.offerPrice && currentService.slug === "flex-roll-up-standee") {
+      const qty = parseInt(serviceDetails["Quantity"] || "1") || 1;
+      estimatedPrice = currentService.offerPrice * qty;
+    } else if (area > 0) {
+      estimatedPrice = Math.round(area * currentService.demoRatePerSqFt);
+    }
+  }
 
   const handleAddToCart = () => {
     const service = servicesData.find((s) => s.slug === selectedService);
@@ -101,7 +111,7 @@ export default function QuoteForm({
   const commonSelectClass = "w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-zinc-900 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors";
   const commonInputClass = "w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-zinc-900 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors";
 
-  const renderDimensionInputs = (label = "Size (Width × Height)") => (
+  const renderDimensionInputs = (label = "Size (Width × Height)", hideArea = false) => (
     <div>
       <label className="block text-sm font-semibold text-zinc-700 mb-1">{label}</label>
       <div className="flex gap-2 items-center">
@@ -129,20 +139,26 @@ export default function QuoteForm({
           <option value="in">in</option>
         </select>
       </div>
-      {area > 0 && (
+      
+      {(area > 0 || (currentService?.offerPrice && currentService?.slug === "flex-roll-up-standee")) && (
          <div className="mt-3 flex flex-col gap-2">
            <div className="inline-flex flex-wrap items-center gap-4 text-sm font-semibold rounded-xl bg-[#800080]/5 border border-[#800080]/10 px-4 py-3 w-full">
-             <div className="flex items-center gap-1.5 min-w-max text-[#800080]">
-               <span className="opacity-70 font-medium">Total Area:</span> 
-               {area.toFixed(2)} sq.ft
-             </div>
+             {!hideArea && area > 0 && (
+               <div className="flex items-center gap-1.5 min-w-max text-[#800080]">
+                 <span className="opacity-70 font-medium">Total Area:</span> 
+                 {area.toFixed(2)} sq.ft
+               </div>
+             )}
              
              {estimatedPrice > 0 && (
                <>
-                 <div className="w-px h-4 bg-[#800080]/20 hidden sm:block"></div>
+                 {!hideArea && area > 0 && <div className="w-px h-4 bg-[#800080]/20 hidden sm:block"></div>}
                  
                  <div className="flex items-center gap-1.5 min-w-max text-emerald-700">
                    <span className="opacity-70 font-medium">Approximate Rate:</span> 
+                   {currentService?.originalPrice && (
+                     <span className="text-zinc-400 line-through text-xs mr-0.5">₹{currentService.originalPrice.toLocaleString('en-IN')}</span>
+                   )}
                    ₹{estimatedPrice.toLocaleString('en-IN')}
                  </div>
                </>
@@ -315,7 +331,7 @@ export default function QuoteForm({
         return (
           <div className="space-y-4">
             {/* For standee we override the unit manually via notes previously, but now we can just let them type dimensions */}
-            {renderDimensionInputs("Target Size (Standard is 6x3 ft)")}
+            {renderDimensionInputs("Target Size (Standard is 6x3 ft)", true)}
             <div className="grid grid-cols-2 gap-4 mt-2">
               <div>
                 <label className="block text-sm font-semibold text-zinc-700 mb-1">Have Design?</label>
@@ -327,7 +343,13 @@ export default function QuoteForm({
               </div>
               <div>
                 <label className="block text-sm font-semibold text-zinc-700 mb-1">Quantity</label>
-                <input type="number" placeholder="1" className={commonInputClass} onChange={(e) => updateServiceDetail("Quantity", e.target.value)} />
+                <input 
+                  type="number" 
+                  placeholder="1" 
+                  defaultValue={1}
+                  className={commonInputClass} 
+                  onChange={(e) => updateServiceDetail("Quantity", e.target.value)} 
+                />
               </div>
             </div>
           </div>

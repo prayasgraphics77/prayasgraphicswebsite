@@ -10,6 +10,8 @@ export interface ServiceData {
   useCases: string[];
   materials: string[];
   pricing: string;
+  originalPrice?: number;
+  offerPrice?: number;
   image: string;
   demoRatePerSqFt: number;
   imageFit?: "cover" | "contain";
@@ -25,9 +27,11 @@ export const servicesData: ServiceData[] = [
     icon: Layers,
     useCases: ["Corporate Offices", "Retail Storefronts", "Hospitals", "Showrooms"],
     materials: ["3mm/4mm Premium ACP Sheet", "Imported Cast Acrylic (3mm-10mm)", "LED Modules (Optional)"],
-    pricing: "Rs. 700 per sq ft, only 10 by 4 and 8 by 4 feet.",
+    pricing: "Rs. 750 per sq ft, only 10 by 4 and 8 by 4 feet.",
+    originalPrice: 850,
+    offerPrice: 750,
     image: "/services/Acrylic ACP Signboard.png",
-    demoRatePerSqFt: 700,
+    demoRatePerSqFt: 750,
   },
   {
     slug: "inner-cut-acp-signboard",
@@ -38,9 +42,11 @@ export const servicesData: ServiceData[] = [
     icon: Printer,
     useCases: ["Boutiques", "High-end Clinics", "Tech Parks", "Restaurant Facades"],
     materials: ["Router-cut ACP", "Translucent Acrylic Backing", "High-intensity LED Strips"],
-    pricing: "Rs. 600 per sq ft",
+    pricing: "Rs. 650 per sq ft",
+    originalPrice: 750,
+    offerPrice: 650,
     image: "/services/Inner Cut ACP Signboard.png",
-    demoRatePerSqFt: 600,
+    demoRatePerSqFt: 650,
   },
   {
     slug: "flex-backlit-signboard",
@@ -52,6 +58,8 @@ export const servicesData: ServiceData[] = [
     useCases: ["Supermarkets", "Dealerships", "Large Retail Outlets", "Highway Hoardings"],
     materials: ["Star Backlit Flex", "MS Rectangular Pipe Frame", "Tube Lights or LED Modules"],
     pricing: "Rs. 300 per sq ft",
+    originalPrice: 400,
+    offerPrice: 300,
     image: "/services/Flex Backlit Signboard.png",
     demoRatePerSqFt: 300,
   },
@@ -65,6 +73,8 @@ export const servicesData: ServiceData[] = [
     useCases: ["Construction Site Hoardings", "Event Backdrops", "Promotional Campaigns", "Temporary Signage"],
     materials: ["Frontlit Flex Banner", "MS Frame / Wooden Frame"],
     pricing: "Rs. 65 per sq ft",
+    originalPrice: 80,
+    offerPrice: 65,
     image: "/services/Flex On Frame.png",
     demoRatePerSqFt: 65,
     imageFit: "contain",
@@ -79,6 +89,8 @@ export const servicesData: ServiceData[] = [
     useCases: ["Hotel Lobbies", "Law Firms", "Jewelry Stores", "Reception Walls"],
     materials: ["Premium Stainless Steel", "Waterproof LED Modules", "Stand-off Mounts"],
     pricing: "Rs. 380 per inch",
+    originalPrice: 450,
+    offerPrice: 380,
     image: "/services/Back Lit Letters.png",
     demoRatePerSqFt: 380, // Updated base rate for demo
   },
@@ -92,6 +104,8 @@ export const servicesData: ServiceData[] = [
     useCases: ["Malls", "Corporate Towers", "Standalone Retail Stores", "Cinemas"],
     materials: ["Aluminium Coil (Returns)", "Cast Acrylic Face", "Trim Cap", "Samsung/Osram LEDs"],
     pricing: "Rs. 180 per sq inch",
+    originalPrice: 220,
+    offerPrice: 180,
     image: "/services/Aluminum Channel Letter.webp",
     demoRatePerSqFt: 180,
   },
@@ -104,9 +118,11 @@ export const servicesData: ServiceData[] = [
     icon: Palette,
     useCases: ["Exhibitions", "Seminars", "Point of Sale displays", "Corporate Events"],
     materials: ["Aluminium Retractable Base", "Star Flex / PP Non-tearable Print", "Carry Bag"],
-    pricing: "Rs. 1500",
+    pricing: "₹1,500 per unit",
+    originalPrice: 1850,
+    offerPrice: 1500,
     image: "/services/Flex Roll Up Standee.png",
-    demoRatePerSqFt: 150, // Roughly 1200 for 18 sq ft (6x3) -> ~66, but setting demo rate to standard print rate
+    demoRatePerSqFt: 0, // Roughly 1200 for 18 sq ft (6x3) -> ~66, but setting demo rate to standard print rate
   },
   {
     slug: "acp-elevation-work",
@@ -118,6 +134,8 @@ export const servicesData: ServiceData[] = [
     useCases: ["Showroom Exteriors", "Office Buildings", "Petrol Pumps", "Restaurants"],
     materials: ["Exterior Grade ACP Sheets", "Aluminium/MS Framework", "Weather-sealants"],
     pricing: "Rs. 220 per sq ft only white or plain colour",
+    originalPrice: 300,
+    offerPrice: 220,
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     demoRatePerSqFt: 220,
   },

@@ -13,6 +13,8 @@ export interface ServiceCardProps {
   badges?: { text: string; type: "popular" | "new" }[];
   image?: string;
   imageFit?: "cover" | "contain";
+  originalPrice?: number;
+  offerPrice?: number;
 }
 
 export default function ServiceCard({
@@ -22,6 +24,8 @@ export default function ServiceCard({
   badges,
   image,
   imageFit = "cover",
+  originalPrice,
+  offerPrice,
 }: ServiceCardProps) {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -103,8 +107,20 @@ export default function ServiceCard({
         <div className="flex flex-col flex-1 border-t border-zinc-100 p-5 bg-white">
           <h3 className="font-heading text-lg font-bold text-zinc-900">{serviceName}</h3>
           <p className="text-sm text-zinc-500 line-clamp-3 mt-1 flex-1">{description}</p>
-          <div className="flex items-center justify-between gap-2 mt-4 pt-4 border-t border-zinc-50">
-            <span className="text-sm font-semibold text-zinc-600">Price on Request</span>
+          <div className="flex items-center justify-between gap-2 mt-4 pt-4 border-t border-zinc-100">
+            {originalPrice ? (
+              <div className="flex flex-col">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">Offer Price</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xs text-zinc-400 line-through font-medium">₹{originalPrice.toLocaleString('en-IN')}</span>
+                  <span className="text-sm font-bold text-[#800080]">
+                    {offerPrice ? `₹${offerPrice.toLocaleString('en-IN')}` : "Special Rate"}
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <span className="text-sm font-semibold text-zinc-600">Price on Request</span>
+            )}
             <button
               onClick={(e) => {
                 e.stopPropagation();

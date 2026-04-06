@@ -179,7 +179,9 @@ export default function CartPanel() {
                         {(item.width || item.height) && (
                            <div className="text-sm border-l-2 border-emerald-400 pl-3 py-1 mb-3 bg-emerald-50/50 text-emerald-800 rounded-r-lg">
                              <strong>Size:</strong> {item.width} x {item.height} {item.unit} <br/>
-                             <span className="text-emerald-600 font-medium">Approx. Area: {item.area?.toFixed(2)} sq.ft</span>
+                             {item.serviceSlug !== "flex-roll-up-standee" && (
+                               <span className="text-emerald-600 font-medium">Approx. Area: {item.area?.toFixed(2)} sq.ft</span>
+                             )}
                            </div>
                         )}
 

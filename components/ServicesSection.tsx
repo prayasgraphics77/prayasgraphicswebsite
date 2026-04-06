@@ -68,9 +68,21 @@ export default function ServicesSection() {
                   </p>
                 </div>
                 
-                <div className="mt-6 flex items-center text-sm font-semibold text-zinc-900 group-hover:text-[#800080] transition-colors">
-                  Get a Quote 
-                  <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                <div className="mt-6 flex flex-col pt-4 border-t border-zinc-50">
+                  <div className="flex items-center justify-between">
+                    <div className="flex flex-col">
+                      {service.originalPrice && (
+                        <span className="text-[10px] text-zinc-400 line-through font-medium">₹{service.originalPrice.toLocaleString('en-IN')}</span>
+                      )}
+                      <span className="text-sm font-bold text-[#800080]">
+                         {service.offerPrice ? `₹${service.offerPrice.toLocaleString('en-IN')}` : service.pricing.split(' ')[0] === "Rs." ? service.pricing.split(',')[0].replace("Rs. ", "₹") : service.pricing}
+                      </span>
+                    </div>
+                    <div className="flex items-center text-sm font-semibold text-zinc-900 group-hover:text-[#800080] transition-colors">
+                      Details 
+                      <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                  </div>
                 </div>
               </Link>
             </motion.div>

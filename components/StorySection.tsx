@@ -59,9 +59,9 @@ function Column({
               y: -5,
               transition: { type: "spring", stiffness: 400, damping: 10 }
             }}
-            className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg cursor-pointer transition-all duration-300 hover:shadow-purple-500/30 hover:border-purple-400/50"
+            className="group relative aspect-4/3 w-full overflow-hidden rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg cursor-pointer transition-all duration-300 hover:shadow-purple-500/30 hover:border-purple-400/50"
           >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10 pointer-events-none z-0" />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-br from-purple-500/10 via-transparent to-indigo-500/10 pointer-events-none z-0" />
             <div className="relative z-10 w-full h-full flex items-center justify-center p-6 bg-white/95 transition-colors duration-300 group-hover:bg-white">
               <Image
                 src={logo.src}
@@ -71,7 +71,7 @@ function Column({
                 className="object-contain p-4 transition-transform duration-500 group-hover:scale-110"
               />
             </div>
-            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-linear-to-r from-purple-500 via-indigo-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </motion.div>
         ))}
       </motion.div>
@@ -81,29 +81,29 @@ function Column({
 
 export default function StorySection() {
   return (
-    <section className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-8 md:flex-row md:py-12 lg:p-8">
-      <div className="flex flex-1 flex-col items-start justify-center rounded-[40px] bg-white p-8 text-left shadow-sm ring-1 ring-zinc-100 md:aspect-square md:p-14 lg:p-16 xl:p-20">
+    <section className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-6 md:flex-row md:py-12 lg:p-8">
+      <div className="flex flex-1 flex-col items-start justify-center rounded-[32px] sm:rounded-[40px] bg-white p-8 text-left shadow-sm ring-1 ring-zinc-100 sm:aspect-square md:p-14 lg:p-16 xl:p-20">
         <div className="mb-6 flex items-center gap-3">
           <span className="h-px w-10 bg-purple-500/50" />
           <span className="text-sm font-bold uppercase tracking-widest text-purple-600">
             Professional Printing Excellence
           </span>
         </div>
-        <h2 className="max-w-md font-heading text-3xl font-bold leading-tight tracking-tight text-zinc-900 md:text-4xl lg:text-5xl">
+        <h2 className="max-w-md font-heading text-2xl font-bold leading-tight tracking-tight text-zinc-900 sm:text-3xl md:text-3xl lg:text-5xl">
           Let Your Signage Tell Your Brand&apos;s Story!
         </h2>
-        <p className="mt-6 max-w-sm text-base leading-relaxed text-zinc-500 md:text-lg">
+        <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-500 sm:mt-6 sm:text-base md:text-lg">
           Partnering with leading brands to create impactful visual identities. High-precision printing architecture for modern commercial signage.
         </p>
       </div>
 
-      <div className="relative flex flex-1 items-center justify-center overflow-hidden rounded-[40px] bg-zinc-950 p-6 shadow-2xl md:aspect-square">
+      <div className="relative flex flex-1 items-center justify-center overflow-hidden rounded-[32px] sm:rounded-[40px] bg-zinc-950 p-6 shadow-2xl aspect-square">
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
           style={{ backgroundImage: `radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)`, backgroundSize: `32px 32px` }}
         />
 
         <div
-          className="absolute inset-0 flex items-center justify-center gap-4 px-4 opacity-40 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]"
+          className="absolute inset-0 flex items-center justify-center gap-4 px-4 opacity-40 mask-[linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]"
           aria-hidden="true"
         >
           <Column
@@ -131,9 +131,9 @@ export default function StorySection() {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="group relative flex aspect-square w-[150px] md:w-[200px] lg:w-[220px] items-center justify-center rounded-[48px] bg-white shadow-[0_10px_40px_rgba(0,0,0,0.5)] border-[6px] border-zinc-900/30 backdrop-blur-3xl"
+            className="group relative flex aspect-square w-[130px] sm:w-[150px] md:w-[200px] lg:w-[220px] items-center justify-center rounded-[32px] sm:rounded-[48px] bg-white shadow-[0_10px_40px_rgba(0,0,0,0.5)] border-4 sm:border-6 border-zinc-900/30 backdrop-blur-3xl"
           >
-            <div className="relative w-24 h-24 md:w-36 md:h-36 lg:w-40 lg:h-40">
+            <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-36 md:h-36 lg:w-40 lg:h-40">
               <Image
                 src="/Prayas-Graphics-Logo.svg"
                 alt="Prayas Graphics Logo"

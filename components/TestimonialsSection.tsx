@@ -6,40 +6,52 @@ import { cn } from "@/lib/utils";
 
 const testimonials = [
   {
-    name: "Sarah M.",
-    role: "Café Owner",
-    quote: "The quality of our new LED signboard is simply stunning. It's incredibly bright and completely transformed our storefront at night.",
+    name: "Sahil Khobragade",
+    role: "Local Guide",
+    quote: "Excellent service from Prayas Graphics! The quality of printing and design work is outstanding. They are very professional, responsive, and deliver work on time. Highly recommended for reliable and high-quality printing services. 👍✨",
     gradient: "from-amber-500/10 to-orange-500/5",
   },
   {
-    name: "Michael T.",
-    role: "Retail Director",
-    quote: "We were looking for impactful channel letters for our new branch. Prayas Graphics delivered perfectly on time and on budget.",
-    gradient: "from-[#800080]/10 to-indigo-500/5",
+    name: "Praharsh Lukhey",
+    role: "Verified Client",
+    quote: "I'm very satisfied with the banner printing service. The print quality, color accuracy, and finishing were excellent. They truly understand customer requirements perfectly.",
+    gradient: "from-primary/10 to-indigo-500/5",
   },
   {
-    name: "Emma Davis",
-    role: "Agency Partner",
-    quote: "Fast production and expert installation. Our corporate office acrylic signage looks incredibly premium.",
+    name: "Tanushree Borkar",
+    role: "Verified Client",
+    quote: "Quick and efficient work and reasonable prices. I got my order within a day. The staff is friendly and professional.",
     gradient: "from-emerald-500/10 to-teal-500/5",
   },
   {
-    name: "David Chen",
-    role: "Tech Startup",
-    quote: "The attention to detail on our lobby's edge-lit logo is remarkable. I'll definitely be using Prayas Graphics for all future locations.",
+    name: "Satyawan Shivankar",
+    role: "Local Guide",
+    quote: "Quick and Quality Service with wonderful Nature. They Use Quality Material for all their signage and printing work.",
     gradient: "from-purple-500/10 to-pink-500/5",
   },
   {
-    name: "Jessica P.",
-    role: "Boutique Owner",
-    quote: "Beautiful craftsmanship. The mirror gold acrylic letters give our boutique exactly the luxurious feel we were aiming for.",
+    name: "Manish Chandwani",
+    role: "Local Guide",
+    quote: "Great prices and excellent service! They truly know how to build strong customer relationships and deliver exactly what's promised.",
     gradient: "from-rose-500/10 to-red-500/5",
   },
   {
-    name: "Robert K.",
-    role: "Restaurant Manager",
-    quote: "Exceeded my expectations. The flex backlit board is huge, vibrant, and draws in so many walking customers.",
-    gradient: "from-cyan-500/10 to-[#800080]/5",
+    name: "Pawankumar D",
+    role: "Local Guide",
+    quote: "Excellent service provided by Prayas Graphics! They designed banners and standees for us with great precision and delivered on time.",
+    gradient: "from-cyan-500/10 to-primary/5",
+  },
+  {
+    name: "Rajesh Wadhaikar",
+    role: "Verified Client",
+    quote: "On time done work and very good quality. Highly recommended for anyone looking for reliable graphic services in Nagpur.",
+    gradient: "from-blue-500/10 to-indigo-500/5",
+  },
+  {
+    name: "Gaurav ranjan Thakur",
+    role: "Local Guide",
+    quote: "Excellent work, Good staff service. The attention to detail in their signage work is impressive.",
+    gradient: "from-orange-500/10 to-red-500/5",
   },
 ];
 
@@ -70,7 +82,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
         <div>
           <div className="flex items-center gap-1.5">
             <span className="text-sm font-bold text-zinc-900">{testimonial.name}</span>
-            <CheckCircle2 className="h-3.5 w-3.5 text-[#800080]" />
+            <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
           </div>
           <span className="text-xs font-semibold text-zinc-400 uppercase tracking-tight">{testimonial.role}</span>
         </div>

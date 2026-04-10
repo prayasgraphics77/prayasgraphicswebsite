@@ -39,7 +39,7 @@ export default function Navbar() {
               alt="Prayas Graphics Logo"
               width={64}
               height={64}
-              className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 transition-all object-contain shrink-0"
+              className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 lg:w-16 lg:h-16 transition-all object-contain shrink-0"
               priority
             />
             <Image
@@ -47,7 +47,7 @@ export default function Navbar() {
               alt="Prayas Graphics Title"
               width={200}
               height={64}
-              className="h-6 w-auto sm:h-8 md:h-10 lg:h-12 transition-all object-contain shrink-0"
+              className="h-8 w-auto sm:h-9 md:h-10 lg:h-12 transition-all object-contain shrink-0"
               priority
             />
           </Link>
@@ -129,6 +129,10 @@ export default function Navbar() {
                     </span>
                   )}
                 </button>
+              </div>
+              <div className="mt-2 flex items-center justify-center gap-1.5 text-[11px] font-medium text-zinc-400">
+                <span>Powered by</span>
+                <a href="https://intrface.in" target="_blank" rel="noopener noreferrer" className="text-zinc-950 font-bold hover:underline decoration-zinc-300 underline-offset-2">intrface</a>
               </div>
             </div>
           </motion.div>

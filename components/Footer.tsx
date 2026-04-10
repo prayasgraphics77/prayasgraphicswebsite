@@ -68,10 +68,21 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-zinc-100 pt-6">
+        <div className="border-t border-zinc-100 pt-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <p className="text-xs font-medium text-zinc-400">
             © 2026 Prayas Graphics Inc. All rights reserved.
           </p>
+          <div className="flex items-center gap-1.5 text-xs font-medium text-zinc-400">
+            <span>Powered by</span>
+            <a 
+              href="https://intrface.in" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-zinc-950 font-bold hover:underline decoration-zinc-300 underline-offset-2 transition-all"
+            >
+              intrface
+            </a>
+          </div>
         </div>
       </div>
     </footer>

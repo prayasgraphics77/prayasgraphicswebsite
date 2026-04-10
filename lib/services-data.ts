@@ -136,7 +136,7 @@ export const servicesData: ServiceData[] = [
     pricing: "Rs. 220 per sq ft only white or plain colour",
     originalPrice: 300,
     offerPrice: 220,
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/services/acp-elevation-work.png",
     demoRatePerSqFt: 220,
   },
   {
@@ -149,9 +149,8 @@ export const servicesData: ServiceData[] = [
     useCases: ["Networking Events", "Corporate Meetings", "Client Handouts", "Brand Identity"],
     materials: ["Premium Cardstock", "Matte/Gloss Lamination", "Special Finishes (UV/Foil)"],
     pricing: "For Enquiry Only",
-    image: "/services/Visiting Cards.png",
+    image: "/services/visiting-cards.png",
     demoRatePerSqFt: 0,
-    imageFit: "contain",
   },
   {
     slug: "lollipop-signboard",
@@ -163,7 +162,7 @@ export const servicesData: ServiceData[] = [
     useCases: ["Cafes", "Clinics", "Retail Stores", "Street Navigation"],
     materials: ["Acrylic or Flex Backlit", "Aluminium/MS Frame", "LED Illumination"],
     pricing: "Acrylic: ₹14,500 | Flex: ₹9,500 (Excl. GST)",
-    image: "/services/Lollipop Signboard.png",
+    image: "/services/lollipop-signboard.png",
     demoRatePerSqFt: 0,
   },
   {
@@ -176,7 +175,7 @@ export const servicesData: ServiceData[] = [
     useCases: ["Exhibitions", "Trade Shows", "Corporate Events", "Flea Markets"],
     materials: ["Star Frontlit Flex", "High-Resolution Solvent/Eco-Solvent Print"],
     pricing: "For Enquiry Only",
-    image: "/services/Event Stall Flex Printing.png",
+    image: "/services/event-stall-flex-printing.png",
     demoRatePerSqFt: 0,
   },
   {
@@ -189,7 +188,7 @@ export const servicesData: ServiceData[] = [
     useCases: ["Office Interiors", "Cafes & Restaurants", "Living Rooms", "Retail Feature Walls"],
     materials: ["Premium Printable Wallpaper", "Eco-Solvent/UV Inks", "Adhesive Backing"],
     pricing: "For Enquiry Only",
-    image: "/services/Customise Wallpaper.png",
+    image: "/services/customise-wallpaper.png",
     demoRatePerSqFt: 0,
   }
 ];

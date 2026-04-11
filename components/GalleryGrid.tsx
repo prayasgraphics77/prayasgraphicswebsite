@@ -7,40 +7,40 @@ import { X, ZoomIn, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const galleryItems = [
-  { id: 1, title: "Backlit LED Signage", category: "LED Displays", aspect: "tall", src: "/gallery/gallery_images (1).webp" },
-  { id: 2, title: "Glow Sign Board", category: "LED Displays", aspect: "wide", src: "/gallery/gallery_images (24).webp" },
-  { id: 3, title: "Silver ACP Finish", category: "ACP Work", aspect: "square", src: "/gallery/gallery_images (25).webp" },
-  { id: 4, title: "Custom Poster Printing", category: "Printing", aspect: "square", src: "/gallery/gallery_images (26).webp" },
-  { id: 5, title: "Structural Glass Glazing", category: "Facade", aspect: "tall", src: "/gallery/gallery_images (27).webp" },
-  { id: 6, title: "Titanium Finish Letters", category: "Signage", aspect: "wide", src: "/gallery/gallery_images (28).webp" },
-  { id: 7, title: "Mirror Finish Acrylic", category: "Signage", aspect: "square", src: "/gallery/gallery_images (29).webp" },
-  { id: 8, title: "Louvered ACP Cladding", category: "ACP Work", aspect: "square", src: "/gallery/gallery_images (30).webp" },
-  { id: 9, title: "Neon Flexible Lights", category: "LED Displays", aspect: "wide", src: "/gallery/gallery_images (31).webp" },
-  { id: 10, title: "Marble Texture ACP", category: "ACP Work", aspect: "tall", src: "/gallery/gallery_images (32).webp" },
-  { id: 11, title: "CNC Router Cutting", category: "ACP Work", aspect: "square", src: "/gallery/gallery_images (33).webp" },
-  { id: 12, title: "Mesh Banner Print", category: "Printing", aspect: "wide", src: "/gallery/gallery_images (34).webp" },
-  { id: 13, title: "3D Corporate Identity", category: "Signage", aspect: "square", src: "/gallery/gallery_images (35).webp" },
-  { id: 14, title: "Exterior Facade Panel", category: "Facade", aspect: "tall", src: "/gallery/gallery_images (36).webp" },
-  { id: 15, title: "Storefront LED Display", category: "LED Displays", aspect: "wide", src: "/gallery/gallery_images (37).webp" },
-  { id: 16, title: "Precision Cut Metal", category: "Signage", aspect: "square", src: "/gallery/gallery_images (38).webp" },
-  { id: 17, title: "Vinyl Graphics Print", category: "Printing", aspect: "square", src: "/gallery/gallery_images (39).webp" },
-  { id: 18, title: "High-Rise Signage", category: "Signage", aspect: "wide", src: "/gallery/gallery_images (40).webp" },
-  { id: 19, title: "Fabric Lightbox", category: "LED Displays", aspect: "tall", src: "/gallery/gallery_images (41).webp" },
-  { id: 20, title: "Glass ACP Cladding", category: "ACP Work", aspect: "square", src: "/gallery/gallery_images (42).webp" },
-  { id: 21, title: "Directional Signage", category: "Signage", aspect: "square", src: "/gallery/gallery_images (43).webp" },
-  { id: 22, title: "Architectural Lettering", category: "Signage", aspect: "wide", src: "/gallery/gallery_images (44).webp" },
-  { id: 23, title: "Matte Finish ACP", category: "ACP Work", aspect: "square", src: "/gallery/gallery_images (45).webp" },
-  { id: 24, title: "Multi-Color Printing", category: "Printing", aspect: "square", src: "/gallery/gallery_images (1).png" },
-  { id: 25, title: "Exhibition Branding", category: "Printing", aspect: "wide", src: "/gallery/gallery_images (3).png" },
-  { id: 26, title: "Premium Shop Sign", category: "Signage", aspect: "tall", src: "/gallery/gallery_images (1).jpg" },
+  { id: 1, title: "Backlit LED Signage", category: "LED Displays", aspect: "tall", src: "/gallery/led-displays/backlit-led-signage.webp" },
+  { id: 2, title: "Glow Sign Board", category: "LED Displays", aspect: "wide", src: "/gallery/led-displays/glow-sign-board.webp" },
+  { id: 3, title: "Silver ACP Finish", category: "ACP Work", aspect: "square", src: "/gallery/acp-work/silver-acp-finish.webp" },
+  { id: 4, title: "Custom Poster Printing", category: "Printing", aspect: "square", src: "/gallery/printing/custom-poster-printing.webp" },
+  { id: 5, title: "Structural Glass Glazing", category: "Facade", aspect: "tall", src: "/gallery/facade/structural-glass-glazing.webp" },
+  { id: 6, title: "Titanium Finish Letters", category: "Signage", aspect: "wide", src: "/gallery/signage/titanium-finish-letters.webp" },
+  { id: 7, title: "Mirror Finish Acrylic", category: "Signage", aspect: "square", src: "/gallery/signage/mirror-finish-acrylic.webp" },
+  { id: 8, title: "Louvered ACP Cladding", category: "ACP Work", aspect: "square", src: "/gallery/acp-work/louvered-acp-cladding.webp" },
+  { id: 9, title: "Neon Flexible Lights", category: "LED Displays", aspect: "wide", src: "/gallery/led-displays/neon-flexible-lights.webp" },
+  { id: 10, title: "Marble Texture ACP", category: "ACP Work", aspect: "tall", src: "/gallery/acp-work/marble-texture-acp.webp" },
+  { id: 11, title: "CNC Router Cutting", category: "ACP Work", aspect: "square", src: "/gallery/acp-work/cnc-router-cutting.webp" },
+  { id: 12, title: "Mesh Banner Print", category: "Printing", aspect: "wide", src: "/gallery/printing/mesh-banner-print.webp" },
+  { id: 13, title: "3D Corporate Identity", category: "Signage", aspect: "square", src: "/gallery/signage/3d-corporate-identity.webp" },
+  { id: 14, title: "Exterior Facade Panel", category: "Facade", aspect: "tall", src: "/gallery/facade/exterior-facade-panel.webp" },
+  { id: 15, title: "Storefront LED Display", category: "LED Displays", aspect: "wide", src: "/gallery/led-displays/storefront-led-display.webp" },
+  { id: 16, title: "Precision Cut Metal", category: "Signage", aspect: "square", src: "/gallery/signage/precision-cut-metal.webp" },
+  { id: 17, title: "Vinyl Graphics Print", category: "Printing", aspect: "square", src: "/gallery/printing/vinyl-graphics-print.webp" },
+  { id: 18, title: "High-Rise Signage", category: "Signage", aspect: "wide", src: "/gallery/signage/high-rise-signage.webp" },
+  { id: 19, title: "Fabric Lightbox", category: "LED Displays", aspect: "tall", src: "/gallery/led-displays/fabric-lightbox.webp" },
+  { id: 20, title: "Glass ACP Cladding", category: "ACP Work", aspect: "square", src: "/gallery/acp-work/glass-acp-cladding.webp" },
+  { id: 21, title: "Directional Signage", category: "Signage", aspect: "square", src: "/gallery/signage/directional-signage.webp" },
+  { id: 22, title: "Architectural Lettering", category: "Signage", aspect: "wide", src: "/gallery/signage/architectural-lettering.webp" },
+  { id: 23, title: "Matte Finish ACP", category: "ACP Work", aspect: "square", src: "/gallery/acp-work/matte-finish-acp.webp" },
+  { id: 24, title: "Multi-Color Printing", category: "Printing", aspect: "square", src: "/gallery/printing/multi-color-printing.png" },
+  { id: 25, title: "Exhibition Branding", category: "Printing", aspect: "wide", src: "/gallery/printing/exhibition-branding.png" },
+  { id: 26, title: "Premium Shop Sign", category: "Signage", aspect: "tall", src: "/gallery/signage/premium-shop-sign.jpg" },
 ];
 
 const categories = ["All", "Signage", "LED Displays", "ACP Work", "Printing", "Facade"];
 
 const aspectClasses: Record<string, string> = {
-  tall: "row-span-2",
-  wide: "col-span-2",
-  square: "row-span-1 col-span-1",
+  tall: "aspect-[3/4]",
+  wide: "aspect-[4/3]",
+  square: "aspect-square",
 };
 
 export default function GalleryGrid() {
@@ -112,68 +112,51 @@ export default function GalleryGrid() {
       </div>
 
       {/* Grid Container */}
-      <motion.div
-        layout
-        className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 auto-rows-[160px] sm:auto-rows-[220px] md:auto-rows-[260px] lg:auto-rows-[280px]"
-      >
+      <div className="columns-2 md:columns-3 lg:columns-4 gap-3 sm:gap-4 md:gap-5 space-y-3 sm:space-y-4 md:space-y-5">
         <AnimatePresence mode="popLayout">
           {filtered.map((item, index) => (
             <motion.div
-              key={item.id}
               layout
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              key={item.id}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9 }}
               transition={{ 
                 duration: 0.5, 
-                delay: index % 10 * 0.05,
+                delay: index % 12 * 0.05,
                 ease: [0.23, 1, 0.32, 1] 
               }}
-              className={cn(
-                "group relative cursor-pointer overflow-hidden rounded-[20px] sm:rounded-[24px] md:rounded-[32px] border border-zinc-100 shadow-xs transition-all duration-500 hover:shadow-2xl hover:shadow-zinc-950/10 hover:border-zinc-200",
-                aspectClasses[item.aspect] ?? ""
-              )}
-              onClick={() => setLightboxItem(item)}
+              className="break-inside-avoid relative"
             >
-              <div className="relative h-full w-full bg-zinc-50 overflow-hidden">
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                
-                {/* Visual Polish Overlay */}
-                <div className="absolute inset-0 bg-linear-to-t from-zinc-950/90 via-zinc-950/20 to-transparent opacity-0 sm:opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                
-                {/* Content Overlay */}
-                <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-5 md:p-7 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                   <div className="flex items-center gap-2 mb-1 sm:mb-2 text-[10px] font-bold uppercase tracking-wider text-white/70">
-                     <span className="h-1 sm:h-1.5 w-1 sm:w-1.5 rounded-full bg-[#800080]" />
-                     {item.category}
-                   </div>
-                   <h3 className="font-heading text-base sm:text-lg md:text-xl font-bold text-white leading-tight">
-                     {item.title}
-                   </h3>
-                </div>
-
-                {/* Mobile Always-Visible Category Indicator - Hidden on Hover */}
-                <div className="absolute left-3 top-3 group-hover:hidden sm:hidden">
-                    <span className="rounded-full bg-black/40 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white backdrop-blur-md border border-white/10">
-                      {item.category}
-                    </span>
-                </div>
-
-                {/* Zoom indicator */}
-                <div className="absolute right-3 top-3 sm:right-4 sm:top-4 flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/10 opacity-0 backdrop-blur-md transition-all duration-300 group-hover:opacity-100 border border-white/20 hover:bg-white/20">
-                  <ZoomIn className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
-                </div>
+              <div 
+                  className={cn(
+                    "group relative cursor-pointer overflow-hidden rounded-[20px] sm:rounded-[24px] md:rounded-[32px] border border-zinc-100 shadow-xs transition-all duration-500 hover:shadow-2xl hover:shadow-zinc-950/10 hover:border-zinc-200 block bg-zinc-50 w-full",
+                    aspectClasses[item.aspect] ?? "aspect-square"
+                  )}
+                  onClick={() => setLightboxItem(item)}
+              >
+                  <Image
+                    src={item.src}
+                    alt="Gallery Image"
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    className="object-cover transition-transform duration-[1000ms] group-hover:scale-105"
+                  />
+                  
+                  {/* Subtle Hover Overlay */}
+                  <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  
+                  {/* Centered Zoom Indicator */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 backdrop-blur-[2px] transition-all duration-300 group-hover:opacity-100">
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-2xl scale-75 group-hover:scale-100 transition-transform duration-500">
+                      <ZoomIn className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
+                    </div>
+                  </div>
               </div>
             </motion.div>
           ))}
         </AnimatePresence>
-      </motion.div>
+      </div>
 
       {/* Lightbox */}
       <AnimatePresence>
@@ -190,38 +173,25 @@ export default function GalleryGrid() {
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 40, opacity: 0 }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="relative aspect-auto max-h-[90dvh] w-full max-w-5xl overflow-hidden rounded-[28px] sm:rounded-[40px] bg-zinc-900 shadow-2xl border border-white/5"
+              className="relative w-[90vw] max-w-6xl h-[80vh] md:h-[90vh] overflow-hidden rounded-[20px] sm:rounded-[32px] bg-zinc-950 shadow-2xl border border-white/10"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative aspect-video w-full bg-zinc-800">
+              <div className="relative w-full h-full">
                 <Image
                   src={lightboxItem.src}
-                  alt={lightboxItem.title}
+                  alt="Gallery Zoom Image"
                   fill
                   className="object-contain"
                   priority
+                  sizes="100vw"
                 />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-zinc-950 via-zinc-950/60 to-transparent p-6 sm:p-8 md:p-14">
-                <div className="flex items-center gap-3 mb-2 sm:mb-4">
-                   <div className="h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-[#800080]" />
-                   <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
-                     {lightboxItem.category}
-                   </span>
-                </div>
-                <h2 className="font-heading text-2xl sm:text-4xl md:text-6xl font-black text-white mb-3 sm:mb-6 tracking-tight">
-                  {lightboxItem.title}
-                </h2>
-                <p className="text-zinc-400 text-sm sm:text-base md:text-lg max-w-xl leading-relaxed line-clamp-2 sm:line-clamp-none">
-                  A comprehensive showcase of our premium {lightboxItem.category} project. This implementation features high-grade materials and precision engineering to ensure lasting impact and durability.
-                </p>
               </div>
               
               <button
                 onClick={() => setLightboxItem(null)}
-                className="absolute right-4 top-4 sm:right-8 sm:top-8 flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-white/5 text-white backdrop-blur-xl transition-all hover:bg-white/10 hover:scale-110 active:scale-95 border border-white/10 group"
+                className="absolute right-4 top-4 sm:right-6 sm:top-6 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-xl transition-all hover:bg-black/80 hover:scale-110 active:scale-95 border border-white/20 z-10 group"
               >
-                <X className="h-5 w-5 sm:h-7 sm:w-7 transition-transform group-hover:rotate-90" />
+                <X className="h-5 w-5 sm:h-6 sm:w-6 transition-transform group-hover:rotate-90" />
               </button>
             </motion.div>
           </motion.div>

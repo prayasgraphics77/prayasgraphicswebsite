@@ -29,17 +29,22 @@ export default function Navbar() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
           "fixed top-4 left-1/2 -translate-x-1/2 z-50 flex h-14 w-full max-w-7xl items-center justify-between rounded-full bg-white px-6 shadow-sm transition-all duration-300 md:top-6",
-          scrolled ? "w-[90%] md:w-[85%] lg:max-w-4xl shadow-md" : "w-[95%]"
+          scrolled ? "w-[90%] md:w-[85%] lg:max-w-4xl shadow-md" : "w-[95%]",
         )}
       >
         <div className="flex items-center gap-2">
-          <Link href="/" onClick={() => setMobileMenuOpen(false)} aria-label="Prayas Graphics Home" className="flex items-center gap-2 sm:gap-3">
+          <Link
+            href="/"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Prayas Graphics Home"
+            className="flex items-center gap-2 sm:gap-3"
+          >
             <Image
               src="/Prayas-Graphics-Logo.svg"
               alt="Prayas Graphics Logo"
               width={64}
               height={64}
-              className="w-12 h-12 sm:w-14 sm:h-14 md:w-14 md:h-14 lg:w-16 lg:h-16 transition-all object-contain shrink-0"
+              className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 transition-all object-contain shrink-0"
               priority
             />
             <Image
@@ -47,7 +52,7 @@ export default function Navbar() {
               alt="Prayas Graphics Title"
               width={200}
               height={64}
-              className="h-8 w-auto sm:h-9 md:h-10 lg:h-12 transition-all object-contain shrink-0"
+              className="h-6 w-auto sm:h-8 md:h-10 lg:h-12 transition-all object-contain shrink-0"
               priority
             />
           </Link>
@@ -62,7 +67,6 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-
           {/* Cart trigger button with live count badge */}
           <button
             onClick={openCart}
@@ -79,7 +83,7 @@ export default function Navbar() {
                 transition={{ duration: 0.15 }}
                 className={cn(
                   "text-sm font-semibold tabular-nums",
-                  totalCount > 0 ? "text-zinc-950" : "text-zinc-500"
+                  totalCount > 0 ? "text-zinc-950" : "text-zinc-500",
                 )}
               >
                 {totalCount}
@@ -95,7 +99,11 @@ export default function Navbar() {
             className="flex items-center justify-center text-zinc-500 md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </button>
         </div>
       </motion.nav>
@@ -111,14 +119,42 @@ export default function Navbar() {
             className="fixed top-20 left-1/2 -translate-x-1/2 z-40 w-[95%] rounded-3xl bg-white p-6 shadow-lg md:hidden"
           >
             <div className="flex flex-col gap-4">
-              <MobileNavLink href="/services" onClick={() => setMobileMenuOpen(false)}>Services</MobileNavLink>
-              <MobileNavLink href="/gallery" onClick={() => setMobileMenuOpen(false)}>Gallery</MobileNavLink>
-              <MobileNavLink href="/about" onClick={() => setMobileMenuOpen(false)}>About</MobileNavLink>
-              <MobileNavLink href="/blog" onClick={() => setMobileMenuOpen(false)}>Blog</MobileNavLink>
-              <MobileNavLink href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</MobileNavLink>
+              <MobileNavLink
+                href="/services"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Services
+              </MobileNavLink>
+              <MobileNavLink
+                href="/gallery"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Gallery
+              </MobileNavLink>
+              <MobileNavLink
+                href="/about"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </MobileNavLink>
+              <MobileNavLink
+                href="/blog"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Blog
+              </MobileNavLink>
+              <MobileNavLink
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </MobileNavLink>
               <div className="mt-4 border-t border-zinc-100 pt-4 flex flex-col gap-3">
                 <button
-                  onClick={() => { setMobileMenuOpen(false); openCart(); }}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    openCart();
+                  }}
                   className="flex w-full items-center gap-2 text-[15px] font-medium text-zinc-600"
                 >
                   <ShoppingBag className="h-4 w-4" />
@@ -130,10 +166,6 @@ export default function Navbar() {
                   )}
                 </button>
               </div>
-              <div className="mt-2 flex items-center justify-center gap-1.5 text-[11px] font-medium text-zinc-400">
-                <span>Powered by</span>
-                <a href="https://intrface.in" target="_blank" rel="noopener noreferrer" className="text-zinc-950 font-bold hover:underline decoration-zinc-300 underline-offset-2">intrface</a>
-              </div>
             </div>
           </motion.div>
         )}
@@ -142,17 +174,38 @@ export default function Navbar() {
   );
 }
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+function NavLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
-    <Link href={href} className="text-[13px] font-medium text-zinc-600 transition-colors hover:text-zinc-950">
+    <Link
+      href={href}
+      className="text-[13px] font-medium text-zinc-600 transition-colors hover:text-zinc-950"
+    >
       {children}
     </Link>
   );
 }
 
-function MobileNavLink({ href, onClick, children }: { href: string; onClick: () => void; children: React.ReactNode }) {
+function MobileNavLink({
+  href,
+  onClick,
+  children,
+}: {
+  href: string;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
   return (
-    <Link href={href} onClick={onClick} className="block rounded-xl px-4 py-3 text-[15px] font-medium text-zinc-700 hover:bg-zinc-50 hover:text-zinc-950">
+    <Link
+      href={href}
+      onClick={onClick}
+      className="block rounded-xl px-4 py-3 text-[15px] font-medium text-zinc-700 hover:bg-zinc-50 hover:text-zinc-950"
+    >
       {children}
     </Link>
   );

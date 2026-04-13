@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Bricolage_Grotesque, Inter } from "next/font/google";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Navbar from "@/components/Navbar";
 import CartPanel from "@/components/CartPanel";
 import { CartProvider } from "@/lib/cart-context";
@@ -48,6 +49,7 @@ export default function RootLayout({
           <CartPanel />
           <FloatingWhatsApp />
         </CartProvider>
+        <SpeedInsights />
       </body>
     </html>
   );

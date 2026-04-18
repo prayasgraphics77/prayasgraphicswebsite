@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import CartPanel from "@/components/CartPanel";
 import { CartProvider } from "@/lib/cart-context";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -47,6 +48,7 @@ export default function RootLayout({
           {children}
           <CartPanel />
           <FloatingWhatsApp />
+          <Analytics />
         </CartProvider>
       </body>
     </html>

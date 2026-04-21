@@ -123,7 +123,7 @@ export default function FaqSection() {
                 Can&apos;t find what you&apos;re looking for? Reach out to our team of experts directly.
               </p>
               <a 
-                href="https://wa.me/919923450376" 
+                href="https://wa.me/918788270495" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-full py-4 px-6 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition-all transform hover:scale-[1.02] active:scale-[0.98]"

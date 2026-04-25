@@ -13,7 +13,7 @@ const BLOCKED_USER_AGENTS = [
 ];
 
 export function middleware(request: NextRequest) {
-  const ip = request.ip ?? request.headers.get('x-forwarded-for') ?? 'unknown-ip';
+  const ip = request.headers.get('x-forwarded-for') ?? 'unknown-ip';
   const userAgent = request.headers.get('user-agent')?.toLowerCase() || '';
 
   // 1. Bot Protection

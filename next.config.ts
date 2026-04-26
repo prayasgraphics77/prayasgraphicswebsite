@@ -19,7 +19,8 @@ const nextConfig: NextConfig = {
       object-src 'none';
       base-uri 'self';
       form-action 'self';
-      frame-ancestors 'self' https://vercel.com https://*.vercel.app https://*.vercel.sh http://localhost:* https://intrface.in https://*.intrface.in https://*.framer.website https://*.framer.com;
+      frame-ancestors 'self' https://vercel.com https://*.vercel.com https://*.vercel.app https://*.vercel.sh http://localhost:* https://intrface.in https://*.intrface.in https://*.framer.website https://*.framer.com https://*.framer.app;
+      frame-src 'self' https://www.google.com https://vercel.live https://*.framer.website https://*.framer.app https://*.framer.com;
       connect-src 'self' https://iikbveuxhcpqrjghgdcv.supabase.co https://vitals.vercel-insights.com;
     `
       .replace(/\s{2,}/g, ' ')

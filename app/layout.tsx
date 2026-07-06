@@ -41,15 +41,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-J5EY8V9P85"
+        src="https://www.googletagmanager.com/gtag/js?id=AW-372297449"
         strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-ads" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-J5EY8V9P85');
+          gtag('config', 'AW-372297449');
         `}
       </Script>
       <body

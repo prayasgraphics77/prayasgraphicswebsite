@@ -12,16 +12,16 @@ const nextConfig: NextConfig = {
   async headers() {
     const cspHeader = `
       default-src 'self';
-      script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com;
+      script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com https://www.googletagmanager.com;
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-      img-src 'self' blob: data: https://images.unsplash.com https://iikbveuxhcpqrjghgdcv.supabase.co;
+      img-src 'self' blob: data: https://images.unsplash.com https://iikbveuxhcpqrjghgdcv.supabase.co https://www.google-analytics.com https://www.googletagmanager.com;
       font-src 'self' https://fonts.gstatic.com;
       object-src 'none';
       base-uri 'self';
       form-action 'self';
       frame-ancestors 'self' https://vercel.com https://*.vercel.com https://*.vercel.app https://*.vercel.sh http://localhost:* https://intrface.in https://*.intrface.in https://*.framer.website https://*.framer.com https://*.framer.app;
       frame-src 'self' https://www.google.com https://vercel.live https://*.framer.website https://*.framer.app https://*.framer.com;
-      connect-src 'self' https://iikbveuxhcpqrjghgdcv.supabase.co https://vitals.vercel-insights.com;
+      connect-src 'self' https://iikbveuxhcpqrjghgdcv.supabase.co https://vitals.vercel-insights.com https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com;
     `
       .replace(/\s{2,}/g, ' ')
       .trim();

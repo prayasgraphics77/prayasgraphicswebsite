@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { DM_Sans, Bricolage_Grotesque, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/Navbar";
 import CartPanel from "@/components/CartPanel";
 import { CartProvider } from "@/lib/cart-context";
@@ -63,6 +64,7 @@ export default function RootLayout({
           <FloatingWhatsApp />
           <Analytics />
         </CartProvider>
+        <Analytics />
       </body>
     </html>
   );
